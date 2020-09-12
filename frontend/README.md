@@ -1,23 +1,9 @@
 ## 🎨 Next.js WordPress theme - Celestia
 [![Project Status: Active.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-![Stars](https://img.shields.io/github/stars/imranhsayed/nextjs-wordpress-theme?label=%E2%AD%90%20Stars)
-![Forks](https://img.shields.io/github/forks/imranhsayed/nextjs-wordpress-theme?color=%23ff69b4)
-![Contributors](https://img.shields.io/github/contributors/imranhsayed/nextjs-wordpress-theme?color=blue)
+![Stars](https://img.shields.io/github/stars/imranhsayed/nextjs-headless-wordpress?label=%E2%AD%90%20Stars)
+![Forks](https://img.shields.io/github/forks/imranhsayed/nextjs-headless-wordpress?color=%23ff69b4)
+![Contributors](https://img.shields.io/github/contributors/imranhsayed/nextjs-headless-wordpress?color=blue)
 ![Follow](https://img.shields.io/github/followers/imranhsayed?label=Please%20follow%20%20to%20support%20my%20work%20%F0%9F%99%8F&style=social)
-
-- A React theme for WordPress, using Decoupled Architecture in Next.js
-- Front end in React
-- Backend in WordPress.
-
-### Evironment vars. 
-rename .env-example to .env and add your WordPress Site URL
-
-### WordPress Setup
-* Download, Upload and activate all the plugins from wordpress/plugins folder of this repo, into your WordPress Site.
-
-1. [wp-graphql](https://github.com/imranhsayed/nextjs-wordpress-theme/blob/master/wordpress/plugins/wp-graphql.zip) - tested on ( v1.0.0 )
-2. [Headless CMS](https://github.com/imranhsayed/nextjs-wordpress-theme/blob/master/wordpress/plugins/headless-cms.zip)
-3. [WP GraphQL Gutenberg](https://github.com/imranhsayed/nextjs-wordpress-theme/blob/master/wordpress/plugins/wp-graphql-gutenberg-0.3.4.zip)
 
 # Development
 
@@ -51,7 +37,7 @@ that says `Debugger listeing on ...`
 
 1. [Prerendering](https://nextjs.org/docs/basic-features/pages#pre-rendering)
 2. Querying blocks:
-[WP GraphQL Gutenberg](https://github.com/imranhsayed/nextjs-wordpress-theme/blob/master/wordpress/plugins/wp-graphql-gutenberg-0.3.4.zip) allows you to query Gutenberg blocks.
+[WP GraphQL Gutenberg](https://github.com/imranhsayed/nextjs-headless-wordpress/blob/master/wordpress/plugins/wp-graphql-gutenberg-0.3.4.zip) allows you to query Gutenberg blocks.
 If you want to break down the blocks and render the content using individual React components, here is the query example.
 
 ```shell script
