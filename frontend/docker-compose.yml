@@ -1,0 +1,9 @@
+version: '3.3'
+
+services:
+  npm:
+    build: docker/
+    ports:
+      - "3000:3000"
+    volumes:
+      -  ./:/app
