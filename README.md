@@ -5,5 +5,7 @@ docker-compose -f backend/docker-compose.yml up -d
 
 # Frontend
 ```bash
-cd frontend; npm i && npm run dev
+docker-compose -f frontend/docker-compose.yml up --build
+# for detached mode
+docker-compose -f frontend/docker-compose.yml up -d --build
 ```
