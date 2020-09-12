@@ -9,7 +9,7 @@
 - Backend in WordPress.
 - Front end in React
 
-# Backend
+# [Backend](https://github.com/imranhsayed/nextjs-headless-wordpress/tree/master/backend)
 Run this from root
 ```bash
 docker-compose -f backend/docker-compose.yml up -d 
@@ -17,7 +17,7 @@ docker-compose -f backend/docker-compose.yml up -d
 
 Backend will be available on port `http://localhost:8020`
 
-# Frontend
+# [Frontend](https://github.com/imranhsayed/nextjs-headless-wordpress/tree/master/frontend)
 Run this from root for the first time.
 ```bash
 cd frontend; npm i && npm run dev
