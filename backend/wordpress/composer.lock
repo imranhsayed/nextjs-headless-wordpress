@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a7689dc59d6d293838c3223f31c5aa3",
+    "content-hash": "d908d97568775901d3229a8b1e276548",
     "packages": [
         {
             "name": "ashhitch/wp-graphql-yoast-seo",
@@ -379,6 +379,39 @@
             "time": "2019-07-01T23:21:34+00:00"
         },
         {
+            "name": "imranhsayed/headless-cms",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/imranhsayed/headless-cms.git",
+                "reference": "6fe1c5e10c97536cc0e64cc44c46201cbef10052"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/imranhsayed/headless-cms/zipball/6fe1c5e10c97536cc0e64cc44c46201cbef10052",
+                "reference": "6fe1c5e10c97536cc0e64cc44c46201cbef10052",
+                "shasum": ""
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Imran Sayed",
+                    "email": "codeytek.academy@gmail.com"
+                }
+            ],
+            "description": "A WordPress plugin that adds features to use WordPress as a headless CMS with any front-end environment using REST API",
+            "homepage": "https://github.com/imranhsayed/headless-cms",
+            "keywords": [
+                "plugin",
+                "wordpress"
+            ],
+            "time": "2020-09-12T12:18:19+00:00"
+        },
+        {
             "name": "ivome/graphql-relay-php",
             "version": "v0.3.1",
             "source": {
@@ -680,29 +713,6 @@
             "notification-url": "https://packagist.org/downloads/",
             "description": "Query gutenberg blocks with wp-graphql",
             "time": "2020-06-25T18:31:45+00:00"
-        },
-        {
-            "name": "pristas-peter/wp-graphql-gutenberg-acf",
-            "version": "v0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pristas-peter/wp-graphql-gutenberg-acf.git",
-                "reference": "b9d7855cad2dbf1656a1163728840bb35808a698"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pristas-peter/wp-graphql-gutenberg-acf/zipball/b9d7855cad2dbf1656a1163728840bb35808a698",
-                "reference": "b9d7855cad2dbf1656a1163728840bb35808a698",
-                "shasum": ""
-            },
-            "require": {
-                "pristas-peter/wp-graphql-gutenberg": "^0.3.0",
-                "wp-graphql/wp-graphql-acf": "^0.3.3"
-            },
-            "type": "wordpress-plugin",
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "Expose acf blocks through graphql",
-            "time": "2020-05-29T06:06:47+00:00"
         },
         {
             "name": "psr/container",
@@ -1309,66 +1319,6 @@
             ],
             "description": "GraphQL API for WordPress",
             "time": "2020-05-21T20:10:08+00:00"
-        },
-        {
-            "name": "wp-graphql/wp-graphql-acf",
-            "version": "v0.3.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wp-graphql/wp-graphql-acf.git",
-                "reference": "11a2a10a4abb51c541fd7b0ba0b81d1491525136"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wp-graphql/wp-graphql-acf/zipball/11a2a10a4abb51c541fd7b0ba0b81d1491525136",
-                "reference": "11a2a10a4abb51c541fd7b0ba0b81d1491525136",
-                "shasum": ""
-            },
-            "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-                "lucatume/wp-browser": "^2.2.",
-                "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "wp-coding-standards/wpcs": "^2.1"
-            },
-            "type": "wordpress-plugin",
-            "autoload": {
-                "psr-4": {
-                    "WPGraphQL\\ACF\\": "src/"
-                },
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0+"
-            ],
-            "authors": [
-                {
-                    "name": "jasonbahl",
-                    "email": "jasonbahl@mac.com"
-                }
-            ],
-            "description": "Advanced Custom Fields bindings for wp-graphql",
-            "time": "2020-07-27T13:32:21+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/jetpack",
-            "version": "8.9",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/jetpack/",
-                "reference": "tags/8.9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/jetpack.8.9.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/jetpack/"
         },
         {
             "name": "yoast/i18n-module",
