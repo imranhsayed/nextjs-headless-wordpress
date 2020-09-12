@@ -4,6 +4,8 @@ Run this from root
 docker-compose -f backend/docker-compose.yml up -d 
 ```
 
+Backend will be available on port `http://localhost:8000`
+
 # Frontend
 Run this from root for the first time.
 ```bash
@@ -15,8 +17,10 @@ During development
 cd frontend; npm run dev
 ```
 
+Frontend will be available on port `http://localhost:3000`
+
 ### Evironment vars. 
-rename .env-example to .env and add your WordPress Site URL
+rename .env-example to .env inside frontend directory and add your WordPress Site URL ( for local developent pull `http://localhost:8020` as your WordPress URL)
 
 ## Development ( Developers only )
 
@@ -26,7 +30,9 @@ docker-compose -f backend/docker-compose.yml down && \
 docker-compose -f backend/docker-compose.yml up -d 
 ```
 
-First line command will stops and removes all the docker containers and second line command will restart all containers. 
+First line command will stops and removes all the docker containers and second line command will restart all containers.
+Notice that `-d` is to run in detach mode and you can always remove that flag, and run the command so you can see the live logs.
+Or you can check the logs for 
 
 2. Check the logs
 While the above command is running in detached mode ( -d ), you can run this command in a new terminal tab to see the live logs.
@@ -36,7 +42,7 @@ docker logs -f container-name
 
 e.g.
 ```bash
-docker conatiner ls
+docker container ls
 ```
 
 #### result
@@ -54,4 +60,25 @@ If you happend to change the port in `docker-compose.yml` make sure to delete th
 ```shell script
 docker-compose -f backend/docker-compose.yml down && \
 docker-compose -f backend/docker-compose.yml up -d
+```
+
+## Debugging
+
+1. If you get 404 on frontend for graphql request, check to see that the .htaccess file in wordpress directory has the rules
+
+```shell script
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
 ```
