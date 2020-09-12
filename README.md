@@ -4,7 +4,7 @@ Run this from root
 docker-compose -f backend/docker-compose.yml up -d 
 ```
 
-Backend will be available on port `http://localhost:8000`
+Backend will be available on port `http://localhost:8020`
 
 # Frontend
 Run this from root for the first time.
