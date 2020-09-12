@@ -6,7 +6,6 @@ services:
     command: update
     volumes:
       - ./wordpress:/app
-      # - ../../../plugins:/plugins:ro
   db:
     image: mysql:5.7
     volumes:
