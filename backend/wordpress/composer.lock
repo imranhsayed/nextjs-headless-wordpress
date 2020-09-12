@@ -1,0 +1,628 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "104fde1053b25bbca8d2ffa9e3240dbf",
+    "packages": [
+        {
+            "name": "composer/installers",
+            "version": "v1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "b93bcf0fa1fccb0b7d176b0967d969691cd74cca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/b93bcf0fa1fccb0b7d176b0967d969691cd74cca",
+                "reference": "b93bcf0fa1fccb0b7d176b0967d969691cd74cca",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.6.* || 2.0.*@dev",
+                "composer/semver": "1.0.* || 2.0.*@dev",
+                "phpunit/phpunit": "^4.8.36",
+                "sebastian/comparator": "^1.2.4",
+                "symfony/process": "^2.3"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "MantisBT",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Thelia",
+                "Whmcs",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "known",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "sylius",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "time": "2020-04-07T06:57:05+00:00"
+        },
+        {
+            "name": "ivome/graphql-relay-php",
+            "version": "v0.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ivome/graphql-relay-php.git",
+                "reference": "bc5f8aae9fd72ca16decce3892ec4311e9742a93"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ivome/graphql-relay-php/zipball/bc5f8aae9fd72ca16decce3892ec4311e9742a93",
+                "reference": "bc5f8aae9fd72ca16decce3892ec4311e9742a93",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4,<8.0-DEV",
+                "webonyx/graphql-php": ">=0.7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8",
+                "satooshi/php-coveralls": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "description": "A PHP port of GraphQL Relay reference implementation",
+            "homepage": "https://github.com/ivome/graphql-relay-php",
+            "keywords": [
+                "Relay",
+                "api",
+                "graphql"
+            ],
+            "time": "2016-10-29T23:29:29+00:00"
+        },
+        {
+            "name": "opis/json-schema",
+            "version": "1.0.19",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/opis/json-schema.git",
+                "reference": "1bcb3582881d0692d002537a4472964280f71313"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/opis/json-schema/zipball/1bcb3582881d0692d002537a4472964280f71313",
+                "reference": "1bcb3582881d0692d002537a4472964280f71313",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "ext-bcmath": "*",
+                "ext-intl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "opis/string": "^1.4",
+                "phpunit/phpunit": "^6.5 || ^7.0"
+            },
+            "suggest": {
+                "opis/string": "A standalone library for manipulating multibyte strings"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Opis\\JsonSchema\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Sorin Sarca",
+                    "email": "sarca_sorin@hotmail.com"
+                },
+                {
+                    "name": "Marius Sarca",
+                    "email": "marius.sarca@gmail.com"
+                }
+            ],
+            "description": "Json Schema Validator",
+            "homepage": "http://www.opis.io/json-schema",
+            "keywords": [
+                "json",
+                "schema",
+                "validation",
+                "validator"
+            ],
+            "time": "2020-06-07T20:56:25+00:00"
+        },
+        {
+            "name": "pristas-peter/wp-graphql-gutenberg",
+            "version": "v0.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pristas-peter/wp-graphql-gutenberg.git",
+                "reference": "52006311ae3ab9cf0878477f4b2a60a1fd39f87c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pristas-peter/wp-graphql-gutenberg/zipball/52006311ae3ab9cf0878477f4b2a60a1fd39f87c",
+                "reference": "52006311ae3ab9cf0878477f4b2a60a1fd39f87c",
+                "shasum": ""
+            },
+            "require": {
+                "opis/json-schema": "^1.0",
+                "voku/simple_html_dom": "4.7.17"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "0.5.0",
+                "phpcompatibility/phpcompatibility-wp": "2.1.0",
+                "squizlabs/php_codesniffer": "3.5.4",
+                "wp-coding-standards/wpcs": "2.1.1"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "WPGraphqlGutenberg\\": "src/"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Query gutenberg blocks with wp-graphql",
+            "time": "2020-06-25T18:31:45+00:00"
+        },
+        {
+            "name": "pristas-peter/wp-graphql-gutenberg-acf",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pristas-peter/wp-graphql-gutenberg-acf.git",
+                "reference": "b9d7855cad2dbf1656a1163728840bb35808a698"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pristas-peter/wp-graphql-gutenberg-acf/zipball/b9d7855cad2dbf1656a1163728840bb35808a698",
+                "reference": "b9d7855cad2dbf1656a1163728840bb35808a698",
+                "shasum": ""
+            },
+            "require": {
+                "pristas-peter/wp-graphql-gutenberg": "^0.3.0",
+                "wp-graphql/wp-graphql-acf": "^0.3.3"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Expose acf blocks through graphql",
+            "time": "2020-05-29T06:06:47+00:00"
+        },
+        {
+            "name": "symfony/css-selector",
+            "version": "v5.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/css-selector.git",
+                "reference": "e544e24472d4c97b2d11ade7caacd446727c6bf9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/e544e24472d4c97b2d11ade7caacd446727c6bf9",
+                "reference": "e544e24472d4c97b2d11ade7caacd446727c6bf9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\CssSelector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony CssSelector Component",
+            "homepage": "https://symfony.com",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-05-20T17:43:50+00:00"
+        },
+        {
+            "name": "voku/simple_html_dom",
+            "version": "4.7.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/voku/simple_html_dom.git",
+                "reference": "804aca422f1fe0104b1320ca09fd06cd0062782c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/voku/simple_html_dom/zipball/804aca422f1fe0104b1320ca09fd06cd0062782c",
+                "reference": "804aca422f1fe0104b1320ca09fd06cd0062782c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "ext-simplexml": "*",
+                "php": ">=7.0.0",
+                "symfony/css-selector": "~3.0 || ~4.0 || ~5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0 || ~7.0"
+            },
+            "suggest": {
+                "voku/portable-utf8": "If you need e.g. UTF-8 fixed output."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "voku\\helper\\": "src/voku/helper/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "dimabdc",
+                    "email": "support@titor.ru",
+                    "homepage": "http://github.com/dimabdc",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Lars Moelleken",
+                    "homepage": "http://www.moelleken.org/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple HTML DOM package.",
+            "homepage": "http://simplehtmldom.sourceforge.net/",
+            "keywords": [
+                "HTML Parser",
+                "dom",
+                "php dom"
+            ],
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/moelleken",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/voku",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/voku",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/voku/simple_html_dom",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-04-09T21:20:43+00:00"
+        },
+        {
+            "name": "webonyx/graphql-php",
+            "version": "v0.13.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webonyx/graphql-php.git",
+                "reference": "6829ae58f4c59121df1f86915fb9917a2ec595e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/6829ae58f4c59121df1f86915fb9917a2ec595e8",
+                "reference": "6829ae58f4c59121df1f86915fb9917a2ec595e8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": "^7.1||^8.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^6.0",
+                "phpbench/phpbench": "^0.14.0",
+                "phpstan/phpstan": "^0.11.4",
+                "phpstan/phpstan-phpunit": "^0.11.0",
+                "phpstan/phpstan-strict-rules": "^0.11.0",
+                "phpunit/phpcov": "^5.0",
+                "phpunit/phpunit": "^7.2",
+                "psr/http-message": "^1.0",
+                "react/promise": "2.*"
+            },
+            "suggest": {
+                "psr/http-message": "To use standard GraphQL server",
+                "react/promise": "To leverage async resolving on React PHP platform"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GraphQL\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A PHP port of GraphQL reference implementation",
+            "homepage": "https://github.com/webonyx/graphql-php",
+            "keywords": [
+                "api",
+                "graphql"
+            ],
+            "time": "2019-08-25T10:32:47+00:00"
+        },
+        {
+            "name": "wp-graphql/wp-graphql",
+            "version": "v0.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-graphql/wp-graphql.git",
+                "reference": "da19d1a5504b6068d0209231afa58746a13793e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-graphql/wp-graphql/zipball/da19d1a5504b6068d0209231afa58746a13793e4",
+                "reference": "da19d1a5504b6068d0209231afa58746a13793e4",
+                "shasum": ""
+            },
+            "require": {
+                "ivome/graphql-relay-php": "0.3.1",
+                "php": "^7.1||^8.0",
+                "webonyx/graphql-php": "0.13.8"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "0.5.0",
+                "lucatume/wp-browser": "2.2.0",
+                "phpcompatibility/phpcompatibility-wp": "2.1.0",
+                "phpstan/phpstan": "^0.12.25",
+                "squizlabs/php_codesniffer": "3.5.4",
+                "szepeviktor/phpstan-wordpress": "^0.5.0",
+                "wp-coding-standards/wpcs": "2.1.1"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "WPGraphQL\\": "src/"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jason Bahl",
+                    "email": "jasonbahl@mac.com"
+                },
+                {
+                    "name": "Edwin Cromley"
+                },
+                {
+                    "name": "Ryan Kanner"
+                },
+                {
+                    "name": "Hughie Devore"
+                },
+                {
+                    "name": "Chris Zarate"
+                }
+            ],
+            "description": "GraphQL API for WordPress",
+            "time": "2020-05-21T20:10:08+00:00"
+        },
+        {
+            "name": "wp-graphql/wp-graphql-acf",
+            "version": "v0.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-graphql/wp-graphql-acf.git",
+                "reference": "11a2a10a4abb51c541fd7b0ba0b81d1491525136"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-graphql/wp-graphql-acf/zipball/11a2a10a4abb51c541fd7b0ba0b81d1491525136",
+                "reference": "11a2a10a4abb51c541fd7b0ba0b81d1491525136",
+                "shasum": ""
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "lucatume/wp-browser": "^2.2.",
+                "phpcompatibility/phpcompatibility-wp": "^2.0",
+                "wp-coding-standards/wpcs": "^2.1"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "WPGraphQL\\ACF\\": "src/"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "jasonbahl",
+                    "email": "jasonbahl@mac.com"
+                }
+            ],
+            "description": "Advanced Custom Fields bindings for wp-graphql",
+            "time": "2020-07-27T13:32:21+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/jetpack",
+            "version": "8.9",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/jetpack/",
+                "reference": "tags/8.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/jetpack.8.9.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/jetpack/"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
+}
