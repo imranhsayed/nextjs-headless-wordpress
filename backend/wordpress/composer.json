@@ -8,10 +8,13 @@
     }
   ],
   "require": {
-    "composer/installers": "~1.0",
-    "wp-graphql/wp-graphql": "0.9.1",
-    "pristas-peter/wp-graphql-gutenberg": "0.3.4",
-    "pristas-peter/wp-graphql-gutenberg-acf": "0.3.0",
-    "wpackagist-plugin/jetpack":"8.9"
+	"composer/installers": "~1.0",
+	"wp-graphql/wp-graphql": "0.9.1",
+	"pristas-peter/wp-graphql-gutenberg": "0.3.4",
+	"pristas-peter/wp-graphql-gutenberg-acf": "0.3.0",
+	"wpackagist-plugin/jetpack":"8.9",
+	"yoast/wordpress-seo": "^14.8",
+	"wp-graphql/wp-graphiql": "^1.0.1",
+	"ashhitch/wp-graphql-yoast-seo": "^4.5"
   }
 }
