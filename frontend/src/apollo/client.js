@@ -11,8 +11,6 @@ const defaultOptions = {
 	},
 }
 
-console.warn( 'process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL', process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL );
-
 /**
  * Instantiate required constructor fields
  */
