@@ -8,7 +8,6 @@ export const GET_MENUS = gql`
                id
                label
                url
-               path
                childItems {
                   edges {
                      node {
