@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d908d97568775901d3229a8b1e276548",
+    "content-hash": "7cd578ae767a75c01c31cb4f70b064ee",
     "packages": [
         {
             "name": "ashhitch/wp-graphql-yoast-seo",
@@ -177,16 +177,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.0.1",
+            "version": "7.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "2d9d3c186a6637a43193e66b097c50e4451eaab2"
+                "reference": "7edeaa528fbb57123028bd5a76b9ce9540194e26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/2d9d3c186a6637a43193e66b097c50e4451eaab2",
-                "reference": "2d9d3c186a6637a43193e66b097c50e4451eaab2",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7edeaa528fbb57123028bd5a76b9ce9540194e26",
+                "reference": "7edeaa528fbb57123028bd5a76b9ce9540194e26",
                 "shasum": ""
             },
             "require": {
@@ -200,7 +200,6 @@
                 "psr/http-client-implementation": "1.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.0",
                 "ext-curl": "*",
                 "php-http/client-integration-tests": "dev-phpunit8",
                 "phpunit/phpunit": "^8.5.5",
@@ -214,7 +213,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "7.0-dev"
+                    "dev-master": "7.1-dev"
                 }
             },
             "autoload": {
@@ -254,7 +253,25 @@
                 "rest",
                 "web service"
             ],
-            "time": "2020-06-27T10:33:25+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/alexeyshockov",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/gmponos",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-09-22T09:10:04+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -713,6 +730,29 @@
             "notification-url": "https://packagist.org/downloads/",
             "description": "Query gutenberg blocks with wp-graphql",
             "time": "2020-06-25T18:31:45+00:00"
+        },
+        {
+            "name": "pristas-peter/wp-graphql-gutenberg-acf",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pristas-peter/wp-graphql-gutenberg-acf.git",
+                "reference": "b9d7855cad2dbf1656a1163728840bb35808a698"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pristas-peter/wp-graphql-gutenberg-acf/zipball/b9d7855cad2dbf1656a1163728840bb35808a698",
+                "reference": "b9d7855cad2dbf1656a1163728840bb35808a698",
+                "shasum": ""
+            },
+            "require": {
+                "pristas-peter/wp-graphql-gutenberg": "^0.3.0",
+                "wp-graphql/wp-graphql-acf": "^0.3.3"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Expose acf blocks through graphql",
+            "time": "2020-05-29T06:06:47+00:00"
         },
         {
             "name": "psr/container",
@@ -1231,45 +1271,17 @@
             "time": "2019-08-25T10:32:47+00:00"
         },
         {
-            "name": "wp-graphql/wp-graphiql",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wp-graphql/wp-graphiql.git",
-                "reference": "543617f1b257cd9bbc0682628bb32bd1e60cd959"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wp-graphql/wp-graphiql/zipball/543617f1b257cd9bbc0682628bb32bd1e60cd959",
-                "reference": "543617f1b257cd9bbc0682628bb32bd1e60cd959",
-                "shasum": ""
-            },
-            "type": "wordpress-plugin",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Jason Bahl",
-                    "email": "jasonbahl@mac.com"
-                }
-            ],
-            "description": "GraphiQL IDE in the WP-Admin. Works with the WPGraphQL plugin. https://github.com/wp-graphql/wp-graphql",
-            "time": "2019-10-23T22:33:08+00:00"
-        },
-        {
             "name": "wp-graphql/wp-graphql",
-            "version": "v0.9.1",
+            "version": "v0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-graphql/wp-graphql.git",
-                "reference": "da19d1a5504b6068d0209231afa58746a13793e4"
+                "reference": "6e93611b7e2c9c8ea0ecba979bbe650f7c87cddd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-graphql/wp-graphql/zipball/da19d1a5504b6068d0209231afa58746a13793e4",
-                "reference": "da19d1a5504b6068d0209231afa58746a13793e4",
+                "url": "https://api.github.com/repos/wp-graphql/wp-graphql/zipball/6e93611b7e2c9c8ea0ecba979bbe650f7c87cddd",
+                "reference": "6e93611b7e2c9c8ea0ecba979bbe650f7c87cddd",
                 "shasum": ""
             },
             "require": {
@@ -1278,8 +1290,16 @@
                 "webonyx/graphql-php": "0.13.8"
             },
             "require-dev": {
+                "codeception/module-asserts": "^1.0",
+                "codeception/module-cli": "^1.0",
+                "codeception/module-db": "^1.0",
+                "codeception/module-filesystem": "^1.0",
+                "codeception/module-phpbrowser": "^1.0",
+                "codeception/module-rest": "^1.2",
+                "codeception/module-webdriver": "^1.0",
+                "codeception/util-universalframework": "^1.0",
                 "dealerdirect/phpcodesniffer-composer-installer": "0.5.0",
-                "lucatume/wp-browser": "2.2.0",
+                "lucatume/wp-browser": "^2.4",
                 "phpcompatibility/phpcompatibility-wp": "2.1.0",
                 "phpstan/phpstan": "^0.12.25",
                 "squizlabs/php_codesniffer": "3.5.4",
@@ -1318,7 +1338,49 @@
                 }
             ],
             "description": "GraphQL API for WordPress",
-            "time": "2020-05-21T20:10:08+00:00"
+            "time": "2020-09-25T13:21:37+00:00"
+        },
+        {
+            "name": "wp-graphql/wp-graphql-acf",
+            "version": "v0.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-graphql/wp-graphql-acf.git",
+                "reference": "11a2a10a4abb51c541fd7b0ba0b81d1491525136"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-graphql/wp-graphql-acf/zipball/11a2a10a4abb51c541fd7b0ba0b81d1491525136",
+                "reference": "11a2a10a4abb51c541fd7b0ba0b81d1491525136",
+                "shasum": ""
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "lucatume/wp-browser": "^2.2.",
+                "phpcompatibility/phpcompatibility-wp": "^2.0",
+                "wp-coding-standards/wpcs": "^2.1"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "WPGraphQL\\ACF\\": "src/"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "jasonbahl",
+                    "email": "jasonbahl@mac.com"
+                }
+            ],
+            "description": "Advanced Custom Fields bindings for wp-graphql",
+            "time": "2020-07-27T13:32:21+00:00"
         },
         {
             "name": "yoast/i18n-module",

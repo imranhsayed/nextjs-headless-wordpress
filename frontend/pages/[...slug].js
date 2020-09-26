@@ -1,4 +1,3 @@
-import React from "react";
 import Layout from "../src/components/layout";
 import client from "../src/apollo/client";
 import { GET_PAGE } from "../src/queries/get-page";

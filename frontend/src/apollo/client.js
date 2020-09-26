@@ -11,7 +11,6 @@ const defaultOptions = {
 	},
 }
 
-
 /**
  * Instantiate required constructor fields
  */
