@@ -3,17 +3,20 @@ import client from "../src/apollo/client";
 import { GET_PAGE } from "../src/queries/get-page";
 import { GET_MENUS } from "../src/queries/get-menus";
 import { sanitize } from "../src/utils/functions";
+import { useRouter } from "next/router";
 
 const Page = ({ menus, page , path }) => {
+	const router = useRouter();
 
 	// @TODO 'path' variable can be used later to render custom templates.
-
+	console.warn( 'page', router.query.slug );
 
 	return (
 		<Layout menus={menus}>
 			<div>
-				<h1 dangerouslySetInnerHTML={{ __html: sanitize( page.title ) }}/>
-				<div dangerouslySetInnerHTML={{ __html: sanitize( page.content ) }}/>
+				<p>Slug</p>
+				<h1 dangerouslySetInnerHTML={{ __html: sanitize( page?.title ) }}/>
+				<div dangerouslySetInnerHTML={{ __html: sanitize( page?.content ) }}/>
 			</div>
 		</Layout>
 	);
@@ -29,7 +32,6 @@ export async function getStaticProps({ params }) {
 		}
 	});
 
-	console.warn( 'data', data );
 	return {
 		props: {
 			menus: data?.headerMenus?.edges ?? [],
@@ -70,6 +72,8 @@ export async function getStaticPaths() {
 			{ params: { slug: filteredPaths } }
 		)
 	} )
+
+	console.warn( 'pathsData', pathsData );
 
 	return {
 		paths: pathsData,
