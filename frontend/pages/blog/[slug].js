@@ -10,7 +10,7 @@ const SingleBlog = ({menus, post, path}) => {
 		<Layout menus={menus}>
 			<h1 dangerouslySetInnerHTML={{__html: sanitize(post.title)}}/>
 			<div dangerouslySetInnerHTML={{__html: sanitize(post.excerpt)}}/>
-			<DisqusComment postId={post.id}/>
+			<DisqusComment post={post}/>
 		</Layout>
 	)
 }

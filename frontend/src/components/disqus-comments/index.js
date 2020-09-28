@@ -1,20 +1,15 @@
 import Disqus from "disqus-react"
 
-const DisqusComment = ({ postId }) => {
+const DisqusComment = ({ post }) => {
 	const disqusShortname = "imranhsayed"
 	const disqusConfig = {
 		url: "http://localhost:3000",
-		identifier: postId,
-		title: "Title of Your Article"
+		identifier: post.id,
+		title: post.title
 	}
 
 	return (
-		<div className="article-container">
-
-			<h1>Page Title</h1>
-
-			<p>Page content.</p>
-
+		<div>
 			<Disqus.DiscussionEmbed
 				shortname={disqusShortname}
 				config={disqusConfig}
