@@ -24,3 +24,4 @@ export async function getStaticProps() {
 
 	return { props: { menus: data?.headerMenus?.edges ?? [] } };
 }
+

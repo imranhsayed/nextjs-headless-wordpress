@@ -5,8 +5,8 @@ import MenuFragment from './fragments/menus'
  * Get Header menu
  *
  */
-export const GET_POSTS = gql`
- query GET_POSTS( $perPage: Int, $offset: Int ) {
+export const GET_POST = gql`
+ query GET_POST( $slug: String ) {
   headerMenus: menuItems(where: {location: HCMS_MENU_HEADER}) {
     edges {
       node {
@@ -21,7 +21,7 @@ export const GET_POSTS = gql`
       }
     }
   }
-  posts: posts(where: { offsetPagination: { size: $perPage, offset: $offset }}) {
+  post: postBy(slug: $slug) {
     edges {
       node {
         id
@@ -38,30 +38,3 @@ export const GET_POSTS = gql`
  }
  ${MenuFragment}
  `;
-
-export const GET_TOTAL_POSTS_COUNT = gql`
-  query GET_TOTAL_POSTS_COUNT {
-  postsCount: posts {
-      pageInfo {
-        offsetPagination {
-          total
-        }
-      }
-    }
-  }
-`
-
-export const GET_POST_SLUGS = gql`
-  query GET_POST_SLUGS {
-  posts: posts {
-    edges {
-      node {
-        id
-        title
-        slug
-        excerpt
-      }
-    }
-   }
-  }
-`
