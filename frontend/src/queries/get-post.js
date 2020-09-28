@@ -22,18 +22,9 @@ export const GET_POST = gql`
     }
   }
   post: postBy(slug: $slug) {
-    edges {
-      node {
-        id
-        title
-        excerpt
-      }
-    }
-    pageInfo {
-      offsetPagination {
-        total
-      }
-    }
+    id
+    title
+    excerpt
   }
  }
  ${MenuFragment}

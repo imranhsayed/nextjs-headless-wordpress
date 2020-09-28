@@ -2,11 +2,13 @@ import client from "../../src/apollo/client";
 import { GET_POST } from "../../src/queries/get-post";
 import Layout from "../../src/components/layout";
 import { GET_POST_SLUGS } from "../../src/queries/get-posts";
+import { sanitize } from "../../src/utils/functions";
 
-const SingleBlog = ({menus, post}) => {
+const SingleBlog = ({menus, post, path}) => {
 	return (
 		<Layout menus={menus}>
-			hey
+			<h1 dangerouslySetInnerHTML={{__html: sanitize(post.title)}}/>
+			<div dangerouslySetInnerHTML={{__html: sanitize(post.excerpt)}}/>
 		</Layout>
 	)
 }
@@ -14,10 +16,11 @@ const SingleBlog = ({menus, post}) => {
 export default SingleBlog
 
 export async function getStaticProps({ params }) {
+	console.warn( 'slug', params?.slug ?? '' );
 	const { data } = await client.query({
 		query: GET_POST,
 		variables: {
-			slug: params.slug?.[1] ?? ''
+			slug: params?.slug ?? ''
 		}
 	});
 
@@ -25,7 +28,7 @@ export async function getStaticProps({ params }) {
 		props: {
 			menus: data?.headerMenus?.edges ?? [],
 			post: data?.post ?? {},
-			path: params?.slug.join('/')
+			path: params?.slug
 		},
 	};
 }
@@ -37,16 +40,9 @@ export async function getStaticPaths() {
 
 	const pathsData = [];
 
-	data.posts.edges.map( item => {
-
-		const preSlug = ['blog'];
-		const postSlug = item.node.slug.split('/');
-		const pathArray = preSlug.concat( postSlug );
-
-		const filteredPaths = pathArray.filter( path => '' !== path );
-		console.warn( 'filteredPaths', filteredPaths );
+	data.posts.edges.map( post => {
 		pathsData.push(
-			{ params: { slug: filteredPaths } }
+			{ params: { slug: post.node.slug } }
 		)
 	} )
 
