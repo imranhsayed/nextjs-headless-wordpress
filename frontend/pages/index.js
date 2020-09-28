@@ -1,21 +1,15 @@
 import Layout from "../src/components/layout";
 import { GET_MENUS } from "../src/queries/get-menus";
 import client from "../src/apollo/client";
-import Link from "next/link";
 
 const Home = ({ menus }) => {
 
 	return (
 		<Layout menus={menus}>
-			<div>
 			<div
 				style={{ margin: "50px", justifyContent: "center", display: "flex", fontSize: "60px" }}
 			>
 				Welcome!
-			</div>
-				<Link href="/blog" as={"/blog"} >
-					<a>Blog</a>
-				</Link>
 			</div>
 		</Layout>
 	);
