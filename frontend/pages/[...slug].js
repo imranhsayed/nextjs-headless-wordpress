@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 
 const Page = ({ menus, page , path }) => {
 	const router = useRouter();
-	console.warn( 'router', router );
 
 	// @TODO 'path' variable can be used later to render custom templates.
 	console.warn( 'page', router.query.slug );
@@ -66,22 +65,16 @@ export async function getStaticPaths() {
 
 	const pathsData = [];
 
-	// data.headerMenus.edges.map( item => {
-	// 	const pathArray = item.node.path.split('/');
-	// 	const filteredPaths = pathArray.filter( path => '' !== path );
-	// 	pathsData.push(
-	// 		{ params: { slug: filteredPaths } }
-	// 	)
-	// } )
+	data.headerMenus.edges.map( item => {
+		const pathArray = item.node.path.split('/');
+		const filteredPaths = pathArray.filter( path => '' !== path );
+		pathsData.push(
+			{ params: { slug: filteredPaths } }
+		)
+	} )
 
-	console.warn( 'pathsData', pathsData );
-
-	// return {
-	// 	paths: pathsData,
-	// 	fallback: false
-	// };
 	return {
-		paths: [{ params: { slug: ['blog','hello-world'] } }, { params: { slug: 'hey' } }],
+		paths: pathsData,
 		fallback: false
 	};
 }
