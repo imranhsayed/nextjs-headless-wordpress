@@ -3,12 +3,14 @@ import { GET_POST } from "../../src/queries/get-post";
 import Layout from "../../src/components/layout";
 import { GET_POST_SLUGS } from "../../src/queries/get-posts";
 import { sanitize } from "../../src/utils/functions";
+import DisqusComment from "../../src/components/disqus-comments";
 
 const SingleBlog = ({menus, post, path}) => {
 	return (
 		<Layout menus={menus}>
 			<h1 dangerouslySetInnerHTML={{__html: sanitize(post.title)}}/>
 			<div dangerouslySetInnerHTML={{__html: sanitize(post.excerpt)}}/>
+			<DisqusComment postId={post.id}/>
 		</Layout>
 	)
 }
@@ -16,7 +18,6 @@ const SingleBlog = ({menus, post, path}) => {
 export default SingleBlog
 
 export async function getStaticProps({ params }) {
-	console.warn( 'slug', params?.slug ?? '' );
 	const { data } = await client.query({
 		query: GET_POST,
 		variables: {
@@ -45,8 +46,6 @@ export async function getStaticPaths() {
 			{ params: { slug: post.node.slug } }
 		)
 	} )
-
-	console.warn( 'pathsData', pathsData );
 
 	return {
 		paths: pathsData,
