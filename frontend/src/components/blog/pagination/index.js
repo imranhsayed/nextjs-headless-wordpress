@@ -12,11 +12,13 @@ const Pagination = ({ pagesCount, postName }) => {
 	let pageNo = getPageNo(router.query.slug)
 	pageNo = pageNo || 1
 
+	console.warn( 'pagesCount', pagesCount );
+
 	return (
 		<div className='flex justify-center my-8'>
-			{new Array(pagesCount).fill().map((_, index) => {
+			{new Array(pagesCount).fill(null).map((_, index) => {
 				// If its page no. one,
-				const linkAs = index === 0 ? `/${postName}/` : `/${postName}/page/${index + 1}/`
+				const linkAs = index === 0 ? `/${postName}/` : `/${postName}/page/${index + 1}`
 				console.warn( 'linksAs', linkAs );
 				return (
 					<Link key={`id-${index}`} href="/blog/page/[page_no]" as={linkAs}>

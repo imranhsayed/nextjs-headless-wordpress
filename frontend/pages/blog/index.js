@@ -19,21 +19,21 @@ const Blog = ({ menus, posts }) => {
 
 export default Blog;
 
-// export async function getStaticProps() {
-//     const { data, loading, networkStatus } = await client.query({
-//         query: GET_POSTS,
-//         variables: {
-//             perPage: PER_PAGE_FIRST,
-//             offset: null,
-//         },
-//     });
+export async function getStaticProps() {
+    const { data, loading, networkStatus } = await client.query({
+        query: GET_POSTS,
+        variables: {
+            perPage: PER_PAGE_FIRST,
+            offset: null,
+        },
+    });
 
-//     console.warn("data", data);
+    console.warn("data", data);
 
-//     return {
-//         props: {
-//             menus: data?.headerMenus?.edges ?? [],
-//             posts: data?.posts,
-//         },
-//     };
-// }
+    return {
+        props: {
+            menus: data?.headerMenus?.edges ?? [],
+            posts: data?.posts,
+        },
+    };
+}

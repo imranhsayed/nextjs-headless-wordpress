@@ -24,22 +24,22 @@ const Page = ({ menus, page, path }) => {
 
 export default Page;
 
-// export async function getStaticProps({ params }) {
-//     const { data } = await client.query({
-//         query: GET_PAGE,
-//         variables: {
-//             uri: params?.slug.join("/"),
-//         },
-//     });
+export async function getStaticProps({ params }) {
+    const { data } = await client.query({
+        query: GET_PAGE,
+        variables: {
+            uri: params?.slug.join("/"),
+        },
+    });
 
-//     return {
-//         props: {
-//             menus: data?.headerMenus?.edges ?? [],
-//             page: data?.page ?? {},
-//             path: params?.slug.join("/"),
-//         },
-//     };
-// }
+    return {
+        props: {
+            menus: data?.headerMenus?.edges ?? [],
+            page: data?.page ?? {},
+            path: params?.slug.join("/"),
+        },
+    };
+}
 
 /**
  * Since the page name uses catch-all routes,
@@ -58,23 +58,23 @@ export default Page;
  *
  * @returns {Promise<{paths: [], fallback: boolean}>}
  */
-// export async function getStaticPaths() {
-//     const { data, loading, networkStatus } = await client.query({
-//         query: GET_MENUS,
-//     });
+export async function getStaticPaths() {
+    const { data, loading, networkStatus } = await client.query({
+        query: GET_MENUS,
+    });
 
-//     const pathsData = [];
+    const pathsData = [];
 
-//     data.headerMenus.edges.map((item) => {
-//         const pathArray = item.node.path.split("/");
-//         const filteredPaths = pathArray.filter((path) => "" !== path);
-//         pathsData.push({ params: { slug: filteredPaths } });
-//     });
+    data.headerMenus.edges.map((item) => {
+        const pathArray = item.node.path.split("/");
+        const filteredPaths = pathArray.filter((path) => "" !== path);
+        pathsData.push({ params: { slug: filteredPaths } });
+    });
 
-//     console.warn("pathsData", pathsData);
+    console.warn("pathsData", pathsData);
 
-//     return {
-//         paths: pathsData,
-//         fallback: false,
-//     };
-// }
+    return {
+        paths: pathsData,
+        fallback: false,
+    };
+}
