@@ -1,59 +1,30 @@
-## 🎨 Next.js WordPress theme - Celestia
-[![Project Status: Active.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-![Stars](https://img.shields.io/github/stars/imranhsayed/nextjs-headless-wordpress?label=%E2%AD%90%20Stars)
-![Forks](https://img.shields.io/github/forks/imranhsayed/nextjs-headless-wordpress?color=%23ff69b4)
-![Contributors](https://img.shields.io/github/contributors/imranhsayed/nextjs-headless-wordpress?color=blue)
-![Follow](https://img.shields.io/github/followers/imranhsayed?label=Please%20follow%20%20to%20support%20my%20work%20%F0%9F%99%8F&style=social)
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-# Development
+## Getting Started
 
-```shell script
-npm run dev # Runs next dev which starts Next.js in development mode
-npm run build # Runs next build which builds the application for production usage
-npm run start # Runs next start which starts a Next.js production server
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-# [Cypress Tests](https://docs.cypress.io/)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-To run cypress locally we run `cypress-open`
-It adds a `cypress` directory and some example test in `cypress/integrations`
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-```shell script
-npm run cypress:open
-```
+## Learn More
 
-* Cypress docs
-1. [API](https://docs.cypress.io/api/api/table-of-contents.html)
+To learn more about Next.js, take a look at the following resources:
 
-## Debugging with Node.js debugger tool. 
-Notice that we have added this in `package.json`
-```shell script
-"dev": "NODE_OPTIONS='--inspect' next",
-```
-when you run `npm run dev`, you will see a node js icon in the Chrome inspector tab and there will also be a url to access it on the terminal
-that says `Debugger listeing on ...`
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Important concepts
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-1. [Prerendering](https://nextjs.org/docs/basic-features/pages#pre-rendering)
-2. Querying blocks:
-[WP GraphQL Gutenberg](https://github.com/imranhsayed/nextjs-headless-wordpress/blob/master/wordpress/plugins/wp-graphql-gutenberg-0.3.4.zip) allows you to query Gutenberg blocks.
-If you want to break down the blocks and render the content using individual React components, here is the query example.
+## Deploy on Vercel
 
-```shell script
-{
-  posts {
-    nodes {
-      title
-      blocks {
-        name
-        innerBlocks {
-          name
-          saveContent
-        }
-        saveContent
-      }
-    }
-  }
-}
-```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

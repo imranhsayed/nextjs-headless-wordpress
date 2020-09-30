@@ -1,26 +1,26 @@
-import Layout from "../src/components/layout";
-import { GET_MENUS } from "../src/queries/get-menus";
-import client from "../src/apollo/client";
+import Link from "next/link";
 
-const Home = ({ menus }) => {
-
-	return (
-		<Layout menus={menus}>
-			<div
-				style={{ margin: "50px", justifyContent: "center", display: "flex", fontSize: "60px" }}
-			>
-				Welcome!
-			</div>
-		</Layout>
-	);
+const Home = () => {
+  return (
+    <div>
+      <Link href="/blog">
+        <a>Blog</a>
+      </Link>
+      <Link href="/slugs">
+        <a>Slug</a>
+      </Link>
+      <div
+        style={{
+          margin: "50px",
+          justifyContent: "center",
+          display: "flex",
+          fontSize: "60px",
+        }}
+      >
+        Welcome!
+      </div>
+    </div>
+  );
 };
 
 export default Home;
-
-export async function getStaticProps() {
-	const { data, loading, networkStatus } = await client.query({
-		query: GET_MENUS,
-	});
-
-	return { props: { menus: data?.headerMenus?.edges ?? [] } };
-}
