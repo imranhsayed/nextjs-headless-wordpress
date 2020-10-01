@@ -2,32 +2,42 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { getPageOffset, PER_PAGE_FIRST, PER_PAGE_REST } from "../../../src/utils/pagination";
 import { GET_POSTS, GET_TOTAL_POSTS_COUNT } from "../../../src/queries/get-posts";
+// import Layout from "../../../src/components/header/navbar";
 import client from "../../../src/apollo/client";
+import Layout from "../../../src/components/layout";
+import Pagination from "../../../src/components/blog/pagination";
 
-const Page = ({ data, loading }) => {
+const Page = ({ menus, posts }) => {
+    console.log(posts, "posts");
     const router = useRouter();
 
-    const { nodes, pageInfo } = data ?? {};
+    const { pageInfo } = posts ?? {};
     const totalPostsCount = pageInfo?.offsetPagination?.total ?? 0;
 
     const pagesCount = Math.ceil((totalPostsCount - PER_PAGE_FIRST) / PER_PAGE_REST + 1);
-    const pageNo = router?.query?.page_no ?? 1;
 
-    //? Redirecting to /blog if we are on page 1
-    if (typeof window !== "undefined" && pageNo === 1) {
+    // ? Redirecting to /blog if we are on page 1
+    const pageNo = router?.query?.page_no ?? 1;
+    if (typeof window !== "undefined" && pageNo === "1") {
         router.push("/blog");
     }
 
-    return <div>Hey</div>;
+    return (
+        <Layout menus={menus}>
+            {(posts?.edges ?? []).map((post) => {
+                return <p key={post?.node?.id ?? ""}>{post?.node?.title ?? ""}</p>;
+            })}
+            <Pagination pagesCount={pagesCount} postName="blog" />
+        </Layout>
+    );
 };
 
 export default Page;
 
 export async function getStaticProps({ params }) {
+    //? page_no is in string
     const { page_no } = params || {};
-
     const offset = getPageOffset(page_no);
-
     const variables = {
         perPage: page_no === "1" ? PER_PAGE_FIRST : PER_PAGE_REST,
         offset,
@@ -37,12 +47,10 @@ export async function getStaticProps({ params }) {
         query: GET_POSTS,
         variables,
     });
-
     return {
         props: {
-            data: data?.posts ?? {},
-            loading,
-            networkStatus,
+            menus: data?.headerMenus?.edges ?? [],
+            posts: data?.posts,
         },
         revalidate: 1,
     };
@@ -52,18 +60,14 @@ export async function getStaticPaths() {
     const { data } = await client.query({
         query: GET_TOTAL_POSTS_COUNT,
     });
-    const totalPostsCount = data?.posts?.pageInfo?.offsetPagination?.total ?? 0;
-
-    //* since the first page posts and other page posts will be different, we subtract the no of posts we'll show n first page and then divide the result with the no of posts we'll show on other pages and then will add 1 for the first page that we subtracted.
+    const totalPostsCount = data?.postsCount?.pageInfo?.offsetPagination?.total ?? 0;
+    //* since the first page posts and other page posts will be different, we subtract the no of posts we'll show on first page and then divide the result with the no of posts we'll show on other pages and then will add 1 for the first page that we subtracted.
     const pagesCount = Math.ceil((totalPostsCount - PER_PAGE_FIRST) / PER_PAGE_REST + 1);
-
     const paths = new Array(pagesCount).fill("").map((_, index) => ({
         params: {
             page_no: (index + 1).toString(),
         },
     }));
-
-    console.warn("paths", pagesCount);
 
     return {
         paths: [...paths],

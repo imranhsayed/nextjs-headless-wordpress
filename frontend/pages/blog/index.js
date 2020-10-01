@@ -6,12 +6,13 @@ import { PER_PAGE_FIRST, totalPagesCount } from "../../src/utils/pagination";
 import Pagination from "../../src/components/blog/pagination";
 
 const Blog = ({ menus, posts }) => {
-    console.warn("posts", posts);
     const pagesCount = totalPagesCount(posts?.pageInfo?.offsetPagination?.total ?? 0);
 
     return (
         <Layout menus={menus}>
-            Blog
+            {(posts?.edges ?? []).map((post) => {
+                return <p key={post?.node?.id ?? ""}>{post?.node?.title ?? ""}</p>;
+            })}
             <Pagination pagesCount={pagesCount} postName="blog" />
         </Layout>
     );
@@ -28,12 +29,11 @@ export async function getStaticProps() {
         },
     });
 
-    console.warn("data", data);
-
     return {
         props: {
             menus: data?.headerMenus?.edges ?? [],
             posts: data?.posts,
         },
+        revalidate: 1,
     };
 }

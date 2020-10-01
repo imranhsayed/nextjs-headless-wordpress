@@ -21,10 +21,9 @@ const Home = ({ menus }) => {
 
 export default Home;
 
-// export async function getStaticProps() {
-//     const { data, loading, networkStatus } = await client.query({
-//         query: GET_MENUS,
-//     });
-
-//     return { props: { menus: data?.headerMenus?.edges ?? [] } };
-// }
+export async function getStaticProps() {
+    const { data, loading, networkStatus } = await client.query({
+        query: GET_MENUS,
+    });
+    return { props: { menus: data?.headerMenus?.edges ?? [] }, revalidate: 1 };
+}

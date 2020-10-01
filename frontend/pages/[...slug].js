@@ -38,6 +38,7 @@ export async function getStaticProps({ params }) {
             page: data?.page ?? {},
             path: params?.slug.join("/"),
         },
+        revalidate: 1,
     };
 }
 
@@ -65,7 +66,7 @@ export async function getStaticPaths() {
 
     const pathsData = [];
 
-    data.headerMenus.edges.map((item) => {
+    (data?.headerMenus?.edges ?? []).map((item) => {
         const pathArray = item.node.path.split("/");
         const filteredPaths = pathArray.filter((path) => "" !== path);
         pathsData.push({ params: { slug: filteredPaths } });
