@@ -4,6 +4,7 @@ import { GET_POSTS, GET_TOTAL_POSTS_COUNT } from "../../../src/queries/get-posts
 import client from "../../../src/apollo/client";
 import Layout from "../../../src/components/layout";
 import Pagination from "../../../src/components/blog/pagination";
+import Posts from "../../../src/components/blog/posts";
 
 const Page = ({ menus, posts }) => {
     const router = useRouter();
@@ -22,9 +23,7 @@ const Page = ({ menus, posts }) => {
 
     return (
         <Layout menus={menus}>
-            {(posts?.edges ?? []).map((post) => {
-                return <p key={post?.node?.id ?? ""}>{post?.node?.title ?? ""}</p>;
-            })}
+	        <Posts posts={posts}/>
             <Pagination pagesCount={pagesCount} postName="blog" />
         </Layout>
     );

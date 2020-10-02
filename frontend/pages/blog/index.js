@@ -3,15 +3,14 @@ import Layout from "../../src/components/layout";
 import { GET_POSTS } from "../../src/queries/get-posts";
 import { PER_PAGE_FIRST, totalPagesCount } from "../../src/utils/pagination";
 import Pagination from "../../src/components/blog/pagination";
+import Posts from "../../src/components/blog/posts";
 
 const Blog = ({ menus, posts }) => {
     const pagesCount = totalPagesCount(posts?.pageInfo?.offsetPagination?.total ?? 0);
 
     return (
         <Layout menus={menus}>
-            {(posts?.edges ?? []).map((post) => {
-                return <p key={post?.node?.id ?? ""}>{post?.node?.title ?? ""}</p>;
-            })}
+	        <Posts posts={posts}/>
             <Pagination pagesCount={pagesCount} postName="blog" />
         </Layout>
     );
