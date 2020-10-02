@@ -5,40 +5,45 @@ import { GET_MENUS } from "../src/queries/get-menus";
 import { sanitize } from "../src/utils/functions";
 import { useRouter } from "next/router";
 
-const Page = ({ menus, page , path }) => {
-	const router = useRouter();
+const Page = ({ menus, page, path }) => {
+    const router = useRouter();
 
-	// @TODO 'path' variable can be used later to render custom templates.
-	console.warn( 'page', router.query.slug );
+    // @TODO 'path' variable can be used later to render custom templates.
+    console.warn("page", router.query.slug);
 
-	return (
-		<Layout menus={menus}>
-			<div>
-				<p>Slug</p>
-				<h1 dangerouslySetInnerHTML={{ __html: sanitize( page?.title ) }}/>
-				<div dangerouslySetInnerHTML={{ __html: sanitize( page?.content ) }}/>
-			</div>
-		</Layout>
-	);
+    return (
+        <Layout menus={menus}>
+            <div>
+                <h1 dangerouslySetInnerHTML={{ __html: sanitize(page?.title) }} />
+                <div dangerouslySetInnerHTML={{ __html: sanitize(page?.content) }} />
+            </div>
+        </Layout>
+    );
 };
 
 export default Page;
 
 export async function getStaticProps({ params }) {
-	const { data } = await client.query({
-		query: GET_PAGE,
-		variables: {
-			uri: params?.slug.join('/')
-		}
-	});
+    const { data } = await client.query({
+        query: GET_PAGE,
+        variables: {
+            uri: params?.slug.join("/"),
+        },
+    });
 
-	return {
-		props: {
-			menus: data?.headerMenus?.edges ?? [],
-			page: data?.page ?? {},
-			path: params?.slug.join('/')
-		},
-	};
+    return {
+        props: {
+            menus: data?.headerMenus?.edges ?? [],
+            page: data?.page ?? {},
+            path: params?.slug.join("/"),
+        },
+	    /**
+	     * Revalidate means that if a new request comes to server, then every 1 sec it will check
+	     * if the data is changed, if it is changed then it will update the
+	     * static file inside .next folder with the new data, so that any 'SUBSEQUENT' requests should have updated data.
+	     */
+        revalidate: 1,
+    };
 }
 
 /**
@@ -59,25 +64,20 @@ export async function getStaticProps({ params }) {
  * @returns {Promise<{paths: [], fallback: boolean}>}
  */
 export async function getStaticPaths() {
-	const { data, loading, networkStatus } = await client.query({
-		query: GET_MENUS,
-	});
+    const { data, loading, networkStatus } = await client.query({
+        query: GET_MENUS,
+    });
 
-	const pathsData = [];
+    const pathsData = [];
 
-	data.headerMenus.edges.map( item => {
-		const pathArray = item.node.path.split('/');
-		const filteredPaths = pathArray.filter( path => '' !== path );
-		pathsData.push(
-			{ params: { slug: filteredPaths } }
-		)
-	} )
+    (data?.headerMenus?.edges ?? []).map((item) => {
+        const pathArray = item.node.path.split("/");
+        const filteredPaths = pathArray.filter((path) => "" !== path);
+        pathsData.push({ params: { slug: filteredPaths } });
+    });
 
-	console.warn( 'pathsData', pathsData );
-
-	return {
-		paths: pathsData,
-		fallback: false
-	};
+    return {
+        paths: pathsData,
+        fallback: false,
+    };
 }
-
