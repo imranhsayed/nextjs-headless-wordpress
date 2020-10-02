@@ -25,7 +25,7 @@ npm run cypress:open
 * Cypress docs
 1. [API](https://docs.cypress.io/api/api/table-of-contents.html)
 
-## Debugging with Node.js debugger tool. 
+## Debugging with Node.js debugger tool.
 Notice that we have added this in `package.json`
 ```shell script
 "dev": "NODE_OPTIONS='--inspect' next",
