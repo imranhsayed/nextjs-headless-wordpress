@@ -1,7 +1,6 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
 import { useRouter } from "next/router";
-import { getPageNo } from "../../../utils/pagination";
 
 const Pagination = ({ pagesCount, postName }) => {
     if (!pagesCount || !postName) {
@@ -9,7 +8,7 @@ const Pagination = ({ pagesCount, postName }) => {
     }
 
     const router = useRouter();
-    let pageNo = getPageNo(router.query.slug);
+    let pageNo = parseInt( router.query.page_no );
     pageNo = pageNo || 1;
 
     return (
@@ -19,6 +18,8 @@ const Pagination = ({ pagesCount, postName }) => {
                 // index === 0 ? `/${postName}/` :
 
                 const linkAs = `/${postName}/page/${index + 1}`;
+
+                console.warn( 'index', index. pageNo );
 
                 return (
                     <Link key={`id-${index}`} href="/blog/page/[page_no]" as={linkAs}>
@@ -43,7 +44,7 @@ Pagination.propTypes = {
 
 Pagination.defaultProps = {
     pagesCount: 0,
-    postName: "reviews",
+    postName: "blog",
 };
 
 export default Pagination;

@@ -1,14 +1,11 @@
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { getPageOffset, PER_PAGE_FIRST, PER_PAGE_REST } from "../../../src/utils/pagination";
 import { GET_POSTS, GET_TOTAL_POSTS_COUNT } from "../../../src/queries/get-posts";
-// import Layout from "../../../src/components/header/navbar";
 import client from "../../../src/apollo/client";
 import Layout from "../../../src/components/layout";
 import Pagination from "../../../src/components/blog/pagination";
 
 const Page = ({ menus, posts }) => {
-    console.log(posts, "posts");
     const router = useRouter();
 
     const { pageInfo } = posts ?? {};
@@ -16,8 +13,9 @@ const Page = ({ menus, posts }) => {
 
     const pagesCount = Math.ceil((totalPostsCount - PER_PAGE_FIRST) / PER_PAGE_REST + 1);
 
-    // ? Redirecting to /blog if we are on page 1
+    // Redirecting to /blog if we are on page 1
     const pageNo = router?.query?.page_no ?? 1;
+
     if (typeof window !== "undefined" && pageNo === "1") {
         router.push("/blog");
     }
@@ -35,7 +33,7 @@ const Page = ({ menus, posts }) => {
 export default Page;
 
 export async function getStaticProps({ params }) {
-    //? page_no is in string
+    //Note: page_no is in string
     const { page_no } = params || {};
     const offset = getPageOffset(page_no);
     const variables = {
