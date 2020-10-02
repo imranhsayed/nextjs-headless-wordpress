@@ -23,7 +23,10 @@ Run this from root for the first time.
 cd frontend; npm i && npm run dev
 ```
 
-During development
+* If you happen to use your own WordPress setup, be sure to install and activate plugins from composer.json and add your own WordPress site URL
+in an .env file, You can check the .env-example file for reference.
+
+### During development
 ```bash
 cd frontend; npm run dev
 ```
