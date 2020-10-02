@@ -17,14 +17,14 @@ docker-compose -f backend/docker-compose.yml up -d
 
 Backend will be available on port `http://localhost:8020`
 
+* If you happen to use your own WordPress setup, be sure to install and activate plugins from composer.json and add your own WordPress site URL
+in an .env file, You can check the .env-example file for reference.
+
 ## [Frontend](https://github.com/imranhsayed/nextjs-headless-wordpress/tree/master/frontend)
 Run this from root for the first time.
 ```bash
 cd frontend; npm i && npm run dev
 ```
-
-* If you happen to use your own WordPress setup, be sure to install and activate plugins from composer.json and add your own WordPress site URL
-in an .env file, You can check the .env-example file for reference.
 
 ### During development
 ```bash
@@ -34,7 +34,7 @@ cd frontend; npm run dev
 Frontend will be available on port `http://localhost:3000`
 
 ### Evironment vars. 
-rename .env-example to .env inside frontend directory and add your WordPress Site URL ( for local developent pull `http://localhost:8020` as your WordPress URL)
+Create a `.env` file taking reference from `.env-example` inside frontend directory and add your WordPress Site URL ( for local development put `http://localhost:8020` as your WordPress URL)
 
 ## Development ( Developers only )
 

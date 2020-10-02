@@ -4,6 +4,7 @@ import Layout from "../../src/components/layout";
 import { GET_POST_SLUGS } from "../../src/queries/get-posts";
 import { sanitize } from "../../src/utils/functions";
 import Image from "../../src/components/image";
+import DisqusComment from "../../src/components/blog/discuss-comments";
 
 const SingleBlog = ({menus, post, path}) => {
 	return (
@@ -18,6 +19,7 @@ const SingleBlog = ({menus, post, path}) => {
 				</div>
 				<div className="w-1/4"/>
 			</div>
+			<DisqusComment post={post}/>
 		</Layout>
 	)
 }
@@ -47,6 +49,8 @@ export async function getStaticPaths() {
 	});
 
 	const pathsData = [];
+
+	console.warn( 'pathsData', pathsData );
 
 	data.posts.edges.map( post => {
 		pathsData.push(

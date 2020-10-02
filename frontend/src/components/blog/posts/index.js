@@ -12,8 +12,8 @@ const Posts = ({posts}) => {
 			{
 				( posts?.edges ?? []).map((post) => {
 					return (
-						<div className="w-1/3 mb-4 px-2">
-							<Post key={post?.node?.id ?? ""} post={post.node}/>
+						<div key={post?.node?.id ?? ""} className="w-1/3 mb-4 px-2">
+							<Post post={post?.node}/>
 						</div>
 					);
 				})
