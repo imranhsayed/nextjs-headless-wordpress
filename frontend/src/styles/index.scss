@@ -3,6 +3,9 @@
 @import "~tailwindcss/components";
 @import "~tailwindcss/utilities";
 
+// Lazy load
+@import '3-generic/effects';
+
 // NProgress style.
 @import 'nprogress/nprogress.css';
 

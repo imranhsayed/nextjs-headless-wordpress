@@ -1,5 +1,7 @@
 import { gql } from '@apollo/client'
 import MenuFragment from './fragments/menus'
+import ImageThumbnailFragment from "./fragments/image/thumbnail";
+import ImageMediumLargeFragment from "./fragments/image/medium-large";
 
 /**
  * Get Header menu
@@ -27,6 +29,16 @@ export const GET_POSTS = gql`
         id
         title
         excerpt
+        mediumLarge: featuredImage {
+          node {
+            ...ImageMediumLargeFragment
+          }
+        }
+        thumbnail: featuredImage {
+          node {
+            ...ImageThumbnailFragment
+          }
+        }
       }
     }
     pageInfo {
@@ -37,7 +49,10 @@ export const GET_POSTS = gql`
   }
  }
  ${MenuFragment}
+ ${ImageMediumLargeFragment}
+ ${ImageThumbnailFragment}
  `;
+
 export const GET_TOTAL_POSTS_COUNT = gql`
   query GET_TOTAL_POSTS_COUNT {
   postsCount: posts {
@@ -47,5 +62,20 @@ export const GET_TOTAL_POSTS_COUNT = gql`
         }
       }
     }
+  }
+`
+
+export const GET_POST_SLUGS = gql`
+  query GET_POST_SLUGS {
+  posts: posts {
+    edges {
+      node {
+        id
+        title
+        slug
+        excerpt
+      }
+    }
+   }
   }
 `

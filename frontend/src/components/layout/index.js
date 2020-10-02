@@ -7,7 +7,10 @@ const Layout = ({ menus, children }) => {
 	return (
 		<div>
 			<Header menus={ menus }/>
-			{children}
+			{/*@see https://tailwindcss.com/docs/container*/}
+			<div className="container mx-auto px-4">
+				{children}
+			</div>
 		</div>
 	);
 };
