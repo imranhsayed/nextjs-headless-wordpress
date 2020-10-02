@@ -14,9 +14,8 @@ const Page = ({ menus, page, path }) => {
     return (
         <Layout menus={menus}>
             <div>
-                <p>Slug</p>
-                {/* <h1 dangerouslySetInnerHTML={{ __html: sanitize(page?.title) }} />
-                <div dangerouslySetInnerHTML={{ __html: sanitize(page?.content) }} /> */}
+                <h1 dangerouslySetInnerHTML={{ __html: sanitize(page?.title) }} />
+                <div dangerouslySetInnerHTML={{ __html: sanitize(page?.content) }} />
             </div>
         </Layout>
     );
@@ -38,6 +37,11 @@ export async function getStaticProps({ params }) {
             page: data?.page ?? {},
             path: params?.slug.join("/"),
         },
+	    /**
+	     * Revalidate means that if a new request comes to server, then every 1 sec it will check
+	     * if the data is changed, if it is changed then it will update the
+	     * static file inside .next folder with the new data, so that any 'SUBSEQUENT' requests should have updated data.
+	     */
         revalidate: 1,
     };
 }
@@ -71,8 +75,6 @@ export async function getStaticPaths() {
         const filteredPaths = pathArray.filter((path) => "" !== path);
         pathsData.push({ params: { slug: filteredPaths } });
     });
-
-    console.warn("pathsData", pathsData);
 
     return {
         paths: pathsData,

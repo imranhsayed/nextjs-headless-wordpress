@@ -1,5 +1,4 @@
 import client from "../../src/apollo/client";
-
 import Layout from "../../src/components/layout";
 import { GET_POSTS } from "../../src/queries/get-posts";
 import { PER_PAGE_FIRST, totalPagesCount } from "../../src/utils/pagination";
