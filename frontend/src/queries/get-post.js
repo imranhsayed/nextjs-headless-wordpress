@@ -28,6 +28,7 @@ export const GET_POST = gql`
     title
     excerpt
     content
+    slug
     large: featuredImage {
       node {
 		...ImageLargeFragment

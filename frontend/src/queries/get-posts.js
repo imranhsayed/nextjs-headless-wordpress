@@ -29,6 +29,7 @@ export const GET_POSTS = gql`
         id
         title
         excerpt
+        slug
         mediumLarge: featuredImage {
           node {
             ...ImageMediumLargeFragment
