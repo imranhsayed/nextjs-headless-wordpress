@@ -15,7 +15,15 @@ Run this from root
 docker-compose -f backend/docker-compose.yml up -d 
 ```
 
-Backend will be available on port `http://localhost:8020`
+WordPress Backend will be available on [http://localhost:8020](http://localhost:8020)
+*PhpMyAdmin*: You can access php myadmin on [http://localhost:8183](http://localhost:8183)
+```shell script
+port: mysql:3306
+username: root
+password: root
+``` 
+
+phpmyadmin docker image already comes with the username `root` and we have set the mysql password in the dockerfile
 
 * If you happen to use your own WordPress setup, be sure to install and activate plugins from composer.json and add your own WordPress site URL
 in an .env file, You can check the .env-example file for reference.
@@ -31,7 +39,7 @@ cd frontend; npm i && npm run dev
 cd frontend; npm run dev
 ```
 
-Frontend will be available on port `http://localhost:3000`
+Frontend will be available on port [http://localhost:3000](http://localhost:3000)
 
 ### Evironment vars. 
 Create a `.env` file taking reference from `.env-example` inside frontend directory and add your WordPress Site URL ( for local development put `http://localhost:8020` as your WordPress URL)
