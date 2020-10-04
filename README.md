@@ -15,8 +15,9 @@ Run this from root
 docker-compose -f backend/docker-compose.yml up -d 
 ```
 
-WordPress Backend will be available on [http://localhost:8020](http://localhost:8020)
-*PhpMyAdmin*: You can access php myadmin on [http://localhost:8183](http://localhost:8183)
+*WordPress Backend* will be available on [http://localhost:8020](http://localhost:8020)
+
+*[phpMyAdmin](https://github.com/phpmyadmin/phpmyadmin)*: You can access php myadmin on [http://localhost:8183](http://localhost:8183)
 ```shell script
 port: mysql:3306
 username: root
@@ -104,3 +105,7 @@ RewriteRule . /index.php [L]
 
 # END WordPress
 ```
+
+## References for Docker Images.
+
+1. [phpMyAdmin](https://github.com/fuadajip/dockercompose-mysql-phpmyadmin/blob/master/docker-compose.yml)
