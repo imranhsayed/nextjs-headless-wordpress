@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "ashhitch/wp-graphql-yoast-seo",
-            "version": "v4.7.1",
+            "version": "v4.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ashhitch/wp-graphql-yoast-seo.git",
-                "reference": "e94f145cbc1530a6cdcc0472bcaa2434f6d7e49e"
+                "reference": "b4ec4493964e8ab940f7965f9c66e87b77c94089"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ashhitch/wp-graphql-yoast-seo/zipball/e94f145cbc1530a6cdcc0472bcaa2434f6d7e49e",
-                "reference": "e94f145cbc1530a6cdcc0472bcaa2434f6d7e49e",
+                "url": "https://api.github.com/repos/ashhitch/wp-graphql-yoast-seo/zipball/b4ec4493964e8ab940f7965f9c66e87b77c94089",
+                "reference": "b4ec4493964e8ab940f7965f9c66e87b77c94089",
                 "shasum": ""
             },
             "suggest": {
@@ -36,7 +36,7 @@
                 }
             ],
             "description": "Query Yoast SEO data with wp-graphql",
-            "time": "2020-10-04T13:11:33+00:00"
+            "time": "2020-10-07T09:08:36+00:00"
         },
         {
             "name": "composer/installers",
@@ -1555,16 +1555,16 @@
         },
         {
             "name": "wp-graphql/wp-graphql",
-            "version": "v0.13.2",
+            "version": "v0.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-graphql/wp-graphql.git",
-                "reference": "255e622c27d2976e1a67b19214bca3afe2374b6f"
+                "reference": "d4f9fb560fa6bb8d8ce90ecd0090568de39640dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-graphql/wp-graphql/zipball/255e622c27d2976e1a67b19214bca3afe2374b6f",
-                "reference": "255e622c27d2976e1a67b19214bca3afe2374b6f",
+                "url": "https://api.github.com/repos/wp-graphql/wp-graphql/zipball/d4f9fb560fa6bb8d8ce90ecd0090568de39640dd",
+                "reference": "d4f9fb560fa6bb8d8ce90ecd0090568de39640dd",
                 "shasum": ""
             },
             "require": {
@@ -1621,7 +1621,7 @@
                 }
             ],
             "description": "GraphQL API for WordPress",
-            "time": "2020-10-02T22:02:32+00:00"
+            "time": "2020-10-08T04:40:19+00:00"
         },
         {
             "name": "wp-graphql/wp-graphql-acf",
@@ -1757,16 +1757,16 @@
         },
         {
             "name": "yoast/wordpress-seo",
-            "version": "15.1-RC3",
+            "version": "15.1-RC9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Yoast-dist/wordpress-seo.git",
-                "reference": "5a784082f2fda3f813adb69302d1b3d435af07e5"
+                "reference": "d35adc6e50c62d424e7e77114c0bda486c5082c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Yoast-dist/wordpress-seo/zipball/5a784082f2fda3f813adb69302d1b3d435af07e5",
-                "reference": "5a784082f2fda3f813adb69302d1b3d435af07e5",
+                "url": "https://api.github.com/repos/Yoast-dist/wordpress-seo/zipball/d35adc6e50c62d424e7e77114c0bda486c5082c8",
+                "reference": "d35adc6e50c62d424e7e77114c0bda486c5082c8",
                 "shasum": ""
             },
             "require": {
@@ -1816,7 +1816,7 @@
                 "seo",
                 "wordpress"
             ],
-            "time": "2020-09-30T14:10:00+00:00"
+            "time": "2020-10-13T07:01:43+00:00"
         }
     ],
     "packages-dev": [],

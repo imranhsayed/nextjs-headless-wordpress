@@ -37,7 +37,7 @@ services:
       - mysql
       - composer
     build: ./php
-    image: wordpress
+    image: wordpress_image
     ports:
       - "8020:80"
     restart: always

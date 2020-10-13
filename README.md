@@ -63,6 +63,12 @@ While the above command is running in detached mode ( -d ), you can run this com
 docker logs -f container-name
 ```
 
+3. Login to SSH and wp cli.
+```
+docker exec -it image-name bash // e.g. docker exec -it backend_wordpress_1 bash
+wp
+```
+
 e.g.
 ```bash
 docker container ls
