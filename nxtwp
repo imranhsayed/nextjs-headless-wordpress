@@ -1,0 +1,131 @@
+#!/usr/bin/env bash
+
+# Colors
+NOCOLOR='\033[0m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+GREEN='\033[32m'
+BOLD='\033[1m'
+
+# Configureation part of .env file and docker-compose file
+function proceed_with_WP_environment() {
+
+    # user-input - WP Backend URL 
+    read -p "$(echo -e $BOLD"✍️  What is your WP backend URL? (defaults to http://localhost:8020): "$NOCOLOR)" WP_backend_url
+    [ -z "$WP_backend_url" ] && echo -e $YELLOW"⚠️  Using default WP URL"$NOCOLOR && WP_backend_url="http://localhost:8020"
+    check_url_input $WP_backend_url
+    echo "NEXT_PUBLIC_WORDPRESS_SITE_URL=$WP_backend_url" > frontend/.env
+
+    # get port from url and update it in docker-compose file
+    WP_backend_url_port="$(echo $WP_backend_url | sed -e 's,^.*:,:,g' -e 's,.*:\([0-9]*\).*,\1,g' -e 's,[^0-9],,g')"
+
+    # if no port in URL then use port 80
+    if [[ $WP_backend_url_port == "" ]]
+    then
+        sed -i -e "s/8020\:80/80:80/g" backend/docker-compose.yml
+    else
+        sed -i -e "s/8020\:80/$WP_backend_url_port\:80/g" backend/docker-compose.yml
+    fi
+
+    echo ""
+
+    # user-input - NextJS Frontend URL
+    read -p "$(echo -e $BOLD"✍️  What is your frontend next js URL? (defaults to http://localhost:3000): "$NOCOLOR)" NextJS_frontend_url
+    [ -z $NextJS_frontend_url ] && echo -e $YELLOW"⚠️  Using default NextJS URL"$NOCOLOR && NextJS_frontend_url="http://localhost:3000"
+    check_url_input $NextJS_frontend_url
+    echo "NEXT_PUBLIC_NEXTJS_SITE_URL=$NextJS_frontend_url" >> frontend/.env
+
+    echo ""
+
+    # user-input - Disqus comment shortname
+    read -p "$(echo -e  $BOLD"✍️  What is your Disqus comments shortname? (leave blank if you are not using): "$NOCOLOR)" Disqus_comment_shortname
+    ! [ -z "$Disqus_comment_shortname" ] && echo "NEXT_PUBLIC_DISQUS_SHORTNAME=$Disqus_comment_shortname" >> frontend/.env
+
+    echo ""
+    echo -e $GREEN$BOLD"✅ Successfully created frontend/.env file"$NOCOLOR
+}
+
+# Start docker containers
+function start_env_backend() {
+
+    echo -e $BOLD"📦 Starting backend containers"$NOCOLOR
+    docker-compose -f backend/docker-compose.yml up -d
+
+    echo ""
+}
+
+# Start npm server
+function start_env_frontend() {
+
+    echo -e $BOLD "💻 Starting frontend"$NOCOLOR
+    npm i --prefix frontend/
+    npm run dev --prefix frontend/
+}
+
+# Check URL
+function check_url_input() {
+    regex='(http?)://[-A-Za-z0-9:0-9]'
+    user_input=$1
+
+    if ! [[ $user_input =~ $regex ]]
+    then 
+        echo -e $RED"🛑 URL is not valid."$NOCOLOR
+        echo -e $RED"Example URL is: http://example.com:8000"$NOCOLOR
+        exit
+    fi
+}
+
+
+# Configure options
+function configure() {
+    # Ask user for preffered WP environment
+    read -p "$(echo -e $BOLD"Do you already have a WordPress setup that you want to continue with? [y/n]: "$NOCOLOR)" already_have_WP_environment
+
+    case $already_have_WP_environment in
+        [yY]* ) proceed_with_WP_environment;;
+        [nN]* ) proceed_with_WP_environment;;
+        * ) echo -e $RED"🛑 Please answer yes or no."$NOCOLOR && exit ;;
+    esac
+    if [[ "$already_have_WP_environment" == "y" ]] || [[ $already_have_WP_environment == "Y" ]]
+    then
+        start_env_frontend
+    else
+        start_env_backend && start_env_frontend
+    fi
+}
+
+# Stops all the running docker containers and remove them
+function docker_container_stop() {
+
+    echo -e $BOLD"📦 Stopping backend containers"$NOCOLOR
+    docker-compose -f backend/docker-compose.yml down
+}
+
+# Help commands
+function command_help() {
+
+    echo "Please pass an argument"
+    echo "Arguments: [ configure | start-all | start-backend | start-frontend | stop ]"
+    echo "" 
+    echo "configure       Configures WP Url and .env file"
+    echo "start-all       Creates and starts docker environment for WP and runs Next JS server"
+    echo "start-backend   Creates and starts docker environment"
+    echo "start-frontend  Runs Next JS server"
+    echo "stop            Stops the WordPress docker containers"
+}
+
+# Main function.
+# Checks command line arguments.
+function main() {
+
+    case $1 in
+        "configure" ) configure ;;
+        "start-backend" ) start_env_backend ;;
+        "start-frontend" ) start_env_frontend ;;
+        "start-all" ) start_env_backend && start_env_frontend ;;
+        "stop" ) docker_container_stop ;;
+        * ) command_help ;;
+    esac
+}
+
+main $1
