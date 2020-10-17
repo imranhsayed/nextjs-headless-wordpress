@@ -9,7 +9,6 @@ BOLD='\033[1m'
 # Configureation part of .env file and docker-compose file
 function proceed_with_WP_environment() {
 
-
     # user-input - WP Backend URL 
     read -p "$(echo -e $BOLD"✍️  What is your WP backend URL? (defaults to http://localhost:8020): "$NOCOLOR)" WP_backend_url
     [ -z "$WP_backend_url" ] && echo -e $YELLOW"⚠️  Using default WP URL"$NOCOLOR && WP_backend_url="http://localhost:8020"
@@ -46,6 +45,7 @@ function proceed_with_WP_environment() {
 
 # Start docker containers and npm server
 function start_env() {
+
     echo -e $BOLD"📦 Starting backend containers"$NOCOLOR
     docker-compose -f backend/docker-compose.yml up -d
 
@@ -84,11 +84,14 @@ function configure() {
 
 # Stops all the running docker containers and remove them
 function docker_container_stop() {
+
+    echo -e $BOLD"📦 Stopping backend containers"$NOCOLOR
     docker-compose -f backend/docker-compose.yml down
 }
 
 # Help commands
 function command_help() {
+
     echo "Please pass an argument"
     echo "Arguments: [ configure | start | stop ]"
     echo "" 
@@ -101,6 +104,7 @@ function command_help() {
 # Main function.
 # Checks command line arguments.
 function main() {
+
     case $1 in
         "configure" ) configure ;;
         "start" ) start_env ;;
