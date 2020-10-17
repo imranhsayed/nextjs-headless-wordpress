@@ -13,7 +13,8 @@
 	"wp-graphql/wp-graphql": "^0.13.0",
 	"pristas-peter/wp-graphql-gutenberg": "0.3.4",
 	"pristas-peter/wp-graphql-gutenberg-acf": "0.3.0",
-	"yoast/wordpress-seo": "^15.0",
+	"wpackagist-plugin/advanced-custom-fields": "5.9.1",
+	"yoast/wordpress-seo": "^15.1",
 	"ashhitch/wp-graphql-yoast-seo": "^4.5",
 	"valu/wp-graphql-offset-pagination": "^0.2"
   }
