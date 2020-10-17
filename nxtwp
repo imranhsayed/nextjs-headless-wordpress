@@ -4,6 +4,7 @@
 NOCOLOR='\033[0m'
 RED='\033[0;31m'
 YELLOW='\033[1;33m'
+GREEN='\033[32m'
 BOLD='\033[1m'
 
 # Configureation part of .env file and docker-compose file
@@ -41,15 +42,20 @@ function proceed_with_WP_environment() {
     ! [ -z "$Disqus_comment_shortname" ] && echo "NEXT_PUBLIC_DISQUS_SHORTNAME=$Disqus_comment_shortname" >> frontend/.env
 
     echo ""
+    echo -e $GREEN$BOLD"✅ Successfully created frontend/.env file"$NOCOLOR
 }
 
-# Start docker containers and npm server
-function start_env() {
+# Start docker containers
+function start_env_backend() {
 
     echo -e $BOLD"📦 Starting backend containers"$NOCOLOR
     docker-compose -f backend/docker-compose.yml up -d
 
     echo ""
+}
+
+# Start npm server
+function start_env_frontend() {
 
     echo -e $BOLD "💻 Starting frontend"$NOCOLOR
     npm i --prefix frontend/
@@ -73,13 +79,19 @@ function check_url_input() {
 # Configure options
 function configure() {
     # Ask user for preffered WP environment
-    read -p "$(echo -e $BOLD"Do you already have a WordPress setup that you want to continue with? [y/n]: "$NOCOLOR)" already_have_WP_environent
+    read -p "$(echo -e $BOLD"Do you already have a WordPress setup that you want to continue with? [y/n]: "$NOCOLOR)" already_have_WP_environment
 
-    case $already_have_WP_environent in
-        [y]* ) echo -e $BOLD"Thanks for using NextJS-Headless-WordPress 🙂"$NOCOLOR;;
-        [n]* ) proceed_with_WP_environment;;
-        * ) echo -e $RED"🛑 Please answer yes or no."$NOCOLOR;;
+    case $already_have_WP_environment in
+        [yY]* ) proceed_with_WP_environment;;
+        [nN]* ) proceed_with_WP_environment;;
+        * ) echo -e $RED"🛑 Please answer yes or no."$NOCOLOR && exit ;;
     esac
+    if [[ "$already_have_WP_environment" == "y" ]] || [[ $already_have_WP_environment == "Y" ]]
+    then
+        start_env_frontend
+    else
+        start_env_backend && start_env_frontend
+    fi
 }
 
 # Stops all the running docker containers and remove them
@@ -93,12 +105,13 @@ function docker_container_stop() {
 function command_help() {
 
     echo "Please pass an argument"
-    echo "Arguments: [ configure | start | stop ]"
+    echo "Arguments: [ configure | start-all | start-backend | start-frontend | stop ]"
     echo "" 
-    echo "configure  Configures WP Url and .env file"
-    echo "start      Creates and starts docker environment for WP and runs Next JS server"
-    echo "stop       Stops the WordPress docker containers"
-    
+    echo "configure       Configures WP Url and .env file"
+    echo "start-all       Creates and starts docker environment for WP and runs Next JS server"
+    echo "start-backend   Creates and starts docker environment"
+    echo "start-frontend  Runs Next JS server"
+    echo "stop            Stops the WordPress docker containers"
 }
 
 # Main function.
@@ -107,7 +120,9 @@ function main() {
 
     case $1 in
         "configure" ) configure ;;
-        "start" ) start_env ;;
+        "start-backend" ) start_env_backend ;;
+        "start-frontend" ) start_env_frontend ;;
+        "start-all" ) start_env_backend && start_env_frontend ;;
         "stop" ) docker_container_stop ;;
         * ) command_help ;;
     esac
