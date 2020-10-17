@@ -1,48 +1,23 @@
 {
-	"name": "@imranhsayed/nextjs-headless-wordpress",
-	"version": "1.0.4",
-	"description": "[![Project Status: Active.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) ![Stars](https://img.shields.io/github/stars/imranhsayed/nextjs-headless-wordpress?label=%E2%AD%90%20Stars) ![Forks](https://img.shields.io/github/forks/imranhsayed/nextjs-headless-wordpress?color=%23ff69b4) ![Contributors](https://img.shields.io/github/contributors/imranhsayed/nextjs-headless-wordpress?color=blue) ![Follow](https://img.shields.io/github/followers/imranhsayed?label=Please%20follow%20%20to%20support%20my%20work%20%F0%9F%99%8F&style=social)",
-	"main": "index.js",
-	"scripts": {
-		"dev": "NODE_OPTIONS='--inspect' next",
-		"build": "next build",
-		"start": "next start",
-		"cypress:open": "cypress open"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/imranhsayed/nextjs-headless-wordpress.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/imranhsayed/nextjs-headless-wordpress/issues"
-	},
-	"homepage": "https://github.com/imranhsayed/nextjs-headless-wordpress#readme",
-	"dependencies": {
-		"@apollo/client": "^3.1.4",
-		"disqus-react": "^1.0.10",
-		"dompurify": "^2.0.15",
-		"graphql": "^15.3.0",
-		"lodash": "^4.17.20",
-		"next": "^9.5.3",
-		"nprogress": "^0.2.0",
-		"prop-types": "^15.7.2",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
-		"react-lazy-load-image-component": "^1.5.0",
-		"sass": "^1.26.11"
-	},
-	"devDependencies": {
-		"cypress": "^5.1.0",
-		"postcss-flexbugs-fixes": "^4.2.1",
-		"postcss-import": "^12.0.1",
-		"postcss-preset-env": "^6.7.0",
-		"precss": "^4.0.0",
-		"tailwindcss": "^1.8.10"
-	},
-	"publishConfig": {
-	  "registry":"https://npm.pkg.github.com"
-	}
+  "name": "@imranhsayed/nextjs-headless-wordpress",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "9.5.5",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "sass": "^1.27.0"
+  },
+  "devDependencies": {
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "precss": "^4.0.0",
+    "tailwindcss": "^1.9.3"
+  }
 }
