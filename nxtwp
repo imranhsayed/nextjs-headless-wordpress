@@ -10,7 +10,7 @@ BOLD='\033[1m'
 # Configureation part of .env file and docker-compose file
 function proceed_with_WP_environment() {
 
-    # user-input - WP Backend URL 
+    # user-input - WP Backend URL
     read -p "$(echo -e $BOLD"✍️  What is your WP backend URL? (defaults to http://localhost:8020): "$NOCOLOR)" WP_backend_url
     [ -z "$WP_backend_url" ] && echo -e $YELLOW"⚠️  Using default WP URL"$NOCOLOR && WP_backend_url="http://localhost:8020"
     check_url_input $WP_backend_url
@@ -68,7 +68,7 @@ function check_url_input() {
     user_input=$1
 
     if ! [[ $user_input =~ $regex ]]
-    then 
+    then
         echo -e $RED"🛑 URL is not valid."$NOCOLOR
         echo -e $RED"Example URL is: http://example.com:8000"$NOCOLOR
         exit
@@ -106,8 +106,8 @@ function command_help() {
 
     echo "Please pass an argument"
     echo "Arguments: [ configure | start-all | start-backend | start-frontend | stop ]"
-    echo "" 
-    echo "configure       Configures WP Url and .env file"
+    echo ""
+    echo "configure       Sets up backend and frontend and creates an .env file"
     echo "start-all       Creates and starts docker environment for WP and runs Next JS server"
     echo "start-backend   Creates and starts docker environment"
     echo "start-frontend  Runs Next JS server"
