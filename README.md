@@ -9,7 +9,7 @@
 - Backend in WordPress.
 - Front end in React
 
-#Setup
+## Setup
 
 First clone/fork the repo and cd into it.
 
@@ -71,6 +71,7 @@ This is going to automatically:
 ### During development
 
 Useful commands:
+To be run from the root of the project.
 
 ```bash
 ./nxtwp configure       # Sets up backend and frontend and creates an .env file
@@ -101,7 +102,7 @@ RewriteRule . /index.php [L]
 # END WordPress
 ```
 
-2. If front-end isn't throwing some other error.
+2. If front-end is throwing some other error.
 
 - Check if all the required WordPress plugins form `backend/plugins-collection` are active.
 - Ensure you have updated the block registry from WordPress backend > GraphQL Gutenberg 
