@@ -17,6 +17,9 @@ First clone/fork the repo and cd into it.
 git clone https://github.com/imranhsayed/nextjs-headless-wordpress.git
 cd nextjs-headless-wordpress
 ```
+
+- Install Docker from [docs.docker.com/get-docker](https://docs.docker.com/get-docker/) ( this step may not be required if you are using your own WordPress setup.)
+
 It's very simple to setup the project with just one command and this `./nxtwp configure`
 
 **One command project setup**
