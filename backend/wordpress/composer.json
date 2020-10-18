@@ -2,10 +2,10 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "repositories": [
-    {
-      "type": "composer",
-      "url": "https://wpackagist.org"
-    }
+	{
+	  "type": "composer",
+	  "url": "https://wpackagist.org"
+	}
   ],
   "require": {
 	"composer/installers": "~1.0",

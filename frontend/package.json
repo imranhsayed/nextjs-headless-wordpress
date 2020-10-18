@@ -43,6 +43,6 @@
 		"tailwindcss": "^1.8.10"
 	},
 	"publishConfig": {
-	  "registry":"https://npm.pkg.github.com"
+		"registry": "https://npm.pkg.github.com"
 	}
 }
