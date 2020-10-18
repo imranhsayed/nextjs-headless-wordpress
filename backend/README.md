@@ -1,15 +1,14 @@
-## 🎨 WordPress Docker Example
+## 🎨 WordPress Docker Setup
 [![Project Status: Active.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-![Stars](https://img.shields.io/github/stars/imranhsayed/wordpress-docker-example?label=%E2%AD%90%20Stars)
-![Forks](https://img.shields.io/github/forks/imranhsayed/wordpress-docker-example?color=%23ff69b4)
-![Contributors](https://img.shields.io/github/contributors/imranhsayed/wordpress-docker-example?color=blue)
-![Follow](https://img.shields.io/github/followers/imranhsayed?label=Please%20follow%20%20to%20support%20my%20work%20%F0%9F%99%8F&style=social)
 
 - WordPress Setup with Docker.
 - mysql
 - phpMyAdmin
 
 ## Setup
+The following step is not required if you have already followed one command setup using `./nxtwp configure`
+as explained in the project's root [README.md](https://github.com/imranhsayed/nextjs-headless-wordpress/blob/master/README.md)
+
 Run this from root
 ```bash
 docker-compose -f docker-compose.yml up -d 
@@ -25,9 +24,6 @@ password: root
 ``` 
 
 phpmyadmin docker image already comes with the username `root` and we have set the mysql password in the dockerfile
-
-* If you happen to use your own WordPress setup, be sure to install and activate plugins from composer.json and add your own WordPress site URL
-in an .env file, You can check the .env-example file for reference.
 
 ## Development ( Developers only )
 
