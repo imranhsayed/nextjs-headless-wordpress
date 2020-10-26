@@ -8,7 +8,7 @@ services:
       - ./wordpress:/app
 
   mysql:
-    image: mysql:5.7
+    image: mysql:8.0
     volumes:
       - mysql_data:/var/lib/mysql
     restart: always
