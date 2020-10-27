@@ -7,7 +7,7 @@
 
 - Headless WordPress, using Decoupled Architecture in Next.js
 - Backend in WordPress.
-- Front end in React
+- Front end in React.
 
 ## Setup
 
