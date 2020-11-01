@@ -26,7 +26,7 @@
 		"dompurify": "^2.0.15",
 		"graphql": "^15.3.0",
 		"lodash": "^4.17.20",
-		"next": "^9.5.3",
+		"next": "^10.0.0",
 		"nprogress": "^0.2.0",
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",
