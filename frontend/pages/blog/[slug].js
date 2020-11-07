@@ -6,9 +6,12 @@ import { sanitize } from "../../src/utils/functions";
 import Image from "../../src/components/image";
 import DisqusComment from "../../src/components/blog/discuss-comments";
 
-const SingleBlog = ({menus, post, path}) => {
+const SingleBlog = ({data}) => {
+
+	const { post } = data;
+
 	return (
-		<Layout menus={menus}>
+		<Layout data={data}>
 			<div className="flex my-8">
 				<div className="w-3/4">
 					<h1 className="mb-4" dangerouslySetInnerHTML={{__html: sanitize(post.title)}}/>
@@ -36,9 +39,14 @@ export async function getStaticProps({ params }) {
 
 	return {
 		props: {
-			menus: data?.headerMenus?.edges ?? [],
-			post: data?.post ?? {},
-			path: params?.slug
+			data: {
+				menus: {
+					headerMenus: data?.headerMenus?.edges || [],
+					footerMenus: data?.footerMenus?.edges || []
+				},
+				post: data?.post ?? {},
+				path: params?.slug
+			}
 		},
 	};
 }

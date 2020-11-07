@@ -5,12 +5,12 @@ import { PER_PAGE_FIRST, totalPagesCount } from "../../src/utils/pagination";
 import Pagination from "../../src/components/blog/pagination";
 import Posts from "../../src/components/blog/posts";
 
-const Blog = ({ menus, posts }) => {
-    const pagesCount = totalPagesCount(posts?.pageInfo?.offsetPagination?.total ?? 0);
+const Blog = ({ data }) => {
+    const pagesCount = totalPagesCount(data?.posts?.pageInfo?.offsetPagination?.total ?? 0);
 
     return (
-        <Layout menus={menus}>
-	        <Posts posts={posts}/>
+        <Layout data={data}>
+	        <Posts posts={data?.posts}/>
             <Pagination pagesCount={pagesCount} postName="blog" />
         </Layout>
     );
@@ -19,7 +19,7 @@ const Blog = ({ menus, posts }) => {
 export default Blog;
 
 export async function getStaticProps() {
-    const { data, loading, networkStatus } = await client.query({
+    const { data } = await client.query({
         query: GET_POSTS,
         variables: {
             perPage: PER_PAGE_FIRST,
@@ -29,8 +29,13 @@ export async function getStaticProps() {
 
     return {
         props: {
-            menus: data?.headerMenus?.edges ?? [],
-            posts: data?.posts,
+	        data:  {
+		        menus: {
+			        headerMenus: data?.headerMenus?.edges || [],
+			        footerMenus: data?.footerMenus?.edges || []
+		        },
+		        posts: data?.posts,
+	        }
         },
         revalidate: 1,
     };

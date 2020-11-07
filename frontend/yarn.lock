@@ -1121,20 +1121,20 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.0.tgz#6c9eafc78c1529248f8f4d92b0799a712b6052c6"
   integrity sha512-i9YbZPN3QgfighY/1X1Pu118VUz2Fmmhd6b2n0/O8YVgGGfw0FbUYoA97k7FkpGJ+pLCFEDLUmAPPV4D1kpeFw==
 
-"@next/env@10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@next/env/-/env-10.0.0.tgz#eb0239062226a9c8b604d58d4a4204e26c22eb16"
-  integrity sha512-59+6BnOxPoMY64Qy2crDGHtvQgHwIL1SIkWeNiEud1V6ASs59SM9oDGN+Bo/EswII1nn+wQRpMvax0IIN2j+VQ==
+"@next/env@10.0.1":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@next/env/-/env-10.0.1.tgz#5f49329fcc4fe8948737aeb8108c9d7d75155f93"
+  integrity sha512-6dwx5YXKG88IR9Q1aai+pprF7WKcmtl0ShQy/iENj5yMWMzsQCem6hxe198u9j7z1IsWyGDXZPsaLEJEatOpeQ==
 
-"@next/polyfill-module@10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-10.0.0.tgz#17f59cb7325a03f23b66b979fccc56d133411b0a"
-  integrity sha512-FLSwwWQaP/sXjlS7w4YFu+oottbo/bjoh+L+YED7dblsaRJT89ifV+h8zvLvh1hCL7FJUYVar4rehvj/VO5T9w==
+"@next/polyfill-module@10.0.1":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-10.0.1.tgz#483c8f8692d842800f6badb59f8de74b540580a9"
+  integrity sha512-Vf8HYy74jx8aQgv/ftFXQtD/udJY4/OXYiiBepqrxC0T3PPl4cns1cbrr5f15xjPELMfcqulxwMYEurioBmv+w==
 
-"@next/react-dev-overlay@10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-10.0.0.tgz#ba1acc79bc9d874f1801a0b312e6a45de74bf425"
-  integrity sha512-HJ44TJXtaGfGxVtljPECZvqw+GctVvBr60Rsedo5A+wU2GIiycJ8n5yUSdc9UiYTnPuxfJFicJec6kgR6GSWKA==
+"@next/react-dev-overlay@10.0.1":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-10.0.1.tgz#38f99f78316e9e7fa61a95e1d883e90d6d1fa4d0"
+  integrity sha512-VYwwGBtV9hqpqYoVABvZEFHBt3oL6PMpiLrDmnHaOwsPDQ+kQsiWd1L8tsYvAC2dgu/x/a/TG0D81FGF77Tohw==
   dependencies:
     "@babel/code-frame" "7.10.4"
     ally.js "1.4.1"
@@ -1147,10 +1147,10 @@
     stacktrace-parser "0.1.10"
     strip-ansi "6.0.0"
 
-"@next/react-refresh-utils@10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-10.0.0.tgz#45cdd1ad3b55ac442f8431cdc43ff53c3dc44d16"
-  integrity sha512-V1/oiDWb2C1Do0eZONsKX1aqGNkqCUqxUahIiCjwKFu9c3bps+Ygg4JjtaCd9oycv0KzYImUZnU+nqveFUjxUw==
+"@next/react-refresh-utils@10.0.1":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-10.0.1.tgz#ea6f808a9a6242d2da85138edee5562f17c0243a"
+  integrity sha512-K3thGrgD0uic/x4PZh9oRK/+LWTsn6zmDSHoEXgdft1gtlOjQIVGz7yuPMvuEB9oXDl+giuvRbU+JRlhtSf/eQ==
 
 "@npmcli/move-file@^1.0.1":
   version "1.0.1"
@@ -4556,10 +4556,10 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-next@^10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/next/-/next-10.0.0.tgz#fbc82fa69f05bf82fb5c4e160151f38fb9615e99"
-  integrity sha512-hpJkikt6tqwj7DfD5Mizwc1kDsaaS73TQK6lJL+++Ht8QXIEs+KUqTZULgdMk80mDV2Zhzo9/JYMEranWwAFLA==
+next@^10.0.1:
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/next/-/next-10.0.1.tgz#e1366b41b8547dfc7e9a14d1f7dd8a8584dcf0b2"
+  integrity sha512-EFlcWe82CQc1QkeIhNogcdC25KBz4CBwjyzfRHhig+wp28GW1O2P/mX+2a7EG1wXg69GyW1JYXOkKk2/VjIwVg==
   dependencies:
     "@ampproject/toolbox-optimizer" "2.7.0-alpha.1"
     "@babel/code-frame" "7.10.4"
@@ -4580,10 +4580,10 @@ next@^10.0.0:
     "@babel/runtime" "7.11.2"
     "@babel/types" "7.11.5"
     "@hapi/accept" "5.0.1"
-    "@next/env" "10.0.0"
-    "@next/polyfill-module" "10.0.0"
-    "@next/react-dev-overlay" "10.0.0"
-    "@next/react-refresh-utils" "10.0.0"
+    "@next/env" "10.0.1"
+    "@next/polyfill-module" "10.0.1"
+    "@next/react-dev-overlay" "10.0.1"
+    "@next/react-refresh-utils" "10.0.1"
     ast-types "0.13.2"
     babel-plugin-transform-define "2.0.0"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
@@ -5571,7 +5571,7 @@ promise-inflight@^1.0.1:
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
 
-prop-types@15.7.2, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5697,15 +5697,14 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^16.13.1:
-  version "16.14.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
-  integrity sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==
+react-dom@^17.0.1:
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.1.tgz#1de2560474ec9f0e334285662ede52dbc5426fc6"
+  integrity sha512-6eV150oJZ9U2t9svnsspTMrWNyHc6chX0KzDeAOXftRa8bNeOKTTfCJ7KorIwenkHd2xqVTBTCZd79yk/lx/Ug==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    scheduler "^0.19.1"
+    scheduler "^0.20.1"
 
 react-is@16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
@@ -5725,14 +5724,13 @@ react-refresh@0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
-react@^16.13.1:
-  version "16.14.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
-  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
+react@^17.0.1:
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-17.0.1.tgz#6e0600416bd57574e3f86d92edba3d9008726127"
+  integrity sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    prop-types "^15.6.2"
 
 read-cache@^1.0.0:
   version "1.0.0"
@@ -6015,10 +6013,10 @@ sass@^1.26.11:
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
 
-scheduler@^0.19.1:
-  version "0.19.1"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.19.1.tgz#4f3e2ed2c1a7d65681f4c854fa8c5a1ccb40f196"
-  integrity sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==
+scheduler@^0.20.1:
+  version "0.20.1"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.20.1.tgz#da0b907e24026b01181ecbc75efdc7f27b5a000c"
+  integrity sha512-LKTe+2xNJBNxu/QhHvDR14wUXHRQbVY5ZOYpOGWRzhydZUqrLb2JBvLPY7cAqFmqrWuDED0Mjk7013SZiOz6Bw==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

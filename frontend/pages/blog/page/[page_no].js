@@ -6,7 +6,8 @@ import Layout from "../../../src/components/layout";
 import Pagination from "../../../src/components/blog/pagination";
 import Posts from "../../../src/components/blog/posts";
 
-const Page = ({ menus, posts }) => {
+const Page = ({data}) => {
+	const { posts } = data;
     const router = useRouter();
 
     const { pageInfo } = posts ?? {};
@@ -22,7 +23,7 @@ const Page = ({ menus, posts }) => {
     }
 
     return (
-        <Layout menus={menus}>
+        <Layout data={data}>
 	        <Posts posts={posts}/>
             <Pagination pagesCount={pagesCount} postName="blog" />
         </Layout>
@@ -46,8 +47,13 @@ export async function getStaticProps({ params }) {
     });
     return {
         props: {
-            menus: data?.headerMenus?.edges ?? [],
-            posts: data?.posts,
+        	data: {
+		        menus: {
+			        headerMenus: data?.headerMenus?.edges || [],
+			        footerMenus: data?.footerMenus?.edges || []
+		        },
+		        posts: data?.posts,
+	        }
         },
         revalidate: 1,
     };

@@ -1,21 +1,30 @@
 import { gql } from "@apollo/client";
+import MenuFragment from "./fragments/menus";
 
 export const GET_MENUS = gql`
    query GET_MENUS {
       headerMenus: menuItems(where: { location: HCMS_MENU_HEADER }) {
          edges {
             node {
-               id
-               label
-               url
-               path
+			   ...MenuFragment
                childItems {
                   edges {
                      node {
-                        id
-                        menuItemId
-                        label
-                        url
+						...MenuFragment
+                     }
+                  }
+               }
+            }
+         }
+      }
+      footerMenus: menuItems(where: { location: HCMS_MENU_FOOTER }) {
+         edges {
+            node {
+			   ...MenuFragment
+               childItems {
+                  edges {
+                     node {
+						...MenuFragment
                      }
                   }
                }
@@ -23,4 +32,5 @@ export const GET_MENUS = gql`
          }
       }
    }
+   ${MenuFragment}
 `;

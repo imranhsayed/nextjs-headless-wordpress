@@ -1,6 +1,6 @@
 const path = require("path");
 module.exports = {
-    trailingSlash: false,
+    trailingSlash: true,
     webpackDevMiddleware: (config) => {
         config.watchOptions = {
             poll: 1000,

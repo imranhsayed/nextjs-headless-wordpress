@@ -1,18 +1,17 @@
 import Layout from "../src/components/layout";
 import client from "../src/apollo/client";
-import { GET_PAGE } from "../src/queries/get-page";
-import { GET_MENUS } from "../src/queries/get-menus";
+import { GET_PAGE } from "../src/queries/pages/get-page";
+import { GET_PAGES } from "../src/queries/pages/get-pages";
 import { sanitize } from "../src/utils/functions";
 import { useRouter } from "next/router";
+import { customPagesSlugs } from "../src/utils/slugs";
 
-const Page = ({ menus, page, path }) => {
+const Page = ({ data }) => {
     const router = useRouter();
-
-    // @TODO 'path' variable can be used later to render custom templates.
-    console.warn("page", router.query.slug);
+    const { page } = data;
 
     return (
-        <Layout menus={menus}>
+        <Layout data={data}>
             <div>
                 <h1 dangerouslySetInnerHTML={{ __html: sanitize(page?.title) }} />
                 <div dangerouslySetInnerHTML={{ __html: sanitize(page?.content) }} />
@@ -33,9 +32,14 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
-            menus: data?.headerMenus?.edges ?? [],
-            page: data?.page ?? {},
-            path: params?.slug.join("/"),
+	        data:  {
+		        menus: {
+			        headerMenus: data?.headerMenus?.edges || [],
+			        footerMenus: data?.footerMenus?.edges || []
+		        },
+		        page: data?.page ?? {},
+		        path: params?.slug.join("/"),
+	        }
         },
 	    /**
 	     * Revalidate means that if a new request comes to server, then every 1 sec it will check
@@ -63,21 +67,26 @@ export async function getStaticProps({ params }) {
  *
  * @returns {Promise<{paths: [], fallback: boolean}>}
  */
-export async function getStaticPaths() {
-    const { data, loading, networkStatus } = await client.query({
-        query: GET_MENUS,
-    });
+export async function getStaticPaths () {
+	const { data } = await client.query({
+		query: GET_PAGES
+	})
 
-    const pathsData = [];
+	const pathsData = [];
 
-    (data?.headerMenus?.edges ?? []).map((item) => {
-        const pathArray = item.node.path.split("/");
-        const filteredPaths = pathArray.filter((path) => "" !== path);
-        pathsData.push({ params: { slug: filteredPaths } });
-    });
+	(data?.pages?.nodes ?? []).map((page) => {
+		/**
+		 * Check if slug existsing and exclude the custom pages, from dynamic pages creation
+		 * as they will automatically be generated when we create their respective directories
+		 * with their names under 'pages'.
+		 */
+		if ( page?.slug && !customPagesSlugs.includes(page?.slug)) {
+			pathsData.push({ params: { slug: [page?.slug] } })
+		}
+	})
 
-    return {
-        paths: pathsData,
-        fallback: false,
-    };
+	return {
+		paths: pathsData,
+		fallback: false
+	}
 }

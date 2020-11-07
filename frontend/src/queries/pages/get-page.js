@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import MenuFragment from "./fragments/menus";
+import MenuFragment from "../fragments/menus";
 
 export const GET_PAGE = gql`
 	query GET_PAGE($uri: String) {
