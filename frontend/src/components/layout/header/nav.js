@@ -31,7 +31,7 @@ const Nav = ({headerMenus}) => {
 					</svg>
 				</button>
 			</div>
-			<div className={`${ isMenuVisible ? 'max-h-full' : 'h-0' } overflow-hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto`}>
+			<div className={`${ isMenuVisible ? 'max-h-full' : 'h-0' } overflow-hidden w-full lg:h-full block flex-grow lg:flex lg:items-center lg:w-auto`}>
 				{ headerMenus?.length ? (
 					<div className="text-sm lg:flex-grow">
 						{ headerMenus?.map( menu => (
