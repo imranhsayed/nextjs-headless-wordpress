@@ -4,8 +4,6 @@ import Link from 'next/link';
 import {getIconComponentByName} from "../../../utils/icons-map";
 
 const Footer = ({footer, footerMenus}) => {
-
-    console.log( 'footerMenus', footerMenus);
     return (
         <footer className="bg-teal-500 p-6">
             <div className="flex flex-wrap -mx-1 overflow-hidden text-white">
