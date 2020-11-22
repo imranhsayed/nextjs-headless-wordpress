@@ -5,10 +5,13 @@
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "svg": "svgr -d src/components/icons src/components/icons/svgs"
   },
   "dependencies": {
     "@apollo/client": "^3.1.4",
+    "@svgr/cli": "^5.5.0",
+    "dompurify": "^2.2.2",
     "graphql": "^15.3.0",
     "next": "^10.0.1",
     "react": "^17.0.1",
