@@ -3,10 +3,10 @@ import * as SvgIconsComponent from '../components/icons'
 /**
  * Icons Component map.
  *
- * @param {string} slug Slug.
+ * @param {string} name Icon Name.
  * @returns {*}
  */
-export const getIconComponentBySlug = (slug) => {
+export const getIconComponentByName = (name) => {
     const ComponentsMap = {
         facebook: SvgIconsComponent.Facebook,
         twitter: SvgIconsComponent.Twitter,
@@ -14,9 +14,9 @@ export const getIconComponentBySlug = (slug) => {
         youtube: SvgIconsComponent.Youtube
     }
 
-    if ( (slug in ComponentsMap) ) {
-        const IconComponent = ComponentsMap[slug];
-        return <IconComponent/>
+    if ( name in ComponentsMap ) {
+        const IconComponent = ComponentsMap[name];
+        return <IconComponent />
     } else {
         return null;
     }

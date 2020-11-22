@@ -1,7 +1,7 @@
 import {isEmpty, isArray} from 'lodash';
 import {sanitize} from "../../../utils/miscellaneous";
 import Link from 'next/link';
-import {getIconComponentBySlug} from "../../../utils/icons-map";
+import {getIconComponentByName} from "../../../utils/icons-map";
 
 const Footer = ({footer, footerMenus}) => {
 
@@ -42,26 +42,18 @@ const Footer = ({footer, footerMenus}) => {
         {/*Copyright Text*/}
             <div className="mb-8 mt-8 w-full flex flex-wrap">
                 <div className="w-full md:w-1/2 lg:w-1/4 text-white">{footer?.copyrightText ? footer.copyrightText : '© Codeytek Academy 2020'}</div>
-                <div className="w-full lg:w-3/4">
-                    {
-                        ! isEmpty( footer?.socialLinks ) && isArray( footer?.socialLinks ) ?
-                            (
-                                <ul>
-                                    { footer.socialLinks.map( socialLink => {
-                                        if ( ! isEmpty(socialLink?.iconUrl) ) {
-                                        	return (
-                                                <li key={ socialLink?.iconName }>
-                                                    <a href={socialLink?.iconUrl}>
-                                                        { getIconComponentBySlug( socialLink?.iconName ) }
-                                                    </a>
-                                                </li>
-                                            )
-                                        }
-                                    } ) }
-                                </ul>
-                            )
-                            : null
-                    }
+                <div className="w-full lg:w-3/4 flex justify-end">
+                    { ! isEmpty( footer?.socialLinks ) && isArray( footer?.socialLinks ) ? (
+                        <ul className="flex items-center">
+                            { footer.socialLinks.map( socialLink => (
+                                <li key={ socialLink?.iconName } className="ml-4">
+                                    <a href={socialLink?.iconUrl}>
+                                        { getIconComponentByName( socialLink?.iconName ) }
+                                    </a>
+                                </li>
+                            ) ) }
+                        </ul>
+                    ) : null }
                 </div>
             </div>
         </footer>
