@@ -8,7 +8,13 @@ sitemap({
     pagesDirectory: __dirname + "/.next/server/pages",
     targetDirectory: "public/",
     ignoredExtensions: ["js", "map"],
-    ignoredPaths: ["[fallback]"],
+    ignoredPaths: ["[...slug]", "[fallback]"],
+    sitemapStylesheet: [
+        {
+            type: "text/xsl",
+            styleFile: "/sitemap.xsl"
+        }
+    ]
 });
 
 console.log(`✅ sitemap.xml generated!`);
