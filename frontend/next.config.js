@@ -1,6 +1,9 @@
 const path = require('path')
 module.exports = {
 	trailingSlash: true,
+	env: {
+		customKey: 'my-value',
+	},
 	webpackDevMiddleware: config => {
 		config.watchOptions = {
 			poll: 1000,

@@ -4,7 +4,7 @@ const fs = require("fs");
 const BUILD_ID = fs.readFileSync(".next/BUILD_ID").toString();
 
 sitemap({
-    baseUrl: 'https://localhost:3000',
+    baseUrl: process.env.NEXT_PUBLIC_NEXTJS_SITE_URL,
     pagesDirectory: __dirname + "/.next/server/pages",
     targetDirectory: "public/",
     ignoredExtensions: ["js", "map"],
