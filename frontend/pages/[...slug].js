@@ -1,24 +1,18 @@
 import client from "../src/apollo/client";
-import { isEmpty } from 'lodash';
-import { useRouter } from 'next/router'
+import {GET_PAGES_URI} from "../src/queries/pages/get-pages";
+import {isEmpty} from 'lodash';
 import {GET_PAGE} from "../src/queries/pages/get-page";
-import {GET_PAGES} from "../src/queries/pages/get-pages";
+import { useRouter } from 'next/router'
 
-const Pages = ({data}) => {
-
+const Pages = ({ data }) => {
     const router = useRouter()
 
-    /**
-     * If the page is not yet generated, this will be displayed
-     * initially until getStaticProps() finishes running
-     *
-     * @TODO add a loading component.
-     */
+    // If the page is not yet generated, this will be displayed
+    // initially until getStaticProps() finishes running
     if (router.isFallback) {
         return <div>Loading...</div>
     }
-
-    return 'Pages'
+    return router?.query?.slug.join("/");
 }
 
 export default Pages;
@@ -34,10 +28,12 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             data:  {
+                header: data?.header || [],
                 menus: {
                     headerMenus: data?.headerMenus?.edges || [],
                     footerMenus: data?.footerMenus?.edges || []
                 },
+                footer: data?.footer || [],
                 page: data?.page ?? {},
                 path: params?.slug.join("/"),
             }
@@ -51,25 +47,22 @@ export async function getStaticProps({ params }) {
     };
 }
 
-export async function getStaticPaths () {
+export async function getStaticPaths() {
     const { data } = await client.query({
-        query: GET_PAGES
-    })
+        query: GET_PAGES_URI
+    });
 
     const pathsData = [];
 
     data?.pages?.nodes && data?.pages?.nodes.map( page => {
-
         if ( ! isEmpty( page?.uri ) ) {
-            const slugs = page?.uri?.split('/').filter(pageSlug => pageSlug)
-            pathsData.push({ params: { slug: slugs } })
+        	const slugs = page?.uri?.split('/').filter( pageSlug => pageSlug );
+            pathsData.push( {params: { slug: slugs }} )
         }
-
-    } );
-
+    })
 
     return {
         paths: pathsData,
         fallback: true
-    }
+    };
 }
