@@ -8,7 +8,8 @@ sitemap({
     pagesDirectory: __dirname + "/.next/server/pages",
     targetDirectory: "public/",
     ignoredExtensions: ["js", "map"],
-    ignoredPaths: ["[...slug]", "[fallback]"],
+    ignoredPaths: ["[...slug]"],
+    nextConfigPath: __dirname + "/next.config.js",
     sitemapStylesheet: [
         {
             type: "text/xsl",

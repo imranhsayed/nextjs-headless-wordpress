@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build && npm run create-sitemap",
-    "create-sitemap": "NEXT_PUBLIC_NEXTJS_SITE_URL=http://localhost:3000 node sitemap.js",
+    "sitemap": "NEXT_PUBLIC_NEXTJS_SITE_URL=http://localhost:3000 node sitemap.js",
     "start": "next start",
     "svg": "svgr -d src/components/icons src/components/icons/svgs"
   },
