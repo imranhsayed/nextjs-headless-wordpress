@@ -1,6 +1,6 @@
 import client from "../src/apollo/client";
-import { GET_MENUS } from "../src/queries/get-menus";
 import Layout from "../src/components/layout";
+import {GET_PAGE} from "../src/queries/pages/get-page";
 
 export default function Home( {data} ) {
   return (
@@ -13,7 +13,10 @@ export default function Home( {data} ) {
 export async function getStaticProps(context) {
 
 	const { data, loading, networkStatus } = await client.query({
-		query: GET_MENUS
+		query: GET_PAGE,
+		variables: {
+			uri: "/",
+		},
 	});
 
 	return {
@@ -25,6 +28,7 @@ export async function getStaticProps(context) {
 					footerMenus: data?.footerMenus?.edges || [],
 				},
 				footer: data?.footer || [],
+				page: data?.page || []
 			}
 		},
 		revalidate: 1

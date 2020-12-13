@@ -14,7 +14,7 @@ Run this from root
 ```bash
 docker-compose -f backend/docker-compose.yml up -d 
 ```
-
+- Make sure to set Home Page as Front page from WordPress dashboard > Customize > Homepage Settings.
 *WordPress Backend* will be available on [http://localhost:8020](http://localhost:8020)
 
 *[phpMyAdmin](https://github.com/phpmyadmin/phpmyadmin)*: You can access php myadmin on [http://localhost:8183](http://localhost:8183)
