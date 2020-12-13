@@ -3,7 +3,6 @@ import Layout from "../src/components/layout";
 import {GET_PAGE} from "../src/queries/pages/get-page";
 
 export default function Home( {data} ) {
-	console.log( 'data', data );
   return (
 	<Layout data={data}>
 		content
