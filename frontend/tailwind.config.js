@@ -8,7 +8,11 @@ module.exports = {
 	  './pages/**/*.js',
   ],
   theme: {
-    extend: {},
+    extend: {
+        height: {
+            'almost-screen': 'calc(-16rem + 100vh)'
+        }
+    },
   },
   variants: {},
   plugins: [

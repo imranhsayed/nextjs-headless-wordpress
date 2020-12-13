@@ -27,7 +27,9 @@ const Layout = ({data, children}) => {
 				)}
 			</Head>
 			<Header header={header} headerMenus={menus?.headerMenus}/>
-			{children}
+			<div className="h-almost-screen">
+				{children}
+			</div>
 			<Footer footer={footer} footerMenus={ menus?.footerMenus }/>
 		</div>
 	)

@@ -14,7 +14,11 @@ const Nav = ({header, headerMenus}) => {
 	return (
 		<nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
 			<div className="flex items-center flex-shrink-0 text-white mr-6">
-				<img src={header?.siteLogoUrl} alt="" width="48" height="48" className="mr-4"/>
+				<Link href="/">
+					<a>
+						<img src={header?.siteLogoUrl} alt="" width="48" height="48" className="mr-4"/>
+					</a>
+				</Link>
 				<div className="flex flex-col items-start justify-start">
 					<span className="font-semibold text-xl tracking-tight">{header?.siteTitle}</span>
 					<span>{header?.siteTagLine}</span>

@@ -3,8 +3,9 @@ import {GET_PAGES_URI} from "../src/queries/pages/get-pages";
 import {isEmpty} from 'lodash';
 import {GET_PAGE} from "../src/queries/pages/get-page";
 import { useRouter } from 'next/router'
+import Layout from "../src/components/layout";
 
-const Pages = ({ data }) => {
+const Page = ({ data }) => {
     const router = useRouter()
 
     // If the page is not yet generated, this will be displayed
@@ -12,10 +13,15 @@ const Pages = ({ data }) => {
     if (router.isFallback) {
         return <div>Loading...</div>
     }
-    return router?.query?.slug.join("/");
+
+    return (
+        <Layout data={data}>
+            {router?.query?.slug.join("/")}
+        </Layout>
+    );
 }
 
-export default Pages;
+export default Page;
 
 export async function getStaticProps({ params }) {
     const { data } = await client.query({
