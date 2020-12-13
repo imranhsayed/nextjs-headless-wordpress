@@ -16,7 +16,6 @@ import PropTypes from 'prop-types'
  */
 const Seo = ({ seo, uri }) => {
     const {
-        canonical,
         title,
         metaDesc,
         metaRobotsNoindex,
@@ -34,7 +33,7 @@ const Seo = ({ seo, uri }) => {
         <NextSeo
             title={title}
             description={opengraphDescription || metaDesc}
-            canonical={canonical || opengraphUrl}
+            canonical={opengraphUrl}
             noindex={metaRobotsNoindex}
             nofollow={metaRobotsNofollow}
             openGraph={{

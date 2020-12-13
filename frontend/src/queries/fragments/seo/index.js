@@ -4,7 +4,6 @@ fragment SeoFragment on PostTypeSEO {
         text
         url
       }
-      canonical
       title
       metaDesc
       metaRobotsNoindex

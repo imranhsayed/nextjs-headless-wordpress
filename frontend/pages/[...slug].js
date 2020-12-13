@@ -4,6 +4,7 @@ import {isEmpty} from 'lodash';
 import {GET_PAGE} from "../src/queries/pages/get-page";
 import { useRouter } from 'next/router'
 import Layout from "../src/components/layout";
+import {isCustomPageUri} from "../src/utils/constants";
 
 const Page = ({ data }) => {
     const router = useRouter()
@@ -78,7 +79,7 @@ export async function getStaticPaths() {
     const pathsData = [];
 
     data?.pages?.nodes && data?.pages?.nodes.map( page => {
-        if ( ! isEmpty( page?.uri ) ) {
+        if ( ! isEmpty( page?.uri ) && ! isCustomPageUri( page?.uri ) ) {
         	const slugs = page?.uri?.split('/').filter( pageSlug => pageSlug );
             pathsData.push( {params: { slug: slugs }} )
         }
