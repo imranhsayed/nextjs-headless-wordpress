@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
  * Used to seo meta tags for each page
  *
  * @param {Object} seo Seo.
+ * @param {string} uri Page URI.
  * @see https://www.npmjs.com/package/next-seo
  *
  * @returns {JSX.Element}
@@ -22,7 +23,6 @@ const Seo = ({ seo, uri }) => {
         metaRobotsNofollow,
         opengraphDescription,
         opengraphTitle,
-        featuredOgImage,
         opengraphImage,
         opengraphSiteName
     } = seo
@@ -45,7 +45,7 @@ const Seo = ({ seo, uri }) => {
                 description: opengraphDescription,
                 images: [
                     {
-                        url: !isEmpty(featuredOgImage) ? featuredOgImage : opengraphImage?.sourceUrl,
+                        url: opengraphImage?.sourceUrl,
                         width: 1280,
                         height: 720
                     }
