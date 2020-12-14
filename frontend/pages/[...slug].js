@@ -4,7 +4,7 @@ import {isEmpty} from 'lodash';
 import {GET_PAGE} from "../src/queries/pages/get-page";
 import { useRouter } from 'next/router'
 import Layout from "../src/components/layout";
-import {isCustomPageUri} from "../src/utils/constants";
+import {isCustomPageUri} from "../src/utils/slug";
 
 const Page = ({ data }) => {
     const router = useRouter()
