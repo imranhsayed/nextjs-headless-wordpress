@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21a83aecba0d3253cc4423db8c1d4bc6",
+    "content-hash": "236f8774c41392bf756c6fe710740d41",
     "packages": [
         {
             "name": "ashhitch/wp-graphql-yoast-seo",
-            "version": "v4.10.0",
+            "version": "v4.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ashhitch/wp-graphql-yoast-seo.git",
-                "reference": "652a4d816deb9243675543e8cfe8de947c000c91"
+                "reference": "b740cb57afbbcb1c2f0154d9aa56b24288275c98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ashhitch/wp-graphql-yoast-seo/zipball/652a4d816deb9243675543e8cfe8de947c000c91",
-                "reference": "652a4d816deb9243675543e8cfe8de947c000c91",
+                "url": "https://api.github.com/repos/ashhitch/wp-graphql-yoast-seo/zipball/b740cb57afbbcb1c2f0154d9aa56b24288275c98",
+                "reference": "b740cb57afbbcb1c2f0154d9aa56b24288275c98",
                 "shasum": ""
             },
             "require": {
@@ -44,7 +44,7 @@
                 }
             ],
             "description": "Query Yoast SEO data with wp-graphql",
-            "time": "2020-12-07T17:52:18+00:00"
+            "time": "2020-12-16T19:26:47+00:00"
         },
         {
             "name": "composer/installers",
@@ -374,16 +374,16 @@
         },
         {
             "name": "imranhsayed/headless-cms",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/imranhsayed/headless-cms.git",
-                "reference": "8f70f06566c3fe7e9e5f24763f8e4575f5129d2b"
+                "reference": "1c02f414adbb14d707daff1a1d0b3f00ace1bc97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/imranhsayed/headless-cms/zipball/8f70f06566c3fe7e9e5f24763f8e4575f5129d2b",
-                "reference": "8f70f06566c3fe7e9e5f24763f8e4575f5129d2b",
+                "url": "https://api.github.com/repos/imranhsayed/headless-cms/zipball/1c02f414adbb14d707daff1a1d0b3f00ace1bc97",
+                "reference": "1c02f414adbb14d707daff1a1d0b3f00ace1bc97",
                 "shasum": ""
             },
             "require": {
@@ -406,7 +406,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2020-10-26T08:02:07+00:00"
+            "time": "2020-12-13T09:25:32+00:00"
         },
         {
             "name": "ivome/graphql-relay-php",
@@ -1133,16 +1133,16 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v5.2.0",
+            "version": "v5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "b8d8eb06b0942e84a69e7acebc3e9c1e6e6e7256"
+                "reference": "f789e7ead4c79e04ca9a6d6162fc629c89bd8054"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/b8d8eb06b0942e84a69e7acebc3e9c1e6e6e7256",
-                "reference": "b8d8eb06b0942e84a69e7acebc3e9c1e6e6e7256",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/f789e7ead4c79e04ca9a6d6162fc629c89bd8054",
+                "reference": "f789e7ead4c79e04ca9a6d6162fc629c89bd8054",
                 "shasum": ""
             },
             "require": {
@@ -1191,7 +1191,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-28T21:31:18+00:00"
+            "time": "2020-12-08T17:02:38+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -1637,16 +1637,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v0.13.8",
+            "version": "v14.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "6829ae58f4c59121df1f86915fb9917a2ec595e8"
+                "reference": "4f3430990824ff410fe548102cb85f0c46442704"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/6829ae58f4c59121df1f86915fb9917a2ec595e8",
-                "reference": "6829ae58f4c59121df1f86915fb9917a2ec595e8",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/4f3430990824ff410fe548102cb85f0c46442704",
+                "reference": "4f3430990824ff410fe548102cb85f0c46442704",
                 "shasum": ""
             },
             "require": {
@@ -1655,15 +1655,19 @@
                 "php": "^7.1||^8.0"
             },
             "require-dev": {
+                "amphp/amp": "^2.3",
                 "doctrine/coding-standard": "^6.0",
-                "phpbench/phpbench": "^0.14.0",
-                "phpstan/phpstan": "^0.11.4",
-                "phpstan/phpstan-phpunit": "^0.11.0",
-                "phpstan/phpstan-strict-rules": "^0.11.0",
-                "phpunit/phpcov": "^5.0",
-                "phpunit/phpunit": "^7.2",
+                "nyholm/psr7": "^1.2",
+                "phpbench/phpbench": "^0.16.10",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "0.12.32",
+                "phpstan/phpstan-phpunit": "0.12.11",
+                "phpstan/phpstan-strict-rules": "0.12.2",
+                "phpunit/phpunit": "^7.2|^8.5",
                 "psr/http-message": "^1.0",
-                "react/promise": "2.*"
+                "react/promise": "2.*",
+                "simpod/php-coveralls-mirror": "^3.0",
+                "squizlabs/php_codesniffer": "3.5.4"
             },
             "suggest": {
                 "psr/http-message": "To use standard GraphQL server",
@@ -1685,26 +1689,32 @@
                 "api",
                 "graphql"
             ],
-            "time": "2019-08-25T10:32:47+00:00"
+            "funding": [
+                {
+                    "url": "https://opencollective.com/webonyx-graphql-php",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2020-08-23T11:52:38+00:00"
         },
         {
             "name": "wp-graphql/wp-graphql",
-            "version": "v0.13.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-graphql/wp-graphql.git",
-                "reference": "d4f9fb560fa6bb8d8ce90ecd0090568de39640dd"
+                "reference": "7b50fc84bc49324a2e917de84b30bb5dd59a0dd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-graphql/wp-graphql/zipball/d4f9fb560fa6bb8d8ce90ecd0090568de39640dd",
-                "reference": "d4f9fb560fa6bb8d8ce90ecd0090568de39640dd",
+                "url": "https://api.github.com/repos/wp-graphql/wp-graphql/zipball/7b50fc84bc49324a2e917de84b30bb5dd59a0dd8",
+                "reference": "7b50fc84bc49324a2e917de84b30bb5dd59a0dd8",
                 "shasum": ""
             },
             "require": {
                 "ivome/graphql-relay-php": "0.3.1",
                 "php": "^7.1||^8.0",
-                "webonyx/graphql-php": "0.13.8"
+                "webonyx/graphql-php": "14.3.0"
             },
             "require-dev": {
                 "codeception/module-asserts": "^1.0",
@@ -1715,22 +1725,20 @@
                 "codeception/module-rest": "^1.2",
                 "codeception/module-webdriver": "^1.0",
                 "codeception/util-universalframework": "^1.0",
-                "dealerdirect/phpcodesniffer-composer-installer": "0.5.0",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
                 "lucatume/wp-browser": "^2.4",
                 "phpcompatibility/phpcompatibility-wp": "2.1.0",
+                "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^0.12.25",
                 "squizlabs/php_codesniffer": "3.5.4",
-                "szepeviktor/phpstan-wordpress": "^0.5.0",
+                "szepeviktor/phpstan-wordpress": "^0.7.1",
                 "wp-coding-standards/wpcs": "2.1.1"
             },
             "type": "wordpress-plugin",
             "autoload": {
                 "psr-4": {
                     "WPGraphQL\\": "src/"
-                },
-                "classmap": [
-                    "src/"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1755,7 +1763,7 @@
                 }
             ],
             "description": "GraphQL API for WordPress",
-            "time": "2020-10-08T04:40:19+00:00"
+            "time": "2020-12-17T22:00:13+00:00"
         },
         {
             "name": "wp-graphql/wp-graphql-acf",
@@ -1864,16 +1872,16 @@
         },
         {
             "name": "yoast/wordpress-seo",
-            "version": "15.4",
+            "version": "15.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Yoast-dist/wordpress-seo.git",
-                "reference": "c16de669f5f6ea4c22700ad6fbe21d232b61f6e4"
+                "reference": "01dac71204ca3be18dc70fc5e885ddc9a4935a45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Yoast-dist/wordpress-seo/zipball/c16de669f5f6ea4c22700ad6fbe21d232b61f6e4",
-                "reference": "c16de669f5f6ea4c22700ad6fbe21d232b61f6e4",
+                "url": "https://api.github.com/repos/Yoast-dist/wordpress-seo/zipball/01dac71204ca3be18dc70fc5e885ddc9a4935a45",
+                "reference": "01dac71204ca3be18dc70fc5e885ddc9a4935a45",
                 "shasum": ""
             },
             "require": {
@@ -1887,13 +1895,13 @@
             },
             "require-dev": {
                 "atanamo/php-codeshift": "^1.0",
-                "brain/monkey": "^2.5.0",
                 "humbug/php-scoper": "^0.13.4",
                 "php-parallel-lint/php-console-highlighter": "^0.5",
                 "php-parallel-lint/php-parallel-lint": "^1.2.0",
                 "phpunit/phpunit": "^5.7",
                 "symfony/config": "^3.4",
                 "yoast/php-development-environment": "^1.0",
+                "yoast/wp-test-utils": "^0.1.1",
                 "yoast/yoastcs": "^2.1.0"
             },
             "type": "wordpress-plugin",
@@ -1922,7 +1930,7 @@
                 "seo",
                 "wordpress"
             ],
-            "time": "2020-12-02T10:28:35+00:00"
+            "time": "2020-12-15T08:27:57+00:00"
         }
     ],
     "packages-dev": [],
