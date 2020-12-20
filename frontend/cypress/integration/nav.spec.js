@@ -10,19 +10,19 @@ describe('Nav Menus', () => {
             cy.viewport(1280, 720)
         })
 
-        describe( 'When you visit home', () => {
+        describe('When you visit home', () => {
 
-            it( 'Should visit home page', () => {
-                cy.visit( '/' )
-            } );
+            it('Should visit home page', () => {
+                cy.visit('/')
+            });
 
-            describe( 'nav', () => {
-                it( 'Should about to navigate to About page', () => {
+            describe('nav', () => {
+                it('Should navigate to About page', () => {
                     cy.get('[data-cy=nav-item]').contains('About').click()
-                    cy.url().should('include', '/about')
-                } )
-            } )
-        } )
+                    cy.url().should('include', '/about/')
+                })
+            })
+        })
     })
 
     context('iphone-5 resolution', () => {
@@ -34,24 +34,24 @@ describe('Nav Menus', () => {
             cy.viewport('iphone-5')
         })
 
-        describe( 'When you visit home', () => {
+        describe('When you visit home', () => {
 
-            it( 'Should visit home page', () => {
-                cy.visit( '/' )
-            } );
+            it('Should visit home page', () => {
+                cy.visit('/')
+            });
 
-            describe( 'Mmenu', () => {
-                it( 'Should open the mmenu', () => {
+            describe('Mmenu', () => {
+                it('Should open the mmenu', () => {
                     cy.get('[data-cy=mmenu-btn]').click();
-                } )
+                })
 
-                describe( 'nav', () => {
-                    it( 'Should about to navigate to About page', () => {
+                describe('nav', () => {
+                    it('Should navigate to About page', () => {
                         cy.get('[data-cy=nav-item]').contains('About').click()
-                        cy.url().should('include', '/about')
-                    } )
-                } )
-            } )
-        } )
+                        cy.url().should('include', '/about/')
+                    })
+                })
+            })
+        })
     })
 })
