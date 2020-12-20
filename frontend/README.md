@@ -28,3 +28,26 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Cypress
+
+To run cypress tests, run the following from the root of your project.
+
+1. From the browser
+```shell
+npm run cypress:open
+```
+
+2. From CLI 
+* Run a single test:
+```shell
+npm run cypress:run -- --spec "cypress/integration/nav.spec.js" # Here we pass the file path that contains our test 
+```
+
+* Run all tests
+
+```shell script
+npm run cypress:run
+```
+
+* [Cypress Best Practices](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements)
