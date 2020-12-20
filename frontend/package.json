@@ -6,7 +6,9 @@
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "svg": "svgr -d src/components/icons src/components/icons/svgs"
+    "svg": "svgr -d src/components/icons src/components/icons/svgs",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "@apollo/client": "^3.1.4",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "@svgr/cli": "^5.5.0",
+    "cypress": "^6.1.0",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",
