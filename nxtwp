@@ -64,7 +64,7 @@ function start_env_frontend() {
 
 # Check URL
 function check_url_input() {
-    regex='(http?)://[-A-Za-z0-9:0-9]'
+    regex='(https?)://[-A-Za-z0-9:0-9]'
     user_input=$1
 
     if ! [[ $user_input =~ $regex ]]
