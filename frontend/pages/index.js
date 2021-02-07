@@ -1,6 +1,7 @@
 import client from "../src/apollo/client";
 import Layout from "../src/components/layout";
 import {GET_PAGE} from "../src/queries/pages/get-page";
+import {handleRedirectsAndReturnData} from "../src/utils/slug";
 
 export default function Home( {data} ) {
   return (
@@ -12,25 +13,24 @@ export default function Home( {data} ) {
 
 export async function getStaticProps(context) {
 
-	const { data, loading, networkStatus } = await client.query({
+	const { data, errors } = await client.query({
 		query: GET_PAGE,
 		variables: {
 			uri: "/",
 		},
 	});
 
-	return {
-		props:{
-			data: {
-				header: data?.header || [],
-				menus: {
-					headerMenus: data?.headerMenus?.edges || [],
-					footerMenus: data?.footerMenus?.edges || [],
-				},
-				footer: data?.footer || [],
-				page: data?.page || []
-			}
+	const defaultProps = {
+		props: {
+			data:  data || {}
 		},
-		revalidate: 1
-	}
+		/**
+		 * Revalidate means that if a new request comes to server, then every 1 sec it will check
+		 * if the data is changed, if it is changed then it will update the
+		 * static file inside .next folder with the new data, so that any 'SUBSEQUENT' requests should have updated data.
+		 */
+		revalidate: 1,
+	};
+
+	return handleRedirectsAndReturnData( defaultProps, data, errors, 'page' );
 }

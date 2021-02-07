@@ -10,7 +10,7 @@ const Layout = ({data, children}) => {
 		return null
 	}
 
-	const {page, header, footer, menus} = data || {};
+	const {page, header, footer, headerMenus, footerMenus} = data || {};
 
 	return (
 		<div>
@@ -26,11 +26,11 @@ const Layout = ({data, children}) => {
 					/>
 				)}
 			</Head>
-			<Header header={header} headerMenus={menus?.headerMenus}/>
+			<Header header={header} headerMenus={headerMenus?.edges}/>
 			<div className="h-almost-screen">
 				{children}
 			</div>
-			<Footer footer={footer} footerMenus={ menus?.footerMenus }/>
+			<Footer footer={footer} footerMenus={ footerMenus?.edges }/>
 		</div>
 	)
 }
