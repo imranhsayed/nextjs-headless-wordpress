@@ -4,13 +4,13 @@ import {isEmpty} from 'lodash';
 import {GET_PAGE} from "../src/queries/pages/get-page";
 import { useRouter } from 'next/router'
 import Layout from "../src/components/layout";
-import {isCustomPageUri} from "../src/utils/slug";
+import {FALLBACK, handleRedirectsAndReturnData, isCustomPageUri} from "../src/utils/slug";
 
 const Page = ({ data }) => {
     const router = useRouter()
 
     // If the page is not yet generated, this will be displayed
-    // initially until getStaticProps() finishes running
+   // initially until getStaticProps() finishes running
     if (router.isFallback) {
         return <div>Loading...</div>
     }
@@ -25,25 +25,16 @@ const Page = ({ data }) => {
 export default Page;
 
 export async function getStaticProps({ params }) {
-    const { data } = await client.query({
+    const { data, errors } = await client.query({
         query: GET_PAGE,
         variables: {
             uri: params?.slug.join("/"),
         },
     });
 
-    return {
+    const defaultProps = {
         props: {
-            data:  {
-                header: data?.header || [],
-                menus: {
-                    headerMenus: data?.headerMenus?.edges || [],
-                    footerMenus: data?.footerMenus?.edges || []
-                },
-                footer: data?.footer || [],
-                page: data?.page ?? {},
-                path: params?.slug.join("/"),
-            }
+            data:  data || {}
         },
         /**
          * Revalidate means that if a new request comes to server, then every 1 sec it will check
@@ -52,6 +43,8 @@ export async function getStaticProps({ params }) {
          */
         revalidate: 1,
     };
+
+    return handleRedirectsAndReturnData( defaultProps, data, errors, 'page' );
 }
 
 /**
@@ -87,6 +80,6 @@ export async function getStaticPaths() {
 
     return {
         paths: pathsData,
-        fallback: true
+        fallback: FALLBACK
     };
 }
