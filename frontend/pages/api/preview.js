@@ -1,6 +1,6 @@
 import {getPreviewPage} from "../../utils/api";
 
-
+// http://localhost:3000/api/preview/?secret=my-secret&id=8
 export default async function preview(req, res) {
     const { secret, id } = req.query
 

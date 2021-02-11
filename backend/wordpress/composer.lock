@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5cb6844a34bf3131ffd6ea4a2cc3d920",
+    "content-hash": "179f10ead20891472b51b55aa11d8f43",
     "packages": [
         {
             "name": "ashhitch/wp-graphql-yoast-seo",
@@ -189,6 +189,49 @@
                 }
             ],
             "time": "2021-01-14T11:07:16+00:00"
+        },
+        {
+            "name": "firebase/php-jwt",
+            "version": "v4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "dccf163dc8ed7ed6a00afc06c51ee5186a428d35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/dccf163dc8ed7ed6a00afc06c51ee5186a428d35",
+                "reference": "dccf163dc8ed7ed6a00afc06c51ee5186a428d35",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
+            "time": "2016-07-18T04:51:16+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1753,6 +1796,48 @@
             "time": "2021-01-22T02:06:41+00:00"
         },
         {
+            "name": "wp-graphql/wp-graphql-jwt-authentication",
+            "version": "v0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-graphql/wp-graphql-jwt-authentication.git",
+                "reference": "e65055dbd50ca928f466be2c0b7d3c33652694fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-graphql/wp-graphql-jwt-authentication/zipball/e65055dbd50ca928f466be2c0b7d3c33652694fa",
+                "reference": "e65055dbd50ca928f466be2c0b7d3c33652694fa",
+                "shasum": ""
+            },
+            "require": {
+                "firebase/php-jwt": "^4.0"
+            },
+            "require-dev": {
+                "lucatume/wp-browser": ">=2.2.1 <2.2.8"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "WPGraphQL\\JWT_Authentication\\": "src/"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "jasonbahl",
+                    "email": "jasonbahl@mac.com"
+                }
+            ],
+            "description": "JWT Authentication for WPGraphQL",
+            "time": "2020-02-20T17:52:07+00:00"
+        },
+        {
             "name": "wpackagist-plugin/advanced-custom-fields",
             "version": "5.9.1",
             "source": {
@@ -1817,16 +1902,16 @@
         },
         {
             "name": "yoast/wordpress-seo",
-            "version": "15.7",
+            "version": "15.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Yoast-dist/wordpress-seo.git",
-                "reference": "e3aee6b66b8c7dfc592075d5e2cd129beb87faaa"
+                "reference": "4b64c300925e613cc7a9e043992eae96aea38692"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Yoast-dist/wordpress-seo/zipball/e3aee6b66b8c7dfc592075d5e2cd129beb87faaa",
-                "reference": "e3aee6b66b8c7dfc592075d5e2cd129beb87faaa",
+                "url": "https://api.github.com/repos/Yoast-dist/wordpress-seo/zipball/4b64c300925e613cc7a9e043992eae96aea38692",
+                "reference": "4b64c300925e613cc7a9e043992eae96aea38692",
                 "shasum": ""
             },
             "require": {
@@ -1875,7 +1960,7 @@
                 "seo",
                 "wordpress"
             ],
-            "time": "2021-01-26T07:36:48+00:00"
+            "time": "2021-02-10T10:12:16+00:00"
         }
     ],
     "packages-dev": [],
