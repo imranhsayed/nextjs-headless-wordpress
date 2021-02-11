@@ -1,4 +1,4 @@
-import {getPreviewPage} from "../../utils/api";
+import {getPreviewPage, loginUser} from "../../utils/api";
 
 // http://localhost:3000/api/preview/?secret=my-secret&id=8
 export default async function preview(req, res) {
@@ -15,7 +15,10 @@ export default async function preview(req, res) {
     }
 
     // Fetch WordPress to check if the provided `id` or `slug` exists
-    const data = await getPreviewPage(id)
+    // const data = await getPreviewPage(id)
+    const data = await loginUser()
+
+
     return res.status(401).json({ data })
 
     // If the post doesn't exist prevent preview mode from being enabled

@@ -1,5 +1,6 @@
 import client from "../src/apollo/client";
 import {GET_PAGE_BY_ID} from "../src/queries/pages/get-page";
+import LOGIN from "../src/mutations/login";
 
 export async function getPreviewPage(id) {
 
@@ -12,3 +13,22 @@ export async function getPreviewPage(id) {
 
     return data || {};
 }
+
+export async function loginUser() {
+
+    const { data, errors } = await client.query({
+        query: LOGIN,
+        variables: {
+            input: {
+                clientMutationId: 'my-mutation', // Generate a unique id.,
+                username: 'root',
+                password: 'root',
+            },
+        },
+    });
+
+    console.log( 'errors', errors );
+
+    return data || {};
+}
+
