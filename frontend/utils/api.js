@@ -14,15 +14,15 @@ export async function getPreviewPage(id) {
     return data || {};
 }
 
-export async function loginUser() {
+export async function loginUser({username, password}) {
 
     const { data, errors } = await client.query({
         query: LOGIN,
         variables: {
             input: {
                 clientMutationId: 'my-mutation', // Generate a unique id.,
-                username: 'root',
-                password: 'root',
+                username: username || '',
+                password: password || '',
             },
         },
     });
