@@ -25,10 +25,17 @@ export const GET_PAGE_BY_ID = gql`
 	query GET_PAGE_BY_ID($id: ID!) {
 		${HeaderFooter}
 	  page(idType: DATABASE_ID, id: $id) {
-		databaseId
-		slug
+	    id
+	    title
+	    content
+	    slug
+	    uri
+	    seo {
+          ...SeoFragment
+        }
 		status
 	  }
 	}
 	${MenuFragment}
+	${SeoFragment}
 `;

@@ -12,6 +12,8 @@ export default function Home( {data} ) {
 }
 
 export async function getStaticProps(context) {
+	
+	console.log( 'context', context );
 
 	const { data, errors } = await client.query({
 		query: GET_PAGE,

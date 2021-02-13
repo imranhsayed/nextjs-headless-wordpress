@@ -27,8 +27,6 @@ export async function loginUser({username, password}) {
         },
     });
 
-    console.log( 'errors', errors );
-
     return data || {};
 }
 
