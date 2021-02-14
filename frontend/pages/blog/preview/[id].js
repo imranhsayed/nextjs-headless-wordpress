@@ -6,7 +6,7 @@ import {getAuthToken} from "../../../src/utils/cookies";
 
 const PagePreview = ({ data }) => {
     return (
-        <Layout data={data}>
+        <Layout data={data} isPost>
             My Page
         </Layout>
     );

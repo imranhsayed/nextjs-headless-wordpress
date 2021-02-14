@@ -16,7 +16,7 @@ const Post = ({ data }) => {
     }
 
     return (
-        <Layout data={data}>
+        <Layout data={data} isPost>
             {router?.query?.slug.join("/")}
         </Layout>
     );
