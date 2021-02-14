@@ -38,7 +38,7 @@ const Login = ({ data }) => {
                     password: validationResult?.sanitizedData?.password ?? '',
                 },
                 method: 'post',
-                url: `/api/login${queryParams}`
+                url: `/api/login`
             })
                 .then((data) => {
                     const {success} = data?.data ?? {};
