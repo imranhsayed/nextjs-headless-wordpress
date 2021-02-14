@@ -3,11 +3,12 @@ import { GET_PAGE_BY_ID} from "../../../src/queries/pages/get-page";
 import Layout from "../../../src/components/layout";
 import {handleRedirectsAndReturnData} from "../../../src/utils/slug";
 import {getAuthToken} from "../../../src/utils/cookies";
+import {sanitize} from "../../../src/utils/miscellaneous";
 
 const PagePreview = ({ data }) => {
     return (
         <Layout data={data}>
-            My Page
+            <div dangerouslySetInnerHTML={{__html: sanitize(data?.page?.content ?? {})}}/>
         </Layout>
     );
 }

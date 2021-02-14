@@ -4,7 +4,7 @@ import Layout from "../../../src/components/layout";
 import {handleRedirectsAndReturnData} from "../../../src/utils/slug";
 import {getAuthToken} from "../../../src/utils/cookies";
 
-const PagePreview = ({ data }) => {
+const PostPreview = ({ data }) => {
     return (
         <Layout data={data} isPost>
             My Page
@@ -12,7 +12,7 @@ const PagePreview = ({ data }) => {
     );
 }
 
-export default PagePreview;
+export default PostPreview;
 
 export async function getServerSideProps(context) {
 
