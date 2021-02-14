@@ -8,6 +8,7 @@ import {GET_PAGE} from "../src/queries/pages/get-page";
 import {handleRedirectsAndReturnData} from "../src/utils/slug";
 import Layout from "../src/components/layout";
 import {useRouter} from "next/router";
+import {getPreviewRedirectUrl} from "../src/utils/redirects";
 
 const Login = ({ data }) => {
     const router = useRouter();
@@ -22,8 +23,7 @@ const Login = ({ data }) => {
     const onFormSubmit = (event) => {
         event.preventDefault();
         setErrorMessage(null);
-        const currentUrl = process.browser ? new URL( window.location.href) : null;
-        const queryParams = currentUrl?.search ?? ''
+        const {postType, previewPostId} = router?.query ?? {};
 
         // Validation and Sanitization.
         const validationResult = validateAndSanitizeLoginForm({
@@ -41,7 +41,14 @@ const Login = ({ data }) => {
                 url: `/api/login${queryParams}`
             })
                 .then((data) => {
-                    console.log( 'data?.data?.success', data?.data?.success );
+                    const {success} = data?.data ?? {};
+                    console.log( 'success', success );
+
+                    // If its a preview request
+                    if ( success && postType && previewPostId ) {
+                        const previewUrl = getPreviewRedirectUrl(postType, previewPostId);
+                        router.push(previewUrl)
+                    }
                     return data?.data?.success;
                 })
                 .catch(() => {
