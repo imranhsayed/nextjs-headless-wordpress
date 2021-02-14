@@ -1,19 +1,4 @@
-import { ApolloClient, InMemoryCache, createHttpLink, ApolloLink } from '@apollo/client';
-import {isEmpty} from 'lodash';
-import { setContext } from '@apollo/client/link/context';
-
-const authLink = setContext((_, { headers }) => {
-
-	// get the authentication token from local storage if it exists
-	const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAyMCIsImlhdCI6MTYxMzI0MTUwMywibmJmIjoxNjEzMjQxNTAzLCJleHAiOjE2MTMyNDE4MDMsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.3T7n1kzam5z_kbzb6pHtDyoARb2AGQ3gNEM8MTuBpXg";
-	// return the headers to the context so httpLink can read them
-	return {
-		headers: {
-			...headers,
-			authorization: token ? `Bearer ${token}` : "",
-		}
-	}
-});
+import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
 const defaultOptions = {
 	watchQuery: {
@@ -37,7 +22,6 @@ const link = createHttpLink({
 
 const client = new ApolloClient({
 	connectToDevTools: true,
-	// link: authLink.concat(link),
 	link,
 	cache,
 	defaultOptions
