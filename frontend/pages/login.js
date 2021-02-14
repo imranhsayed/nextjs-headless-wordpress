@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { isEmpty } from 'lodash';
-import { useMutation } from "@apollo/client";
-import { v4 } from "uuid";
-import LOGIN from "../src/mutations/login";
 import validateAndSanitizeLoginForm from "../utils/validator/login";
 import axios from "axios";
 import {sanitize} from "../src/utils/miscellaneous";
+import client from "../src/apollo/client";
+import {GET_PAGE} from "../src/queries/pages/get-page";
+import {handleRedirectsAndReturnData} from "../src/utils/slug";
+import Layout from "../src/components/layout";
+import {useRouter} from "next/router";
 
-const Login = ({ setLoggedIn }) => {
+const Login = ({ data }) => {
+    const router = useRouter();
+    console.log( 'router', router );
     const [loginFields, setLoginFields] = useState({
         username: "",
         password: "",
@@ -15,46 +19,11 @@ const Login = ({ setLoggedIn }) => {
 
     const [errorMessage, setErrorMessage] = useState(null);
 
-    // Login Mutation.
-    // const [login, { loading: loginLoading, error: loginError }] = useMutation(
-    //     LOGIN,
-    //     {
-    //         variables: {
-    //             input: {
-    //                 clientMutationId: v4(), // Generate a unique id.,
-    //                 username: loginFields?.username ?? '',
-    //                 password: loginFields?.password ?? '',
-    //             },
-    //         },
-    //         onCompleted: (data) => {
-    //             // If error.
-    //             if (!isEmpty(loginError)) {
-    //                 setErrorMessage(loginError?.graphQLErrors?.[0]?.message ?? '');
-    //             }
-    //
-    //             const { login } = data || {};
-    //             const authData = {
-    //                 authToken: login?.authToken ?? '',
-    //                 user: login?.user ?? '',
-    //             };
-    //
-    //             console.log( 'authData', authData );
-    //
-    //             setLoggedIn(true);
-    //         },
-    //         onError: (error) => {
-    //             if (error) {
-    //                 if (!isEmpty(error)) {
-    //                     setErrorMessage(error.graphQLErrors[0].message);
-    //                 }
-    //             }
-    //         },
-    //     }
-    // );
-
     const onFormSubmit = (event) => {
         event.preventDefault();
         setErrorMessage(null);
+        const currentUrl = process.browser ? new URL( window.location.href) : null;
+        const queryParams = currentUrl?.search ?? ''
 
         // Validation and Sanitization.
         const validationResult = validateAndSanitizeLoginForm({
@@ -69,11 +38,11 @@ const Login = ({ setLoggedIn }) => {
                     password: validationResult?.sanitizedData?.password ?? '',
                 },
                 method: 'post',
-                url: '/api/login'
+                url: `/api/login${queryParams}`
             })
                 .then((data) => {
-                    console.log( 'data', data?.data );
-                    return data?.data?.success ?? ''
+                    console.log( 'data?.data?.success', data?.data?.success );
+                    return data?.data?.success;
                 })
                 .catch(() => {
                     return false
@@ -107,7 +76,8 @@ const Login = ({ setLoggedIn }) => {
 
     const { username, password } = loginFields;
     return (
-        <div className="login-form bg-gray-100 rounded-lg p-8 md:ml-auto mt-10 md:mt-0 w-5/12 m-auto">
+        <Layout data={data}>
+        <div className="login-form bg-gray-100 rounded-lg p-8 md:ml-auto mt-10 md:mt-12 w-5/12 m-auto">
             <h4 className="text-gray-900 text-lg font-medium title-font mb-5 block">Login</h4>
             {!isEmpty(errorMessage) && (
                 <div
@@ -143,6 +113,31 @@ const Login = ({ setLoggedIn }) => {
                 {/*{loginLoading ? <p>Loading...</p> : null  }*/}
             </form>
         </div>
+        </Layout>
     );
 };
 export default Login;
+
+export async function getStaticProps(context) {
+
+    const { data, errors } = await client.query({
+        query: GET_PAGE,
+        variables: {
+            uri: "/",
+        },
+    });
+
+    const defaultProps = {
+        props: {
+            data:  data || {}
+        },
+        /**
+         * Revalidate means that if a new request comes to server, then every 1 sec it will check
+         * if the data is changed, if it is changed then it will update the
+         * static file inside .next folder with the new data, so that any 'SUBSEQUENT' requests should have updated data.
+         */
+        revalidate: 1,
+    };
+
+    return handleRedirectsAndReturnData( defaultProps, data, errors, 'page' );
+}

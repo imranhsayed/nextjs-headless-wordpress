@@ -2,7 +2,7 @@ import client from "../../../src/apollo/client";
 import { GET_PAGE_BY_ID} from "../../../src/queries/pages/get-page";
 import Layout from "../../../src/components/layout";
 import {handleRedirectsAndReturnData} from "../../../src/utils/slug";
-import {parseCookies} from "../../../src/utils/cookies";
+import {getAuthToken} from "../../../src/utils/cookies";
 
 const PagePreview = ({ data }) => {
     return (
@@ -16,8 +16,7 @@ export default PagePreview;
 
 export async function getServerSideProps(context) {
 
-    const cookies = parseCookies(context.req);
-    const authToken = cookies['auth'];
+    const authToken = getAuthToken(context.req);
 
     const { params } = context || {}
     const { data, errors } = await client.query({
