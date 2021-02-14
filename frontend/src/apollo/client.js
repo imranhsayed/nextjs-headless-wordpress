@@ -37,7 +37,8 @@ const link = createHttpLink({
 
 const client = new ApolloClient({
 	connectToDevTools: true,
-	link: authLink.concat(link),
+	// link: authLink.concat(link),
+	link,
 	cache,
 	defaultOptions
 });

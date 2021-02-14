@@ -35,6 +35,11 @@ export async function getServerSideProps(context) {
         query: GET_PAGE_BY_ID,
         variables: {
             id: 30,
+        },
+        context: {
+            headers: {
+                authorization: authToken ? `Bearer ${authToken}` : "",
+            }
         }
     });
 
