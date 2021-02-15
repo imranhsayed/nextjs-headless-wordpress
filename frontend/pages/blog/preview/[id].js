@@ -3,6 +3,8 @@ import { GET_PAGE_BY_ID} from "../../../src/queries/pages/get-page";
 import Layout from "../../../src/components/layout";
 import {handleRedirectsAndReturnData} from "../../../src/utils/slug";
 import {getAuthToken} from "../../../src/utils/cookies";
+import {getLoginPreviewRedirectUrl} from "../../../src/utils/redirects";
+import {GET_POST_BY_ID} from "../../../src/queries/posts/get-post";
 
 const PostPreview = ({ data }) => {
     return (
@@ -20,7 +22,7 @@ export async function getServerSideProps(context) {
 
     const { params } = context || {}
     const { data, errors } = await client.query({
-        query: GET_PAGE_BY_ID,
+        query: GET_POST_BY_ID,
         variables: {
             id: Number(params?.id ?? ''),
         },
@@ -37,5 +39,8 @@ export async function getServerSideProps(context) {
         }
     };
 
-    return handleRedirectsAndReturnData( defaultProps, data, errors, 'page' );
+    const loginRedirectURL = getLoginPreviewRedirectUrl('post', params?.id ?? '' );
+
+    return handleRedirectsAndReturnData( defaultProps, data, errors, 'post', true, loginRedirectURL );
+
 }

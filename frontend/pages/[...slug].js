@@ -5,6 +5,7 @@ import {GET_PAGE} from "../src/queries/pages/get-page";
 import { useRouter } from 'next/router'
 import Layout from "../src/components/layout";
 import {FALLBACK, handleRedirectsAndReturnData, isCustomPageUri} from "../src/utils/slug";
+import {sanitize} from "../src/utils/miscellaneous";
 
 const Page = ({ data }) => {
     const router = useRouter()
@@ -17,7 +18,7 @@ const Page = ({ data }) => {
 
     return (
         <Layout data={data}>
-            {router?.query?.slug.join("/")}
+            <div dangerouslySetInnerHTML={{__html: sanitize(data?.page?.content ?? {})}}/>
         </Layout>
     );
 }

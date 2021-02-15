@@ -2,9 +2,10 @@ import client from "../../src/apollo/client";
 import {isEmpty} from 'lodash';
 import { useRouter } from 'next/router'
 import Layout from "../../src/components/layout";
-import {FALLBACK, handleRedirectsAndReturnData, isCustomPageUri} from "../../src/utils/slug";
+import {FALLBACK, handleRedirectsAndReturnData} from "../../src/utils/slug";
 import {GET_POST} from "../../src/queries/posts/get-post";
-import {GET_POSTS_URI} from "../../src/queries/posts/get-posts";
+import {GET_POST_SLUGS} from "../../src/queries/posts/get-posts";
+import {sanitize} from "../../src/utils/miscellaneous";
 
 const Post = ({ data }) => {
     const router = useRouter()
@@ -17,7 +18,7 @@ const Post = ({ data }) => {
 
     return (
         <Layout data={data} isPost>
-            {router?.query?.slug.join("/")}
+            <div dangerouslySetInnerHTML={{__html: sanitize(data?.post?.content ?? {})}}/>
         </Layout>
     );
 }
@@ -28,7 +29,7 @@ export async function getStaticProps({ params }) {
     const { data, errors } = await client.query({
         query: GET_POST,
         variables: {
-            uri: params?.slug.join("/"),
+            uri: params?.slug ?? '/',
         },
     });
 
@@ -48,12 +49,12 @@ export async function getStaticProps({ params }) {
 }
 
 /**
- * Since the page name uses catch-all routes,
- * for example [...slug],
- * that's why params would contain slug which is an array.
- * For example, If we need to have dynamic route '/foo/bar'
- * Then we would add paths: [ params: { slug: ['foo', 'bar'] } } ]
- * Here slug will be an array is ['foo', 'bar'], then Next.js will statically generate the page at /foo/bar
+ * Since the page name 'does not' use catch-all routes,
+ * for example [slug],
+ * that's why params would contain just slug and not an array of slugs , unlike [...slug].
+ * For example, If we need to have dynamic route '/foo/'
+ * Then we would add paths: [ params: { slug: 'foo' } } ]
+ * Here slug will be 'foo', then Next.js will statically generate the page at /foo/
  *
  * At build time next js will will make an api call get the data and
  * generate a page bar.js inside .next/foo directory, so when the page is served on browser
@@ -66,15 +67,14 @@ export async function getStaticProps({ params }) {
  */
 export async function getStaticPaths() {
     const { data } = await client.query({
-        query: GET_POSTS_URI
+        query: GET_POST_SLUGS
     });
 
     const pathsData = [];
 
-    data?.posts?.nodes && data?.posts?.nodes.map( page => {
-        if ( ! isEmpty( post?.uri ) && ! isCustomPageUri( post?.uri ) ) {
-            const slugs = post?.uri?.split('/').filter( postSlug => postSlug );
-            pathsData.push( {params: { slug: slugs }} )
+    data?.posts?.nodes && data?.posts?.nodes.map( post => {
+        if ( ! isEmpty( post?.slug ) ) {
+            pathsData.push( {params: { slug: post?.slug }} )
         }
     })
 

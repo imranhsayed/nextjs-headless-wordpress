@@ -4,6 +4,9 @@ import Layout from "../../../src/components/layout";
 import {handleRedirectsAndReturnData} from "../../../src/utils/slug";
 import {getAuthToken} from "../../../src/utils/cookies";
 import {sanitize} from "../../../src/utils/miscellaneous";
+import {
+    getLoginPreviewRedirectUrl
+} from "../../../src/utils/redirects";
 
 const PagePreview = ({ data }) => {
     return (
@@ -38,5 +41,7 @@ export async function getServerSideProps(context) {
         }
     };
 
-    return handleRedirectsAndReturnData( defaultProps, data, errors, 'page' );
+    const loginRedirectURL = getLoginPreviewRedirectUrl('page', params?.id ?? '' );
+
+    return handleRedirectsAndReturnData( defaultProps, data, errors, 'page', true, loginRedirectURL );
 }

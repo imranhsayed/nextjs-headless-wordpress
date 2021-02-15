@@ -21,8 +21,8 @@ export const GET_POST = gql`
 	${SeoFragment}
 `;
 
-export const POST_BY_ID = gql`
-	query POST_BY_ID($id: ID!) {
+export const GET_POST_BY_ID = gql`
+	query GET_POST_BY_ID($id: ID!) {
 		${HeaderFooter}
 	  post(idType: DATABASE_ID, id: $id) {
 	    id
