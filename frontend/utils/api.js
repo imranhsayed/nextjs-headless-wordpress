@@ -1,6 +1,7 @@
 import client from "../src/apollo/client";
 import {GET_PAGE_BY_ID} from "../src/queries/pages/get-page";
 import LOGIN from "../src/mutations/login";
+import { v4 } from "uuid";
 
 export async function getPreviewPage(id) {
 
@@ -20,7 +21,7 @@ export async function loginUser({username, password}) {
         query: LOGIN,
         variables: {
             input: {
-                clientMutationId: 'my-mutation', // Generate a unique id.,
+                clientMutationId: v4(), // Generate a unique id
                 username: username || '',
                 password: password || '',
             },

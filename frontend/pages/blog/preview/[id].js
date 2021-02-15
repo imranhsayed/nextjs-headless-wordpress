@@ -5,11 +5,12 @@ import {handleRedirectsAndReturnData} from "../../../src/utils/slug";
 import {getAuthToken} from "../../../src/utils/cookies";
 import {getLoginPreviewRedirectUrl} from "../../../src/utils/redirects";
 import {GET_POST_BY_ID} from "../../../src/queries/posts/get-post";
+import {sanitize} from "../../../src/utils/miscellaneous";
 
 const PostPreview = ({ data }) => {
     return (
         <Layout data={data} isPost>
-            My Page
+            <div dangerouslySetInnerHTML={{__html: sanitize(data?.post?.content ?? {})}}/>
         </Layout>
     );
 }
