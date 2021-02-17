@@ -12,7 +12,6 @@ import {getPreviewRedirectUrl} from "../src/utils/redirects";
 
 const Login = ({ data }) => {
     const router = useRouter();
-    console.log( 'router', router );
     const [loginFields, setLoginFields] = useState({
         username: "",
         password: "",
@@ -42,7 +41,6 @@ const Login = ({ data }) => {
             })
                 .then((data) => {
                     const {success} = data?.data ?? {};
-                    console.log( 'success', success );
 
                     // If its a preview request
                     if ( success && postType && previewPostId ) {
