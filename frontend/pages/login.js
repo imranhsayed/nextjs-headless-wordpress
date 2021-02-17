@@ -86,7 +86,7 @@ const Login = ({ data }) => {
             <h4 className="text-gray-900 text-lg font-medium title-font mb-5 block">Login</h4>
             {!isEmpty(errorMessage) && (
                 <div
-                    className="alert alert-danger"
+                    className="text-red-600"
                     dangerouslySetInnerHTML={{ __html: sanitize( errorMessage ) }}
                 />
             )}
