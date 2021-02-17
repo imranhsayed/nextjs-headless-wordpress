@@ -3,10 +3,10 @@ import MenuFragment from "../fragments/menus";
 import {HeaderFooter} from "../get-menus";
 import SeoFragment from "../fragments/seo";
 
-export const GET_PAGE = gql`
-	query GET_PAGE($uri: String) {
+export const GET_POST = gql`
+	query GET_POST($uri: String) {
       ${HeaderFooter}
-	  page: pageBy(uri: $uri) {
+	  post: postBy(uri: $uri) {
 	    id
 	    title
 	    content
@@ -21,10 +21,10 @@ export const GET_PAGE = gql`
 	${SeoFragment}
 `;
 
-export const GET_PAGE_BY_ID = gql`
-	query GET_PAGE_BY_ID($id: ID!) {
+export const GET_POST_BY_ID = gql`
+	query GET_POST_BY_ID($id: ID!) {
 		${HeaderFooter}
-	  page(idType: DATABASE_ID, id: $id) {
+	  post(idType: DATABASE_ID, id: $id) {
 	    id
 	    title
 	    content

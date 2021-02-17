@@ -1,35 +1,35 @@
-import client from "../src/apollo/client";
-import {GET_PAGES_URI} from "../src/queries/pages/get-pages";
+import client from "../../src/apollo/client";
 import {isEmpty} from 'lodash';
-import {GET_PAGE} from "../src/queries/pages/get-page";
 import { useRouter } from 'next/router'
-import Layout from "../src/components/layout";
-import {FALLBACK, handleRedirectsAndReturnData, isCustomPageUri} from "../src/utils/slug";
-import {sanitize} from "../src/utils/miscellaneous";
+import Layout from "../../src/components/layout";
+import {FALLBACK, handleRedirectsAndReturnData} from "../../src/utils/slug";
+import {GET_POST} from "../../src/queries/posts/get-post";
+import {GET_POST_SLUGS} from "../../src/queries/posts/get-posts";
+import {sanitize} from "../../src/utils/miscellaneous";
 
-const Page = ({ data }) => {
+const Post = ({ data }) => {
     const router = useRouter()
 
     // If the page is not yet generated, this will be displayed
-   // initially until getStaticProps() finishes running
+    // initially until getStaticProps() finishes running
     if (router.isFallback) {
         return <div>Loading...</div>
     }
 
     return (
-        <Layout data={data}>
-            <div dangerouslySetInnerHTML={{__html: sanitize(data?.page?.content ?? {})}}/>
+        <Layout data={data} isPost>
+            <div dangerouslySetInnerHTML={{__html: sanitize(data?.post?.content ?? {})}}/>
         </Layout>
     );
 }
 
-export default Page;
+export default Post;
 
 export async function getStaticProps({ params }) {
     const { data, errors } = await client.query({
-        query: GET_PAGE,
+        query: GET_POST,
         variables: {
-            uri: params?.slug.join("/"),
+            uri: params?.slug ?? '/',
         },
     });
 
@@ -45,16 +45,16 @@ export async function getStaticProps({ params }) {
         revalidate: 1,
     };
 
-    return handleRedirectsAndReturnData( defaultProps, data, errors, 'page' );
+    return handleRedirectsAndReturnData( defaultProps, data, errors, 'post' );
 }
 
 /**
- * Since the page name uses catch-all routes,
- * for example [...slug],
- * that's why params would contain slug which is an array.
- * For example, If we need to have dynamic route '/foo/bar'
- * Then we would add paths: [ params: { slug: ['foo', 'bar'] } } ]
- * Here slug will be an array is ['foo', 'bar'], then Next.js will statically generate the page at /foo/bar
+ * Since the page name 'does not' use catch-all routes,
+ * for example [slug],
+ * that's why params would contain just slug and not an array of slugs , unlike [...slug].
+ * For example, If we need to have dynamic route '/foo/'
+ * Then we would add paths: [ params: { slug: 'foo' } } ]
+ * Here slug will be 'foo', then Next.js will statically generate the page at /foo/
  *
  * At build time next js will will make an api call get the data and
  * generate a page bar.js inside .next/foo directory, so when the page is served on browser
@@ -67,15 +67,14 @@ export async function getStaticProps({ params }) {
  */
 export async function getStaticPaths() {
     const { data } = await client.query({
-        query: GET_PAGES_URI
+        query: GET_POST_SLUGS
     });
 
     const pathsData = [];
 
-    data?.pages?.nodes && data?.pages?.nodes.map( page => {
-        if ( ! isEmpty( page?.uri ) && ! isCustomPageUri( page?.uri ) ) {
-        	const slugs = page?.uri?.split('/').filter( pageSlug => pageSlug );
-            pathsData.push( {params: { slug: slugs }} )
+    data?.posts?.nodes && data?.posts?.nodes.map( post => {
+        if ( ! isEmpty( post?.slug ) ) {
+            pathsData.push( {params: { slug: post?.slug }} )
         }
     })
 

@@ -4,9 +4,9 @@ import client from "../src/apollo/client";
 
 function MyApp({ Component, pageProps }) {
   return (
-  	<ApolloProvider client={client}>
-	    <Component {...pageProps} />
-    </ApolloProvider>
+        <ApolloProvider client={client}>
+            <Component {...pageProps} />
+        </ApolloProvider>
   )
 }
 

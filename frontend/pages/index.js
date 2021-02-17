@@ -1,12 +1,13 @@
 import client from "../src/apollo/client";
 import Layout from "../src/components/layout";
+import {sanitize} from "../src/utils/miscellaneous";
 import {GET_PAGE} from "../src/queries/pages/get-page";
 import {handleRedirectsAndReturnData} from "../src/utils/slug";
 
 export default function Home( {data} ) {
   return (
 	<Layout data={data}>
-		content
+		<div dangerouslySetInnerHTML={{__html: sanitize(data?.page?.content ?? {})}}/>
 	</Layout>
   )
 }
