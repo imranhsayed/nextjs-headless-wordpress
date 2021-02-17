@@ -1,4 +1,3 @@
-import {getPreviewPage, loginUser} from "../../utils/api";
 import {getAuthToken} from "../../src/utils/cookies";
 import {isEmpty} from 'lodash';
 import {getPreviewRedirectUrl} from "../../src/utils/redirects";
