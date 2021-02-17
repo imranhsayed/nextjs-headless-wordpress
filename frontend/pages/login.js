@@ -18,6 +18,7 @@ const Login = ({ data }) => {
     });
 
     const [errorMessage, setErrorMessage] = useState(null);
+    const [loading, setLoading] = useState( false );
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -31,6 +32,7 @@ const Login = ({ data }) => {
         });
 
         if (validationResult.isValid) {
+            setLoading(true);
             return axios({
                 data: {
                     username: validationResult?.sanitizedData?.username ?? '',
@@ -40,6 +42,7 @@ const Login = ({ data }) => {
                 url: `/api/login`
             })
                 .then((data) => {
+                    setLoading(false);
                     const {success} = data?.data ?? {};
 
                     // If its a preview request
@@ -50,6 +53,7 @@ const Login = ({ data }) => {
                     return data?.data?.success;
                 })
                 .catch(() => {
+                    setLoading(false);
                     return false
                 })
         } else {
@@ -115,7 +119,7 @@ const Login = ({ data }) => {
                 <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="submit">
                     Login
                 </button>
-                {/*{loginLoading ? <p>Loading...</p> : null  }*/}
+                {loading ? <p>Loading...</p> : null  }
             </form>
         </div>
         </Layout>
