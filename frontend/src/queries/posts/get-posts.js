@@ -3,25 +3,24 @@ import { gql } from '@apollo/client'
 import MenuFragment from '../fragments/menus'
 import ImageThumbnailFragment from "../fragments/image/thumbnail";
 import ImageMediumLargeFragment from "../fragments/image/medium-large";
+import SeoFragment from "../fragments/seo";
+import {HeaderFooter} from "../get-menus";
 
 /**
  * Get Header menu
  *
  */
 export const GET_POSTS = gql`
- query GET_POSTS( $perPage: Int, $offset: Int ) {
-  headerMenus: menuItems(where: {location: HCMS_MENU_HEADER}) {
-    edges {
-      node {
-        ...MenuFragment
-      }
-    }
-  }
-  footerMenus: menuItems(where: {location: HCMS_MENU_FOOTER}) {
-    edges {
-      node {
-        ...MenuFragment
-      }
+ query GET_POSTS( $uri: String, $perPage: Int, $offset: Int ) {
+ ${HeaderFooter}
+  page: pageBy(uri: $uri) {
+    id
+    title
+    content
+    slug
+    uri
+    seo {
+      ...SeoFragment
     }
   }
   posts: posts(where: { offsetPagination: { size: $perPage, offset: $offset }}) {
@@ -53,6 +52,7 @@ export const GET_POSTS = gql`
  ${MenuFragment}
  ${ImageMediumLargeFragment}
  ${ImageThumbnailFragment}
+ ${SeoFragment}
  `;
 
 export const GET_TOTAL_POSTS_COUNT = gql`
