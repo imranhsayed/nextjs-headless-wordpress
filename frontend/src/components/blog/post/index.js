@@ -1,6 +1,7 @@
-import { sanitize } from "../../../utils/functions";
+
 import Link from "next/link";
 import Image from "../../image";
+import {sanitize} from "../../../utils/miscellaneous";
 
 const Post = ({post}) => {
     return (

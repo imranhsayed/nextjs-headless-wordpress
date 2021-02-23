@@ -20,13 +20,15 @@ const Blog = ({ data }) => {
 export default Blog;
 
 export async function getStaticProps() {
-    const { data } = await client.query({
+    const { data, errors } = await client.query({
         query: GET_POSTS,
         variables: {
             perPage: PER_PAGE_FIRST,
             offset: null,
         },
     });
+
+    console.log( 'data', data );
 
     const defaultProps = {
         props: {
@@ -40,5 +42,5 @@ export async function getStaticProps() {
         revalidate: 1,
     };
 
-    return handleRedirectsAndReturnData( defaultProps, data, errors, 'post' );
+    return handleRedirectsAndReturnData( defaultProps, data, errors, 'posts' );
 }
