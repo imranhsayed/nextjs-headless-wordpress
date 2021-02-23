@@ -17,12 +17,10 @@ const Pagination = ({ pagesCount, postName }) => {
                 //! Will need to handle this on page itself
                 // index === 0 ? `/${postName}/` :
 
-                const linkAs = `/${postName}/page/${index + 1}`;
-
-                console.warn( 'index', index. pageNo );
+                const paginationLink = `/${postName}/page/${index + 1}`;
 
                 return (
-                    <Link key={`id-${index}`} href="/blog/page/[pageNo]" as={linkAs}>
+                    <Link key={`id-${index}`} href={paginationLink}>
                         <a
                             className={`border border-gray-300 px-3 py-2 ${
                                 index + 1 === pageNo ? "is-active bg-gray-300 text-white" : ""

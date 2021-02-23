@@ -8,8 +8,6 @@ import {GET_POSTS} from "../../src/queries/posts/get-posts";
 
 const Blog = ({ data }) => {
     const pagesCount = totalPagesCount(data?.posts?.pageInfo?.offsetPagination?.total ?? 0);
-
-    console.log( 'data', data );
     return (
         <Layout data={data}>
             <Posts posts={data?.posts}/>
@@ -29,8 +27,6 @@ export async function getStaticProps() {
             offset: null,
         },
     });
-
-    console.log( 'data', data );
 
     const defaultProps = {
         props: {

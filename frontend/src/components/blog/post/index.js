@@ -9,7 +9,7 @@ const Post = ({post}) => {
             <figure className="overflow-hidden">
                 <Image { ...post?.mediumLarge?.node } placeholder={ post?.thumbnail?.node } />
             </figure>
-            <Link href="/blog/[slug]" as={`/blog/${post?.slug}`}>
+            <Link href={`/blog/${post?.slug}/`}>
                 <a>
                     <h2 dangerouslySetInnerHTML={{__html: sanitize( post?.title )}}/>
                 </a>

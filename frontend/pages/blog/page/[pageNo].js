@@ -5,6 +5,7 @@ import Layout from "../../../src/components/layout";
 import Pagination from "../../../src/components/blog/pagination";
 import Posts from "../../../src/components/blog/posts";
 import {GET_POSTS, GET_TOTAL_POSTS_COUNT} from "../../../src/queries/posts/get-posts";
+import {handleRedirectsAndReturnData} from "../../../src/utils/slug";
 
 const Page = ({data}) => {
     const { posts } = data;
@@ -37,26 +38,29 @@ export async function getStaticProps({ params }) {
     const { pageNo } = params || {};
     const offset = getPageOffset(pageNo);
     const variables = {
+        page: '/blog/',
         perPage: pageNo === "1" ? PER_PAGE_FIRST : PER_PAGE_REST,
         offset,
     };
 
-    const { data } = await client.query({
+    const { data, errors } = await client.query({
         query: GET_POSTS,
         variables,
     });
-    return {
+
+    const defaultProps = {
         props: {
-            data: {
-                menus: {
-                    headerMenus: data?.headerMenus?.edges || [],
-                    footerMenus: data?.footerMenus?.edges || []
-                },
-                posts: data?.posts,
-            }
+            data:  data || {}
         },
+        /**
+         * Revalidate means that if a new request comes to server, then every 1 sec it will check
+         * if the data is changed, if it is changed then it will update the
+         * static file inside .next folder with the new data, so that any 'SUBSEQUENT' requests should have updated data.
+         */
         revalidate: 1,
     };
+
+    return handleRedirectsAndReturnData( defaultProps, data, errors, 'posts' );
 }
 
 export async function getStaticPaths() {
