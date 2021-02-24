@@ -9,6 +9,9 @@
 - Backend in WordPress.
 - Front end in React.
 
+## [Tutorial Course](https://codeytek.com/course/next-js-headless-wordpress-course/)
+Code for the tutorial is in the [Tutorial Branch](https://github.com/imranhsayed/nextjs-headless-wordpress/tree/feature/youtube-tutorial)
+
 ## Setup
 
 First clone/fork the repo and cd into it.
