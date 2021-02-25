@@ -5,8 +5,8 @@ import {sanitize} from "../../../utils/miscellaneous";
 
 const Post = ({post}) => {
     return (
-        <div>
-            <figure className="overflow-hidden">
+        <div className="mb-8">
+            <figure className="overflow-hidden mb-4">
                 <Image { ...post?.mediumLarge?.node } placeholder={ post?.thumbnail?.node } />
             </figure>
             <Link href={`/blog/${post?.slug}/`}>
