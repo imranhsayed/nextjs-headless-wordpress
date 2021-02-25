@@ -38,10 +38,6 @@ Image.propTypes = {
     sizes: PropTypes.string,
     sourceUrl: PropTypes.string,
     srcSet: PropTypes.string,
-    objectFit: PropTypes.string,
-    objectPosition: PropTypes.string,
-    quality: PropTypes.number,
-    priority: PropTypes.bool,
 };
 
 Image.defaultProps = {
@@ -54,10 +50,6 @@ Image.defaultProps = {
     sizes: '',
     sourceUrl: '',
     srcSet: '',
-    objectFit: PropTypes.string,
-    objectPosition: PropTypes.string,
-    quality: PropTypes.number,
-    priority: PropTypes.bool,
     className: 'post__image',
 };
 

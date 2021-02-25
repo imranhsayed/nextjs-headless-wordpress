@@ -4,6 +4,7 @@ import Image from "../../image";
 import {sanitize} from "../../../utils/miscellaneous";
 
 const Post = ({post}) => {
+
     return (
         <div className="mb-8">
             <figure className="overflow-hidden mb-4">
