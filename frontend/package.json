@@ -13,6 +13,7 @@
   "dependencies": {
     "@apollo/client": "^3.1.4",
     "axios": "^0.21.1",
+    "classnames": "^2.2.6",
     "cookie": "^0.4.1",
     "dompurify": "^2.2.2",
     "graphql": "^15.3.0",
