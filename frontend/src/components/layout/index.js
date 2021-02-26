@@ -32,7 +32,7 @@ const Layout = ({data, isPost, children}) => {
                 ) : null}
             </Head>
             <Header header={header} headerMenus={headerMenus?.edges}/>
-            <div className="container px-5 py-24 mx-auto">
+            <div className="container px-5 py-24 mx-auto min-h-almost-screen">
                 {children}
             </div>
             <Footer footer={footer} footerMenus={footerMenus?.edges}/>
@@ -43,13 +43,13 @@ const Layout = ({data, isPost, children}) => {
 Layout.propTypes = {
     data: PropTypes.object,
     isPost: PropTypes.bool,
-    children: PropTypes.string
+    children: PropTypes.object
 }
 
 Layout.defaultProps = {
     data: {},
     isPost: false,
-    children: ''
+    children: {}
 }
 
 export default Layout

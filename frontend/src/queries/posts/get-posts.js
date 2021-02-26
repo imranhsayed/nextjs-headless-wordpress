@@ -1,10 +1,9 @@
 
 import { gql } from '@apollo/client'
 import MenuFragment from '../fragments/menus'
-import ImageThumbnailFragment from "../fragments/image/thumbnail";
-import ImageMediumLargeFragment from "../fragments/image/medium-large";
 import SeoFragment from "../fragments/seo";
 import {HeaderFooter} from "../get-menus";
+import ImageFragment from "../fragments/image";
 
 /**
  * Get Header menu
@@ -30,14 +29,9 @@ export const GET_POSTS = gql`
         title
         excerpt
         slug
-        mediumLarge: featuredImage {
+        featuredImage {
           node {
-            ...ImageMediumLargeFragment
-          }
-        }
-        thumbnail: featuredImage {
-          node {
-            ...ImageThumbnailFragment
+            ...ImageFragment
           }
         }
       }
@@ -50,8 +44,7 @@ export const GET_POSTS = gql`
   }
  }
  ${MenuFragment}
- ${ImageMediumLargeFragment}
- ${ImageThumbnailFragment}
+ ${ImageFragment}
  ${SeoFragment}
  `;
 
