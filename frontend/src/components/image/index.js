@@ -1,6 +1,7 @@
 import Img from 'next/image';
 
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import {DEFAULT_IMG_URL} from "../../utils/constants";
 
 /**
@@ -14,7 +15,7 @@ import {DEFAULT_IMG_URL} from "../../utils/constants";
  * @return {jsx}
  */
 const Image = (props) => {
-    const {altText, title, width, height, sourceUrl, className, layout, objectFit, showDefault, ...rest} = props;
+    const {altText, title, width, height, sourceUrl, className, layout, objectFit, containerClassNames, showDefault, ...rest} = props;
 
     if (!sourceUrl && !showDefault) {
         return null;
@@ -31,14 +32,13 @@ const Image = (props) => {
             alt: altText || title,
             src: sourceUrl || ( showDefault ? DEFAULT_IMG_URL : ''),
             layout: "fill",
-            objectFit: "cover",
             className,
             ...rest
         };
 
         return (
-            <div style={{position: 'relative', width: `${width || '400'}px`, height: `${height || '225'}px`}}>
-                <Img {...attributes} />
+            <div className={cx('relative', containerClassNames) }>
+                <Img {...attributes} objectFit="cover"/>
             </div>
         )
     } else {
@@ -59,8 +59,8 @@ Image.propTypes = {
     title: PropTypes.string,
     sourceUrl: PropTypes.string,
     layout: PropTypes.string,
-    objectFit: PropTypes.string,
     showDefault: PropTypes.bool,
+    containerClassName: PropTypes.string,
     className: PropTypes.string
 };
 
@@ -69,6 +69,7 @@ Image.defaultProps = {
     title: '',
     sourceUrl: '',
     showDefault: true,
+    containerClassNames: '',
     className: 'post__image',
 };
 

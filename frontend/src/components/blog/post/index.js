@@ -5,12 +5,10 @@ import {sanitize} from "../../../utils/miscellaneous";
 
 const Post = ({post}) => {
 
-    console.log( 'post', post );
-
     return (
         <div className="mb-8">
             <figure className="overflow-hidden mb-4">
-                <Image { ...post?.featuredImage?.node } width="400" height="225" layout="fill" title={post?.title ?? ''}/>
+                <Image { ...post?.featuredImage?.node } width="400" height="225" layout="fill" containerClassNames="w-96 sm:-w-600px md:w-400px h-56 sm:h-338px md:h-225px" title={post?.title ?? ''}/>
             </figure>
             <Link href={`/blog/${post?.slug}/`}>
                 <a>
