@@ -10,7 +10,7 @@ const Post = ({post}) => {
     return (
         <div className="mb-8">
             <figure className="overflow-hidden mb-4">
-                <Image { ...post?.featuredImage?.node } width="400" height="300" title={post?.title ?? ''}/>
+                <Image { ...post?.featuredImage?.node } width="400" height="225" layout="fill" title={post?.title ?? ''}/>
             </figure>
             <Link href={`/blog/${post?.slug}/`}>
                 <a>
