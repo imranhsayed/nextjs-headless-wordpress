@@ -1,15 +1,5 @@
-// Tailwind.
 @import "~tailwindcss/base";
 @import "~tailwindcss/components";
 @import "~tailwindcss/utilities";
 
-// Lazy load
-@import '3-generic/effects';
-
-// NProgress style.
-@import 'nprogress/nprogress.css';
-
-#nprogress .bar {
-	background-color: #fff;
-}
-
+@import "libraries/nprogress";

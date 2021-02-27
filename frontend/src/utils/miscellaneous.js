@@ -1,4 +1,4 @@
-import DOMPurify from 'dompurify'
+import DOMPurify from 'dompurify';
 
 /**
  * Sanitize markup or text when used inside dangerouslysetInnerHTML
@@ -7,6 +7,6 @@ import DOMPurify from 'dompurify'
  *
  * @return {string} Sanitized string
  */
-export const sanitize = (content) => {
-	return process.browser ? DOMPurify.sanitize(content) : content
-}
+export const sanitize = ( content ) => {
+	return process.browser ? DOMPurify.sanitize( content ) : content;
+};

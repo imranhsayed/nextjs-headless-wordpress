@@ -1,48 +1,49 @@
 {
-	"name": "@imranhsayed/nextjs-headless-wordpress",
-	"version": "1.0.4",
-	"description": "[![Project Status: Active.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) ![Stars](https://img.shields.io/github/stars/imranhsayed/nextjs-headless-wordpress?label=%E2%AD%90%20Stars) ![Forks](https://img.shields.io/github/forks/imranhsayed/nextjs-headless-wordpress?color=%23ff69b4) ![Contributors](https://img.shields.io/github/contributors/imranhsayed/nextjs-headless-wordpress?color=blue) ![Follow](https://img.shields.io/github/followers/imranhsayed?label=Please%20follow%20%20to%20support%20my%20work%20%F0%9F%99%8F&style=social)",
-	"main": "index.js",
-	"scripts": {
-		"dev": "NODE_OPTIONS='--inspect' next",
-		"build": "next build",
-		"start": "next start",
-		"cypress:open": "cypress open"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/imranhsayed/nextjs-headless-wordpress.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/imranhsayed/nextjs-headless-wordpress/issues"
-	},
-	"homepage": "https://github.com/imranhsayed/nextjs-headless-wordpress#readme",
-	"dependencies": {
-		"@apollo/client": "^3.1.4",
-		"disqus-react": "^1.0.10",
-		"dompurify": "^2.0.15",
-		"graphql": "^15.3.0",
-		"lodash": "^4.17.20",
-		"next": "^10.0.1",
-		"nprogress": "^0.2.0",
-		"prop-types": "^15.7.2",
-		"react": "^17.0.1",
-		"react-dom": "^17.0.1",
-		"react-lazy-load-image-component": "^1.5.0",
-		"sass": "^1.26.11"
-	},
-	"devDependencies": {
-		"cypress": "^5.1.0",
-		"postcss-flexbugs-fixes": "^4.2.1",
-		"postcss-import": "^12.0.1",
-		"postcss-preset-env": "^6.7.0",
-		"precss": "^4.0.0",
-		"tailwindcss": "^1.8.10"
-	},
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com"
-	}
+  "name": "@imranhsayed/nextjs-headless-wordpress",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "build": "next build",
+    "start": "next start",
+    "svg": "svgr -d src/components/icons src/components/icons/svgs",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "lint": "eslint src/components/* src/utils/* pages/*",
+    "lint:fix": "eslint --fix src/components/* src/utils/* pages/*",
+    "precommit": "npm run lint:fix && npm run build "
+  },
+  "dependencies": {
+    "@apollo/client": "^3.1.4",
+    "axios": "^0.21.1",
+    "classnames": "^2.2.6",
+    "cookie": "^0.4.1",
+    "dompurify": "^2.2.2",
+    "graphql": "^15.3.0",
+    "next": "^10.0.1",
+    "next-seo": "^4.17.0",
+    "nprogress": "^0.2.0",
+    "react": "^17.0.1",
+    "react-cookie": "^4.0.3",
+    "react-dom": "^17.0.1",
+    "sass": "^1.26.11",
+    "uuid": "^8.3.2",
+    "validator": "^13.5.2"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^5.5.0",
+    "babel-eslint": "^10.1.0",
+    "cypress": "^6.1.0",
+    "eslint": "^7.20.0",
+    "eslint-config-wordpress": "^2.0.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-jsdoc": "^32.2.0",
+    "eslint-plugin-react": "^7.22.0",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "precss": "^4.0.0",
+    "prop-types": "^15.7.2",
+    "tailwindcss": "^1.8.10"
+  }
 }
