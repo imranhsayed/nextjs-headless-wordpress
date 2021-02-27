@@ -32,13 +32,14 @@ const Image = (props) => {
             alt: altText || title,
             src: sourceUrl || ( showDefault ? DEFAULT_IMG_URL : ''),
             layout: "fill",
+            objectfit: "cover",
             className,
             ...rest
         };
 
         return (
             <div className={cx('relative', containerClassNames) }>
-                <Img {...attributes} objectFit="cover"/>
+                <Img {...attributes}/>
             </div>
         )
     } else {
@@ -58,6 +59,7 @@ Image.propTypes = {
     altText: PropTypes.string,
     title: PropTypes.string,
     sourceUrl: PropTypes.string,
+    objectfit: PropTypes.string,
     layout: PropTypes.string,
     showDefault: PropTypes.bool,
     containerClassName: PropTypes.string,

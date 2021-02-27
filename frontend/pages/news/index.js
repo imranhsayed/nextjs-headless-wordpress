@@ -1,17 +1,14 @@
 import client from "../../src/apollo/client";
 import Layout from "../../src/components/layout";
 import { PER_PAGE_FIRST, totalPagesCount } from "../../src/utils/pagination";
-import Pagination from "../../src/components/blog/pagination";
-import Posts from "../../src/components/blog/posts";
 import {handleRedirectsAndReturnData} from "../../src/utils/slug";
-import {GET_POSTS} from "../../src/queries/posts/get-posts";
+import {GET_NEWS} from "../../src/queries/news/get-news";
+import LoadMorePosts from "../../src/components/news/load-more-posts";
 
 const News = ({ data }) => {
-    const pagesCount = totalPagesCount(data?.posts?.pageInfo?.offsetPagination?.total ?? 0);
     return (
         <Layout data={data}>
-            <Posts posts={data?.posts}/>
-            <Pagination pagesCount={pagesCount} postName="blog" />
+            <LoadMorePosts posts={data?.posts}/>
         </Layout>
     );
 };
@@ -20,9 +17,9 @@ export default News;
 
 export async function getStaticProps() {
     const { data, errors } = await client.query({
-        query: GET_POSTS,
+        query: GET_NEWS,
         variables: {
-            uri: '/blog/',
+            uri: '/news/',
             perPage: PER_PAGE_FIRST,
             offset: null,
         },

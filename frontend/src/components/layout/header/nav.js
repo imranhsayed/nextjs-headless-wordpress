@@ -57,6 +57,14 @@ const Nav = ({header, headerMenus}) => {
 								Blog
 							</a>
 						</Link>
+						<Link href={'/news/'}>
+							<a
+								className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+								data-cy="nav-item"
+							>
+								News
+							</a>
+						</Link>
 					</div>
 				) : null }
 				<div>

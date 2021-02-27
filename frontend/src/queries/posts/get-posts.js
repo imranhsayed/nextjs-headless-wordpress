@@ -6,7 +6,7 @@ import {HeaderFooter} from "../get-menus";
 import ImageFragment from "../fragments/image";
 
 /**
- * Get Header menu
+ * Get Posts
  *
  */
 export const GET_POSTS = gql`
@@ -22,7 +22,7 @@ export const GET_POSTS = gql`
       ...SeoFragment
     }
   }
-  articles: posts(where: { offsetPagination: { size: $perPage, offset: $offset }}) {
+  posts: posts(where: { offsetPagination: { size: $perPage, offset: $offset }}) {
     edges {
       node {
         id
@@ -61,7 +61,7 @@ export const GET_TOTAL_POSTS_COUNT = gql`
 `
 
 /**
- * Get pages.
+ * Get post slugs.
  *
  */
 export const GET_POST_SLUGS = gql`
