@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+import ImageFragment from "../fragments/image";
 
 /**
  * Get GET_LOAD_MORE_NEWS
@@ -27,4 +28,5 @@ export const GET_LOAD_MORE_NEWS = gql`
     }
   }
  }
+ ${ImageFragment}
  `
