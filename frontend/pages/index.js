@@ -1,29 +1,29 @@
-import client from "../src/apollo/client";
-import Layout from "../src/components/layout";
-import {sanitize} from "../src/utils/miscellaneous";
-import {GET_PAGE} from "../src/queries/pages/get-page";
-import {handleRedirectsAndReturnData} from "../src/utils/slug";
+import client from '../src/apollo/client';
+import Layout from '../src/components/layout';
+import {sanitize} from '../src/utils/miscellaneous';
+import {GET_PAGE} from '../src/queries/pages/get-page';
+import {handleRedirectsAndReturnData} from '../src/utils/slug';
 
 export default function Home( {data} ) {
-  return (
-	<Layout data={data}>
-		<div dangerouslySetInnerHTML={{__html: sanitize(data?.page?.content ?? {})}}/>
-	</Layout>
-  )
+	return (
+		<Layout data={data}>
+			<div dangerouslySetInnerHTML={{__html: sanitize( data?.page?.content ?? {} )}}/>
+		</Layout>
+	);
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps( context ) {
 
-	const { data, errors } = await client.query({
+	const { data, errors } = await client.query( {
 		query: GET_PAGE,
 		variables: {
-			uri: "/",
+			uri: '/',
 		},
-	});
+	} );
 
 	const defaultProps = {
 		props: {
-			data:  data || {}
+			data: data || {}
 		},
 		/**
 		 * Revalidate means that if a new request comes to server, then every 1 sec it will check

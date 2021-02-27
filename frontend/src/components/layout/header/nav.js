@@ -1,14 +1,14 @@
-import { isEmpty } from "lodash";
-import Link from "next/link";
-import {useState} from 'react'
+import {isEmpty} from 'lodash';
+import Link from 'next/link';
+import {useState} from 'react';
 
-const Nav = ({header, headerMenus}) => {
+const Nav = ( {header, headerMenus} ) => {
 
-	if ( isEmpty(headerMenus) ) {
+	if ( isEmpty( headerMenus ) ) {
 		return null;
 	}
 
-	const [ isMenuVisible, setMenuVisibility ] = useState(false);
+	const [ isMenuVisible, setMenuVisibility ] = useState( false );
 
 
 	return (
@@ -26,7 +26,7 @@ const Nav = ({header, headerMenus}) => {
 			</div>
 			<div className="block lg:hidden">
 				<button
-					onClick={() => setMenuVisibility(! isMenuVisible)}
+					onClick={() => setMenuVisibility( ! isMenuVisible )}
 					className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
 					data-cy="mmenu-btn"
 				>
@@ -36,25 +36,26 @@ const Nav = ({header, headerMenus}) => {
 					</svg>
 				</button>
 			</div>
-			<div className={`${ isMenuVisible ? 'max-h-full' : 'h-0' } overflow-hidden w-full lg:h-full block flex-grow lg:flex lg:items-center lg:w-auto`}>
-				{ headerMenus?.length ? (
+			<div
+				className={`${isMenuVisible ? 'max-h-full' : 'h-0'} overflow-hidden w-full lg:h-full block flex-grow lg:flex lg:items-center lg:w-auto`}>
+				{headerMenus?.length ? (
 					<div className="text-sm lg:flex-grow">
-						{ headerMenus?.map( menu => (
+						{headerMenus?.map( menu => (
 							<Link key={menu?.node?.id} href={menu?.node?.path}>
 								<a
-								   className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-								   data-cy="nav-item"
+									className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+									data-cy="nav-item"
 								>
 									{menu?.node?.label}
 								</a>
 							</Link>
-						) ) }
+						) )}
 						<Link href={'/blog/'}>
 							<a
 								className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
 								data-cy="nav-item"
 							>
-								Blog
+                                Blog
 							</a>
 						</Link>
 						<Link href={'/news/'}>
@@ -62,18 +63,18 @@ const Nav = ({header, headerMenus}) => {
 								className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
 								data-cy="nav-item"
 							>
-								News
+                                News
 							</a>
 						</Link>
 					</div>
-				) : null }
+				) : null}
 				<div>
 					<a href="#"
-					   className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Contact</a>
+						className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Contact</a>
 				</div>
 			</div>
 		</nav>
-	)
-}
+	);
+};
 
 export default Nav;

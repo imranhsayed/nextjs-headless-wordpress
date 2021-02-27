@@ -5,19 +5,19 @@ import { isEmpty } from 'lodash';
 
 const validateAndSanitizeLoginForm = ( data ) => {
 
-    let errors = {};
-    let sanitizedData = {};
+	let errors = {};
+	let sanitizedData = {};
 
-    /**
+	/**
      * Set the username value equal to an empty string if user has not entered the username, otherwise the Validator.isEmpty() wont work down below.
      * Note that the isEmpty() here is our custom function defined in is-empty.js and
      * Validator.isEmpty() down below comes from validator library.
      * Similarly we do it for for the rest of the fields
      */
-    data.username = ( ! isEmpty( data.username ) ) ? data.username : '';
-    data.password = ( ! isEmpty( data.password ) ) ? data.password : '';
+	data.username = ( ! isEmpty( data.username ) ) ? data.username : '';
+	data.password = ( ! isEmpty( data.password ) ) ? data.password : '';
 
-    /**
+	/**
      * Checks for error if required is true
      * and adds Error and Sanitized data to the errors and sanitizedData object respectively.
      *
@@ -28,39 +28,39 @@ const validateAndSanitizeLoginForm = ( data ) => {
      * @param {String} type Type e.g. email, phone etc.
      * @param {boolean} required Required if required is passed as false, it will not validate error and just do sanitization.
      */
-    const addErrorAndSanitizedData = ( fieldName, errorContent, min, max, type = '', required ) => {
+	const addErrorAndSanitizedData = ( fieldName, errorContent, min, max, type = '', required ) => {
 
-        /**
+		/**
          * Please note that this isEmpty() belongs to validator and not our custom function defined above.
          *
          * Check for error and if there is no error then sanitize data.
          */
-        if ( ! validator.isLength( data[ fieldName ], { min, max } ) ){
-            errors[ fieldName ] = `${errorContent} must be ${min} to ${max} characters`;
-        }
+		if ( ! validator.isLength( data[ fieldName ], { min, max } ) ) {
+			errors[ fieldName ] = `${errorContent} must be ${min} to ${max} characters`;
+		}
 
-        if ( required && validator.isEmpty( data[ fieldName ] ) ) {
-            errors[ fieldName ] = `${errorContent} is required`;
-        }
-
-
-        // If no errors
-        if ( ! errors[ fieldName ] ) {
-            sanitizedData[ fieldName ] = validator.trim( data[ fieldName ] );
-            sanitizedData[ fieldName ] = validator.escape( sanitizedData[ fieldName ] );
-        }
-
-    };
-
-    addErrorAndSanitizedData( 'username', 'Username', 2, 35, 'string', true );
-    addErrorAndSanitizedData( 'password', 'Password', 2, 35, 'string', true );
+		if ( required && validator.isEmpty( data[ fieldName ] ) ) {
+			errors[ fieldName ] = `${errorContent} is required`;
+		}
 
 
-    return {
-        sanitizedData,
-        errors,
-        isValid: isEmpty( errors )
-    }
+		// If no errors
+		if ( ! errors[ fieldName ] ) {
+			sanitizedData[ fieldName ] = validator.trim( data[ fieldName ] );
+			sanitizedData[ fieldName ] = validator.escape( sanitizedData[ fieldName ] );
+		}
+
+	};
+
+	addErrorAndSanitizedData( 'username', 'Username', 2, 35, 'string', true );
+	addErrorAndSanitizedData( 'password', 'Password', 2, 35, 'string', true );
+
+
+	return {
+		sanitizedData,
+		errors,
+		isValid: isEmpty( errors )
+	};
 };
 
 export default validateAndSanitizeLoginForm;

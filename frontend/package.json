@@ -8,7 +8,10 @@
     "start": "next start",
     "svg": "svgr -d src/components/icons src/components/icons/svgs",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "lint": "eslint src/components/* src/utils/* pages/*",
+    "lint:fix": "eslint --fix src/components/* src/utils/* pages/*",
+    "precommit": "npm run lint:fix && npm run build "
   },
   "dependencies": {
     "@apollo/client": "^3.1.4",
@@ -29,7 +32,13 @@
   },
   "devDependencies": {
     "@svgr/cli": "^5.5.0",
+    "babel-eslint": "^10.1.0",
     "cypress": "^6.1.0",
+    "eslint": "^7.20.0",
+    "eslint-config-wordpress": "^2.0.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-jsdoc": "^32.2.0",
+    "eslint-plugin-react": "^7.22.0",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",
