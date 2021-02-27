@@ -424,16 +424,16 @@
         },
         {
             "name": "imranhsayed/headless-cms",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/imranhsayed/headless-cms.git",
-                "reference": "1c02f414adbb14d707daff1a1d0b3f00ace1bc97"
+                "reference": "913c7e9b640b8479ce76624f81960137a21dcb11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/imranhsayed/headless-cms/zipball/1c02f414adbb14d707daff1a1d0b3f00ace1bc97",
-                "reference": "1c02f414adbb14d707daff1a1d0b3f00ace1bc97",
+                "url": "https://api.github.com/repos/imranhsayed/headless-cms/zipball/913c7e9b640b8479ce76624f81960137a21dcb11",
+                "reference": "913c7e9b640b8479ce76624f81960137a21dcb11",
                 "shasum": ""
             },
             "require": {
@@ -456,7 +456,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2020-12-13T09:25:32+00:00"
+            "time": "2021-02-15T14:04:21+00:00"
         },
         {
             "name": "ivome/graphql-relay-php",
@@ -734,28 +734,28 @@
         },
         {
             "name": "phpcompatibility/phpcompatibility-paragonie",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibilityParagonie.git",
-                "reference": "b862bc32f7e860d0b164b199bd995e690b4b191c"
+                "reference": "ddabec839cc003651f2ce695c938686d1086cf43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibilityParagonie/zipball/b862bc32f7e860d0b164b199bd995e690b4b191c",
-                "reference": "b862bc32f7e860d0b164b199bd995e690b4b191c",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibilityParagonie/zipball/ddabec839cc003651f2ce695c938686d1086cf43",
+                "reference": "ddabec839cc003651f2ce695c938686d1086cf43",
                 "shasum": ""
             },
             "require": {
                 "phpcompatibility/php-compatibility": "^9.0"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
                 "paragonie/random_compat": "dev-master",
                 "paragonie/sodium_compat": "dev-master"
             },
             "suggest": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5 || This Composer plugin will sort out the PHP_CodeSniffer 'installed_paths' automatically.",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7 || This Composer plugin will sort out the PHP_CodeSniffer 'installed_paths' automatically.",
                 "roave/security-advisories": "dev-master || Helps prevent installing dependencies with known security issues."
             },
             "type": "phpcodesniffer-standard",
@@ -782,20 +782,20 @@
                 "polyfill",
                 "standards"
             ],
-            "time": "2019-11-04T15:17:54+00:00"
+            "time": "2021-02-15T10:24:51+00:00"
         },
         {
             "name": "phpcompatibility/phpcompatibility-wp",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibilityWP.git",
-                "reference": "41bef18ba688af638b7310666db28e1ea9158b2f"
+                "reference": "b7dc0cd7a8f767ccac5e7637550ea1c50a67b09e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibilityWP/zipball/41bef18ba688af638b7310666db28e1ea9158b2f",
-                "reference": "41bef18ba688af638b7310666db28e1ea9158b2f",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibilityWP/zipball/b7dc0cd7a8f767ccac5e7637550ea1c50a67b09e",
+                "reference": "b7dc0cd7a8f767ccac5e7637550ea1c50a67b09e",
                 "shasum": ""
             },
             "require": {
@@ -803,10 +803,10 @@
                 "phpcompatibility/phpcompatibility-paragonie": "^1.0"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5"
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7"
             },
             "suggest": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5 || This Composer plugin will sort out the PHP_CodeSniffer 'installed_paths' automatically.",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7 || This Composer plugin will sort out the PHP_CodeSniffer 'installed_paths' automatically.",
                 "roave/security-advisories": "dev-master || Helps prevent installing dependencies with known security issues."
             },
             "type": "phpcodesniffer-standard",
@@ -832,7 +832,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2019-08-28T14:22:28+00:00"
+            "time": "2021-02-15T12:58:46+00:00"
         },
         {
             "name": "pimple/pimple",
@@ -1302,16 +1302,16 @@
         },
         {
             "name": "symfony/polyfill-intl-idn",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-idn.git",
-                "reference": "0eb8293dbbcd6ef6bf81404c9ce7d95bcdf34f44"
+                "reference": "2d63434d922daf7da8dd863e7907e67ee3031483"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/0eb8293dbbcd6ef6bf81404c9ce7d95bcdf34f44",
-                "reference": "0eb8293dbbcd6ef6bf81404c9ce7d95bcdf34f44",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/2d63434d922daf7da8dd863e7907e67ee3031483",
+                "reference": "2d63434d922daf7da8dd863e7907e67ee3031483",
                 "shasum": ""
             },
             "require": {
@@ -1382,20 +1382,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-07T16:49:33+00:00"
+            "time": "2021-01-22T09:19:47+00:00"
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
-                "reference": "6e971c891537eb617a00bb07a43d182a6915faba"
+                "reference": "43a0283138253ed1d48d352ab6d0bdb3f809f248"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/6e971c891537eb617a00bb07a43d182a6915faba",
-                "reference": "6e971c891537eb617a00bb07a43d182a6915faba",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/43a0283138253ed1d48d352ab6d0bdb3f809f248",
+                "reference": "43a0283138253ed1d48d352ab6d0bdb3f809f248",
                 "shasum": ""
             },
             "require": {
@@ -1463,11 +1463,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-07T17:09:11+00:00"
+            "time": "2021-01-22T09:19:47+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php72.git",
@@ -1726,16 +1726,16 @@
         },
         {
             "name": "wp-graphql/wp-graphql",
-            "version": "v1.1.3",
+            "version": "v1.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-graphql/wp-graphql.git",
-                "reference": "046bcd5d2c534f5e734fbcce4a6d3a038a7142b1"
+                "reference": "e6e3e1449a25cf7e029f5c061d605c5f4a3cb61e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-graphql/wp-graphql/zipball/046bcd5d2c534f5e734fbcce4a6d3a038a7142b1",
-                "reference": "046bcd5d2c534f5e734fbcce4a6d3a038a7142b1",
+                "url": "https://api.github.com/repos/wp-graphql/wp-graphql/zipball/e6e3e1449a25cf7e029f5c061d605c5f4a3cb61e",
+                "reference": "e6e3e1449a25cf7e029f5c061d605c5f4a3cb61e",
                 "shasum": ""
             },
             "require": {
@@ -1766,6 +1766,11 @@
             },
             "type": "wordpress-plugin",
             "autoload": {
+                "files": [
+                    "access-functions.php",
+                    "activation.php",
+                    "deactivation.php"
+                ],
                 "psr-4": {
                     "WPGraphQL\\": "src/"
                 }
@@ -1793,7 +1798,7 @@
                 }
             ],
             "description": "GraphQL API for WordPress",
-            "time": "2021-01-22T02:06:41+00:00"
+            "time": "2021-02-22T22:39:28+00:00"
         },
         {
             "name": "wp-graphql/wp-graphql-jwt-authentication",
@@ -1902,16 +1907,16 @@
         },
         {
             "name": "yoast/wordpress-seo",
-            "version": "15.8",
+            "version": "15.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Yoast-dist/wordpress-seo.git",
-                "reference": "4b64c300925e613cc7a9e043992eae96aea38692"
+                "reference": "0602e3cfd3fb4df4151f6c45e7f5eab3cfe42666"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Yoast-dist/wordpress-seo/zipball/4b64c300925e613cc7a9e043992eae96aea38692",
-                "reference": "4b64c300925e613cc7a9e043992eae96aea38692",
+                "url": "https://api.github.com/repos/Yoast-dist/wordpress-seo/zipball/0602e3cfd3fb4df4151f6c45e7f5eab3cfe42666",
+                "reference": "0602e3cfd3fb4df4151f6c45e7f5eab3cfe42666",
                 "shasum": ""
             },
             "require": {
@@ -1960,7 +1965,7 @@
                 "seo",
                 "wordpress"
             ],
-            "time": "2021-02-10T10:12:16+00:00"
+            "time": "2021-02-23T07:29:23+00:00"
         }
     ],
     "packages-dev": [],
