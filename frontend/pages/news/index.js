@@ -20,8 +20,8 @@ export async function getStaticProps() {
         query: GET_NEWS,
         variables: {
             uri: '/news/',
-            perPage: PER_PAGE_FIRST,
-            offset: null,
+            first: PER_PAGE_FIRST,
+            after: null,
         },
     });
 

@@ -10,7 +10,7 @@ import ImageFragment from "../fragments/image";
  *
  */
 export const GET_NEWS = gql`
- query GET_NEWS( $uri: String, $perPage: Int, $offset: Int ) {
+ query GET_NEWS( $uri: String, $first: Int, $after: String ) {
  ${HeaderFooter}
   page: pageBy(uri: $uri) {
     id
@@ -22,7 +22,7 @@ export const GET_NEWS = gql`
       ...SeoFragment
     }
   }
-  posts: posts(where: { offsetPagination: { size: $perPage, offset: $offset }}) {
+  posts: posts(first: $first, after: $after) {
     edges {
       node {
         id
@@ -40,6 +40,8 @@ export const GET_NEWS = gql`
       offsetPagination {
         total
       }
+      hasNextPage
+      endCursor
     }
   }
  }
