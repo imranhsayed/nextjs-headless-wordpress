@@ -48,25 +48,13 @@ export const GET_POSTS = gql`
  ${SeoFragment}
  `;
 
-export const GET_TOTAL_POSTS_COUNT = gql`
-  query GET_TOTAL_POSTS_COUNT {
-  postsCount: posts {
-      pageInfo {
-        offsetPagination {
-          total
-        }
-      }
-    }
-  }
-`
-
 /**
  * Get pages.
  *
  */
-export const GET_POST_SLUGS = gql`
- query GET_POST_SLUGS {
-  posts: posts(last: 1) {
+export const GET_NEWS_SLUGS = gql`
+ query GET_NEWS_SLUGS {
+  articles: posts(last: 1) {
     nodes {
       id
       slug
