@@ -33,5 +33,9 @@ export async function getStaticProps( context ) {
 		revalidate: 1,
 	};
 
+	console.log( 'errors', errors );
+
+	return defaultProps;
+
 	return handleRedirectsAndReturnData( defaultProps, data, errors, 'page' );
 }
