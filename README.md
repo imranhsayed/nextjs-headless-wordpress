@@ -6,8 +6,27 @@
 ![Follow](https://img.shields.io/github/followers/imranhsayed?label=Please%20follow%20%20to%20support%20my%20work%20%F0%9F%99%8F&style=social)
 
 - Headless WordPress, using Decoupled Architecture in Next.js
-- Backend in WordPress.
+- Backend in WordPress using WPGraphQL
 - Front end in React.
+
+## Features
+
+1. Home Page, Blog Page, Post Page
+2. Post Preview
+3. Post Pagination.
+4. Load More Posts.
+5. SEO Component fetching data Yoast SEO with schema
+6. Cypress for tests, Eslint for linting.
+7. Apollo Client with GraphQL
+8. Api endpoints.
+9. Header and Footer in Next.js fetching from WordPress Menu items.
+10. WordPress Widgets displayed on Next.js frontend.
+11. Site title, tagline, copyright text, sourced from WordPress.
+12. Next.js Image component, that has image optimization at request time.
+13. Authentication with JWT and Http Only Cookie implementation.
+14. Login feature for WP Post Preview in Next.js
+15. Incremental Static (Re)generation and automatic creation of New Static post pages 
+without having to re-build next.js the application. 
 
 ## [Tutorial Course](https://codeytek.com/course/next-js-headless-wordpress-course/)
 Code for the tutorial is in the [Tutorial Branch](https://github.com/imranhsayed/nextjs-headless-wordpress/tree/feature/youtube-tutorial)
@@ -61,7 +80,6 @@ Leave this blank for development, as it will be the same as default for next.js
 
 Leave this blank if you are not going to use the Disqus comments, else enter your Disqus comments shortname.
 
-That's it!
 This is going to automatically:
 - Creates the `.env` file in the frontend directory.
 - Setup WordPress backend with all the plugins via composer (if you chose y for the first question)
@@ -72,7 +90,11 @@ This is going to automatically:
  
 * Make sure to activate all plugins that it has installed via composer.
 * Update block registry by going to WordPress Dashboard > GraphQL Gutenberg. 
+* Update the permalink by going to Settings > Permalinks > Post name > Save
+* Copy the backend/wordpress/.htaccess file content into your WordPress .htaccess
 * For more information checkout the project [Wiki](https://github.com/imranhsayed/nextjs-headless-wordpress/wiki/)
+
+That's it!
 
 ### During development
 
