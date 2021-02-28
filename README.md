@@ -27,6 +27,7 @@
 14. Login feature for WP Post Preview in Next.js
 15. Incremental Static (Re)generation and automatic creation of New Static post pages 
 without having to re-build next.js the application. 
+14. Gutenberg styles support
 
 ## [Tutorial Course](https://codeytek.com/course/next-js-headless-wordpress-course/)
 Code for the tutorial is in the [Tutorial Branch](https://github.com/imranhsayed/nextjs-headless-wordpress/tree/feature/youtube-tutorial)
