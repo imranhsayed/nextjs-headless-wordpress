@@ -32,6 +32,11 @@ without having to re-build next.js the application.
 ## [Tutorial Course](https://codeytek.com/course/next-js-headless-wordpress-course/)
 Code for the tutorial is in the [Tutorial Branch](https://github.com/imranhsayed/nextjs-headless-wordpress/tree/feature/youtube-tutorial)
 
+## [Live Demo Link](https://nextjs-headless-wordpress-demo.vercel.app/)
+https://nextjs-headless-wordpress-demo.vercel.app/
+
+![](demo/demo.gif)
+
 ## Setup
 
 First clone/fork the repo and cd into it.
