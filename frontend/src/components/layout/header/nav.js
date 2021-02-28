@@ -16,7 +16,7 @@ const Nav = ( {header, headerMenus} ) => {
 			<div className="flex items-center flex-shrink-0 text-white mr-6">
 				<Link href="/">
 					<a>
-						<img src={header?.siteLogoUrl} alt="" width="48" height="48" className="mr-4"/>
+						<img src={header?.siteLogoUrl ?? '/images/site-logo.png'} alt="Site Logo" width="48" height="48" className="mr-4"/>
 					</a>
 				</Link>
 				<div className="flex flex-col items-start justify-start">
