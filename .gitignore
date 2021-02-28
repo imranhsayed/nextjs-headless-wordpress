@@ -57,10 +57,8 @@ typings/
 # dotenv environment variable files
 .env
 
-# gatsby files
 .cache/
 .wordpress-cache
-public
 WordPress/GraphQL
 
 # Mac files
