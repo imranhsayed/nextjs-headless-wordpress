@@ -10,7 +10,7 @@ import {sanitize} from '../../../src/utils/miscellaneous';
 const PostPreview = ( { data } ) => {
 	return (
 		<Layout data={data} isPost>
-			<div dangerouslySetInnerHTML={{__html: sanitize( data?.post?.content ?? {} )}}/>
+			<div dangerouslySetInnerHTML={{__html: sanitize( data?.post?.content ?? '' )}}/>
 		</Layout>
 	);
 };
