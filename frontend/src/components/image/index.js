@@ -32,7 +32,7 @@ const Image = ( props ) => {
 			alt: altText || title,
 			src: sourceUrl || ( showDefault ? DEFAULT_IMG_URL : '' ),
 			layout: 'fill',
-			objectfit: 'cover',
+			objectFit: 'cover',
 			className,
 			...rest
 		};
@@ -59,7 +59,6 @@ Image.propTypes = {
 	altText: PropTypes.string,
 	title: PropTypes.string,
 	sourceUrl: PropTypes.string,
-	objectfit: PropTypes.string,
 	layout: PropTypes.string,
 	showDefault: PropTypes.bool,
 	containerClassName: PropTypes.string,
