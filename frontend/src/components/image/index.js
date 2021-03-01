@@ -32,14 +32,13 @@ const Image = ( props ) => {
 			alt: altText || title,
 			src: sourceUrl || ( showDefault ? DEFAULT_IMG_URL : '' ),
 			layout: 'fill',
-			objectFit: 'cover',
-			className,
+			className: cx( 'object-cover', className ),
 			...rest
 		};
 
 		return (
 			<div className={cx( 'relative', containerClassNames ) }>
-				<Img {...attributes}/>
+				<Img {...attributes} />
 			</div>
 		);
 	} else {
