@@ -20,12 +20,7 @@ export const GET_POST = gql`
         node {
         ...ImageFragment
         }
-		}
-		thumbnail: featuredImage {
-		  node {
-			...ImageThumbnailFragment
 		  }
-		}
 	  }
 	}
 	${MenuFragment}
