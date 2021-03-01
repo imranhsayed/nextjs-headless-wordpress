@@ -33,12 +33,13 @@ const Image = (props) => {
             src: sourceUrl || ( showDefault ? DEFAULT_IMG_URL : ''),
             layout: "fill",
             className,
+            objectFit: "cover",
             ...rest
         };
 
         return (
             <div className={cx('relative', containerClassNames) }>
-                <Img {...attributes} objectFit="cover"/>
+                <Img {...attributes}/>
             </div>
         )
     } else {

@@ -10,7 +10,7 @@ const Blog = ({ data }) => {
     const pagesCount = totalPagesCount(data?.posts?.pageInfo?.offsetPagination?.total ?? 0);
     return (
         <Layout data={data}>
-            <Posts posts={data?.posts}/>
+            <Posts posts={data?.posts?.edges ?? []}/>
             <Pagination pagesCount={pagesCount} postName="blog" />
         </Layout>
     );

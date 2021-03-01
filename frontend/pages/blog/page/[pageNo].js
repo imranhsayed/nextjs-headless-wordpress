@@ -25,7 +25,7 @@ const Page = ({data}) => {
 
     return (
         <Layout data={data}>
-            <Posts posts={posts}/>
+            <Posts posts={posts?.edges ?? []}/>
             <Pagination pagesCount={pagesCount} postName="blog" />
         </Layout>
     );
