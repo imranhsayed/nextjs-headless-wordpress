@@ -32,7 +32,7 @@ const Layout = ( {data, isPost, children} ) => {
 				) : null}
 			</Head>
 			<Header header={header} headerMenus={headerMenus?.edges}/>
-			<div className="sm:container px-5 py-24 mx-auto min-h-almost-screen">
+			<div className="md:container px-5 py-24 mx-auto min-h-almost-screen">
 				{children}
 			</div>
 			<Footer footer={footer} footerMenus={footerMenus?.edges}/>
@@ -53,5 +53,4 @@ Layout.defaultProps = {
 };
 
 export default Layout;
-
 
