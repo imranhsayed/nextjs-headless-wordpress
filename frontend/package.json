@@ -11,7 +11,7 @@
     "cypress:run": "cypress run",
     "lint": "eslint src/components/* src/utils/* pages/*",
     "lint:fix": "eslint --fix src/components/* src/utils/* pages/*",
-    "precommit": "npm run lint:fix && npm run build "
+    "precommit": "npm run lint:fix && npm run build"
   },
   "dependencies": {
     "@apollo/client": "^3.1.4",
