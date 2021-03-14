@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 import MenuFragment from "../fragments/menus";
 import {HeaderFooter} from "../get-menus";
 import SeoFragment from "../fragments/seo";
-import ImageFragment from '../fragments/image';
+import ImageFragment from "../fragments/image";
 
 export const GET_POST = gql`
 	query GET_POST($uri: String) {
@@ -15,7 +15,7 @@ export const GET_POST = gql`
 	    uri
 	    seo {
           ...SeoFragment
-        }
+      }
       featuredImage {
         node {
         ...ImageFragment

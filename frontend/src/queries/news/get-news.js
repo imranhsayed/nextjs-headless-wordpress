@@ -6,11 +6,11 @@ import {HeaderFooter} from "../get-menus";
 import ImageFragment from "../fragments/image";
 
 /**
- * Get Posts
+ * Get News Posts
  *
  */
-export const GET_POSTS = gql`
- query GET_POSTS( $uri: String, $perPage: Int, $offset: Int ) {
+export const GET_NEWS = gql`
+ query GET_NEWS( $uri: String, $first: Int, $after: String ) {
  ${HeaderFooter}
   page: pageBy(uri: $uri) {
     id
@@ -22,7 +22,7 @@ export const GET_POSTS = gql`
       ...SeoFragment
     }
   }
-  posts: posts(where: { offsetPagination: { size: $perPage, offset: $offset }}) {
+  posts: posts(first: $first, after: $after) {
     edges {
       node {
         id
@@ -40,37 +40,12 @@ export const GET_POSTS = gql`
       offsetPagination {
         total
       }
+      hasNextPage
+      endCursor
     }
   }
  }
  ${MenuFragment}
  ${ImageFragment}
  ${SeoFragment}
- `;
-
-export const GET_TOTAL_POSTS_COUNT = gql`
-  query GET_TOTAL_POSTS_COUNT {
-  postsCount: posts {
-      pageInfo {
-        offsetPagination {
-          total
-        }
-      }
-    }
-  }
-`
-
-/**
- * Get post slugs.
- *
- */
-export const GET_POST_SLUGS = gql`
- query GET_POST_SLUGS {
-  posts: posts(last: 1) {
-    nodes {
-      id
-      slug
-    }
-  }
- }
  `;
