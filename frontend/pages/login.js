@@ -1,67 +1,67 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { isEmpty } from 'lodash';
-import validateAndSanitizeLoginForm from "../src/utils/validator/login";
-import axios from "axios";
-import {sanitize} from "../src/utils/miscellaneous";
-import client from "../src/apollo/client";
-import {GET_PAGE} from "../src/queries/pages/get-page";
-import {handleRedirectsAndReturnData} from "../src/utils/slug";
-import Layout from "../src/components/layout";
-import {useRouter} from "next/router";
-import {getPreviewRedirectUrl} from "../src/utils/redirects";
+import validateAndSanitizeLoginForm from '../src/utils/validator/login';
+import axios from 'axios';
+import {sanitize} from '../src/utils/miscellaneous';
+import client from '../src/apollo/client';
+import {GET_PAGE} from '../src/queries/pages/get-page';
+import {handleRedirectsAndReturnData} from '../src/utils/slug';
+import Layout from '../src/components/layout';
+import {useRouter} from 'next/router';
+import {getPreviewRedirectUrl} from '../src/utils/redirects';
 
-const Login = ({ data }) => {
-    const router = useRouter();
-    const [loginFields, setLoginFields] = useState({
-        username: "",
-        password: "",
-    });
+const Login = ( { data } ) => {
+	const router = useRouter();
+	const [ loginFields, setLoginFields ] = useState( {
+		username: '',
+		password: '',
+	} );
 
-    const [errorMessage, setErrorMessage] = useState(null);
-    const [loading, setLoading] = useState( false );
+	const [ errorMessage, setErrorMessage ] = useState( null );
+	const [ loading, setLoading ] = useState( false );
 
-    const onFormSubmit = (event) => {
-        event.preventDefault();
-        setErrorMessage(null);
-        const {postType, previewPostId} = router?.query ?? {};
+	const onFormSubmit = ( event ) => {
+		event.preventDefault();
+		setErrorMessage( null );
+		const {postType, previewPostId} = router?.query ?? {};
 
-        // Validation and Sanitization.
-        const validationResult = validateAndSanitizeLoginForm({
-            username: loginFields?.username ?? '',
-            password: loginFields?.password ?? '',
-        });
+		// Validation and Sanitization.
+		const validationResult = validateAndSanitizeLoginForm( {
+			username: loginFields?.username ?? '',
+			password: loginFields?.password ?? '',
+		} );
 
-        if (validationResult.isValid) {
-            setLoading(true);
-            return axios({
-                data: {
-                    username: validationResult?.sanitizedData?.username ?? '',
-                    password: validationResult?.sanitizedData?.password ?? '',
-                },
-                method: 'post',
-                url: `/api/login`
-            })
-                .then((data) => {
-                    setLoading(false);
-                    const {success} = data?.data ?? {};
+		if ( validationResult.isValid ) {
+			setLoading( true );
+			return axios( {
+				data: {
+					username: validationResult?.sanitizedData?.username ?? '',
+					password: validationResult?.sanitizedData?.password ?? '',
+				},
+				method: 'post',
+				url: '/api/login'
+			} )
+				.then( ( data ) => {
+					setLoading( false );
+					const {success} = data?.data ?? {};
 
-                    // If its a preview request
-                    if ( success && postType && previewPostId ) {
-                        const previewUrl = getPreviewRedirectUrl(postType, previewPostId);
-                        router.push(previewUrl)
-                    }
-                    return data?.data?.success;
-                })
-                .catch(() => {
-                    setLoading(false);
-                    return false
-                })
-        } else {
-            setClientSideError(validationResult);
-        }
-    };
+					// If its a preview request
+					if ( success && postType && previewPostId ) {
+						const previewUrl = getPreviewRedirectUrl( postType, previewPostId );
+						router.push( previewUrl );
+					}
+					return data?.data?.success;
+				} )
+				.catch( () => {
+					setLoading( false );
+					return false;
+				} );
+		} else {
+			setClientSideError( validationResult );
+		}
+	};
 
-    /**
+	/**
      * Sets client side error.
      *
      * Sets error data to result received from our client side validation function,
@@ -69,84 +69,84 @@ const Login = ({ data }) => {
      *
      * @param {Object} validationResult Validation Data result.
      */
-    const setClientSideError = (validationResult) => {
-        if (validationResult.errors.password) {
-            setErrorMessage(validationResult.errors.password);
-        }
+	const setClientSideError = ( validationResult ) => {
+		if ( validationResult.errors.password ) {
+			setErrorMessage( validationResult.errors.password );
+		}
 
-        if (validationResult.errors.username) {
-            setErrorMessage(validationResult.errors.username);
-        }
-    };
+		if ( validationResult.errors.username ) {
+			setErrorMessage( validationResult.errors.username );
+		}
+	};
 
-    const handleOnChange = (event) => {
-        setLoginFields({ ...loginFields, [event.target.name]: event.target.value });
-    };
+	const handleOnChange = ( event ) => {
+		setLoginFields( { ...loginFields, [event.target.name]: event.target.value } );
+	};
 
-    const { username, password } = loginFields;
-    return (
-        <Layout data={data}>
-        <div className="login-form bg-gray-100 rounded-lg p-8 md:ml-auto mt-10 md:mt-12 w-5/12 m-auto">
-            <h4 className="text-gray-900 text-lg font-medium title-font mb-5 block">Login</h4>
-            {!isEmpty(errorMessage) && (
-                <div
-                    className="text-red-600"
-                    dangerouslySetInnerHTML={{ __html: sanitize( errorMessage ) }}
-                />
-            )}
-            <form onSubmit={onFormSubmit} className="mb-4">
-                <label className="leading-7 text-sm text-gray-600">
+	const { username, password } = loginFields;
+	return (
+		<Layout data={data}>
+			<div className="login-form bg-gray-100 rounded-lg p-8 md:ml-auto mt-10 md:mt-12 w-5/12 m-auto">
+				<h4 className="text-gray-900 text-lg font-medium title-font mb-5 block">Login</h4>
+				{! isEmpty( errorMessage ) && (
+					<div
+						className="text-red-600"
+						dangerouslySetInnerHTML={{ __html: sanitize( errorMessage ) }}
+					/>
+				)}
+				<form onSubmit={onFormSubmit} className="mb-4">
+					<label className="leading-7 text-sm text-gray-600">
                     Username:
-                    <input
-                        type="text"
-                        className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                        name="username"
-                        value={username}
-                        onChange={handleOnChange}
-                    />
-                </label>
-                <br />
-                <label className="leading-7 text-sm text-gray-600">
+						<input
+							type="text"
+							className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+							name="username"
+							value={username}
+							onChange={handleOnChange}
+						/>
+					</label>
+					<br />
+					<label className="leading-7 text-sm text-gray-600">
                     Password:
-                    <input
-                        type="password"
-                        className="mb-8 w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                        name="password"
-                        value={password}
-                        onChange={handleOnChange}
-                    />
-                </label>
-                <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="submit">
+						<input
+							type="password"
+							className="mb-8 w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+							name="password"
+							value={password}
+							onChange={handleOnChange}
+						/>
+					</label>
+					<button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="submit">
                     Login
-                </button>
-                {loading ? <p>Loading...</p> : null  }
-            </form>
-        </div>
-        </Layout>
-    );
+					</button>
+					{loading ? <p>Loading...</p> : null  }
+				</form>
+			</div>
+		</Layout>
+	);
 };
 export default Login;
 
-export async function getStaticProps(context) {
+export async function getStaticProps( context ) {
 
-    const { data, errors } = await client.query({
-        query: GET_PAGE,
-        variables: {
-            uri: "/",
-        },
-    });
+	const { data, errors } = await client.query( {
+		query: GET_PAGE,
+		variables: {
+			uri: '/',
+		},
+	} );
 
-    const defaultProps = {
-        props: {
-            data:  data || {}
-        },
-        /**
+	const defaultProps = {
+		props: {
+			data: data || {}
+		},
+		/**
          * Revalidate means that if a new request comes to server, then every 1 sec it will check
          * if the data is changed, if it is changed then it will update the
          * static file inside .next folder with the new data, so that any 'SUBSEQUENT' requests should have updated data.
          */
-        revalidate: 1,
-    };
+		revalidate: 1,
+	};
 
-    return handleRedirectsAndReturnData( defaultProps, data, errors, 'page' );
+	return handleRedirectsAndReturnData( defaultProps, data, errors, 'page' );
 }
