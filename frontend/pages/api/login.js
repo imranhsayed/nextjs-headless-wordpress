@@ -1,4 +1,4 @@
-import {loginUser} from "../../utils/api";
+import {loginUser} from "../../src/utils/api";
 import cookie from 'cookie';
 
 export default async function login(req, res) {

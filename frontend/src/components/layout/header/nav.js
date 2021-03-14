@@ -40,7 +40,7 @@ const Nav = ({header, headerMenus}) => {
 				{ headerMenus?.length ? (
 					<div className="text-sm lg:flex-grow">
 						{ headerMenus?.map( menu => (
-							<Link key={menu?.node.id} href={menu?.node?.path}>
+							<Link key={menu?.node?.id} href={menu?.node?.path}>
 								<a
 								   className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
 								   data-cy="nav-item"
@@ -49,6 +49,14 @@ const Nav = ({header, headerMenus}) => {
 								</a>
 							</Link>
 						) ) }
+						<Link href={'/blog/'}>
+							<a
+								className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+								data-cy="nav-item"
+							>
+								Blog
+							</a>
+						</Link>
 					</div>
 				) : null }
 				<div>

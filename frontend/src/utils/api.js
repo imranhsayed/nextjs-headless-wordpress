@@ -1,6 +1,6 @@
-import client from "../src/apollo/client";
-import {GET_PAGE_BY_ID} from "../src/queries/pages/get-page";
-import LOGIN from "../src/mutations/login";
+import client from "../apollo/client";
+import {GET_PAGE_BY_ID} from "../queries/pages/get-page";
+import LOGIN from "../mutations/login";
 import { v4 } from "uuid";
 
 export async function getPreviewPage(id) {

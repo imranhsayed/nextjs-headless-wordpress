@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { isEmpty } from 'lodash';
-import validateAndSanitizeLoginForm from "../utils/validator/login";
+import validateAndSanitizeLoginForm from "../src/utils/validator/login";
 import axios from "axios";
 import {sanitize} from "../src/utils/miscellaneous";
 import client from "../src/apollo/client";

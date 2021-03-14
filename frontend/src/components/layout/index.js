@@ -7,10 +7,10 @@ import {sanitize} from "../../utils/miscellaneous";
 import PropTypes from 'prop-types';
 
 const Layout = ({data, isPost, children}) => {
-    const {page, post, header, footer, headerMenus, footerMenus} = data || {};
+    const {page, post, posts, header, footer, headerMenus, footerMenus} = data || {};
 
     // If it does not have either post or page.
-    if (isEmpty(page) && isEmpty(post)) {
+    if (isEmpty(page) && isEmpty(post) && isEmpty(posts)) {
         return null
     }
 
@@ -32,7 +32,7 @@ const Layout = ({data, isPost, children}) => {
                 ) : null}
             </Head>
             <Header header={header} headerMenus={headerMenus?.edges}/>
-            <div className="container px-5 py-24 mx-auto">
+            <div className="md:container px-5 py-24 mx-auto min-h-almost-screen">
                 {children}
             </div>
             <Footer footer={footer} footerMenus={footerMenus?.edges}/>
