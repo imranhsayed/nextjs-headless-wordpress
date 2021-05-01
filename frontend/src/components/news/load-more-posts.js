@@ -26,7 +26,7 @@ const LoadMorePosts = ( { posts, classes, graphQLQuery, searchQuery } ) => {
   useEffect( () => {
     setPostsData( posts?.edges );
     setPageInfo( posts?.pageInfo );
-  }, [ posts ] );
+  }, [ posts?.edges ] );
 
   /**
    * Set posts.
