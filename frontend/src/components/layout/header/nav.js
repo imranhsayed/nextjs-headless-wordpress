@@ -2,6 +2,7 @@ import { isEmpty } from 'lodash';
 import Link from 'next/link';
 import {useState} from 'react';
 import { isCustomPageUri } from '../../../utils/slug';
+import NavSearch from '../../search/nav-search';
 
 const Nav = ( {header, headerMenus} ) => {
 
@@ -72,9 +73,14 @@ const Nav = ( {header, headerMenus} ) => {
 						</Link>
 					</div>
 				) : null }
-				<div>
-					<a href="#"
-						className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Contact</a>
+				<div className="flex-col-reverse flex lg:flex-row">
+          <NavSearch/>
+          <div className="lg:flex items-center">
+            <a href="#"
+               className="lg:ml-2 inline-block text-sm px-4 py-3 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+              Contact
+            </a>
+          </div>
 				</div>
 			</div>
 		</nav>

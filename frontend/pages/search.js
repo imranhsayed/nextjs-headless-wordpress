@@ -33,8 +33,9 @@ export default function Search( { data } ) {
     }
   } );
 
-  const handleSearchButtonClick = () => {
+  const handleSearchFormSubmit = (event) => {
 
+    event.preventDefault();
     setShowResultInfo( false );
 
     if ( isEmpty( searchQuery ) ) {
@@ -63,8 +64,7 @@ export default function Search( { data } ) {
         <SearchBox
           searchQuery={ searchQuery }
           setSearchQuery={ setSearchQuery }
-          handleSearchButtonClick={handleSearchButtonClick}
-          totalPostResultCount={totalPostResultCount}
+          handleSearchFormSubmit={handleSearchFormSubmit}
         />
         <ResultInfo showResultInfo={showResultInfo} totalPostResultCount={totalPostResultCount} classnames="mt-4 text-center"/>
         <ErrorMessage text={searchError} classes="max-w-xl mx-auto -mt-8"/>
