@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useLazyQuery } from '@apollo/client';
+import PropTypes from 'prop-types';
+
 import Posts from '../blog/posts';
 import {PER_PAGE_FIRST} from '../../utils/pagination';
-import { useLazyQuery } from '@apollo/client';
 import {GET_LOAD_MORE_NEWS} from '../../queries/news/get-load-more-news';
 
-const LoadMorePosts = ( {posts} ) => {
+const LoadMorePosts = ( {posts, classes} ) => {
 
 	/**
      * First set the posts data and pageInfo received from server side,
@@ -88,7 +90,7 @@ const LoadMorePosts = ( {posts} ) => {
   console.log( 'hey', postsData );
 
 	return (
-		<>
+		<div className={classes}>
 			<Posts posts={postsData}/>
 			{hasNextPage ? (
 				<div className='w-full flex justify-center lg:my-10'>
@@ -107,8 +109,18 @@ const LoadMorePosts = ( {posts} ) => {
 				</div>
 			) : null}
 			{error && <div className='w-full flex justify-center my-10'>No articles available</div>}
-		</>
+		</div>
 	);
+};
+
+LoadMorePosts.propTypes = {
+  posts: PropTypes.object,
+  classes: PropTypes.string
+};
+
+LoadMorePosts.defaultProps = {
+  posts: {},
+  classes: ''
 };
 
 export default LoadMorePosts;

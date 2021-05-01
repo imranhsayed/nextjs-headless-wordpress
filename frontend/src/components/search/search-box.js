@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const SearchBox = ( {searchQuery, setSearchQuery, handleSearchButtonClick} ) => {
   return (
-    <div className="bg-gradient-to-r from-green-400 to-blue-500">
+    <div className="bg-gradient-to-r from-green-400 to-blue-500 px-6">
       <div className="info max-w-xl mx-auto py-10">
         <br/>
         <h2 className="text-center text-white py-4"> 7 products found for: "product"</h2>

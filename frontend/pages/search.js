@@ -10,20 +10,20 @@ import Footer from '../src/components/layout/footer';
 import SearchBox from '../src/components/search/search-box';
 import LoadMorePosts from '../src/components/news/load-more-posts';
 import { GET_SEARCH_RESULTS } from '../src/queries/search/get-search-results';
-import Error from 'next/error';
 import ErrorMessage from '../src/components/error';
+import Loading from '../src/components/loading';
 
 export default function Search( { data } ) {
   const { header, footer, headerMenus, footerMenus } = data || {};
   const [ searchQuery, setSearchQuery ] = useState( '' );
   const [ searchError, setSearchError ] = useState( '' );
-  const [ queryResultPosts, setQueryResultPosts  ] = useState( [] );
+  const [ queryResultPosts, setQueryResultPosts  ] = useState( {} );
 
   const [ fetchPosts, { loading } ] = useLazyQuery( GET_SEARCH_RESULTS, {
     notifyOnNetworkStatusChange: true,
     onCompleted: ( data ) => {
       console.log( 'data?.posts', data?.posts );
-      setQueryResultPosts( data?.posts ?? [] );
+      setQueryResultPosts( data?.posts ?? {} );
     },
     onError: ( error ) => {
       setSearchError( error?.graphQLErrors ?? '' );
@@ -37,6 +37,8 @@ export default function Search( { data } ) {
       setQueryResultPosts( [] );
       return null;
     }
+
+    setSearchError( '' );
 
     fetchPosts( {
       variables: {
@@ -53,7 +55,8 @@ export default function Search( { data } ) {
       <div className="mx-auto min-h-almost-screen">
         <SearchBox searchQuery={ searchQuery } setSearchQuery={ setSearchQuery } handleSearchButtonClick={handleSearchButtonClick}/>
         <ErrorMessage text={searchError} classes="max-w-xl mx-auto mt-4"/>
-        <LoadMorePosts posts={queryResultPosts}/>
+        <Loading showSpinner visible={loading}/>
+        <LoadMorePosts posts={queryResultPosts} classes="md:container px-5 py-24 mx-auto min-h-almost-screen"/>
       </div>
       <Footer footer={ footer } footerMenus={ footerMenus?.edges ?? [] }/>
     </>
