@@ -2,6 +2,14 @@ import { SearchIcon } from '../icons';
 import PropTypes from 'prop-types';
 
 const SearchBox = ( {searchQuery, setSearchQuery, handleSearchButtonClick} ) => {
+
+  const handleKeypress = ( event ) => {
+    //It triggers by pressing the enter key
+    if ( 'Enter' === event.key ) {
+      handleSearchButtonClick();
+    }
+  };
+
   return (
     <div className="bg-gradient-to-r from-green-400 to-blue-500 px-6">
       <div className="info max-w-xl mx-auto py-10">
@@ -16,6 +24,7 @@ const SearchBox = ( {searchQuery, setSearchQuery, handleSearchButtonClick} ) => 
               placeholder="Search..."
               value={searchQuery}
               onChange={( event ) => setSearchQuery( event.target.value )}
+              onKeyPress={( event ) => handleKeypress( event )}
               className="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"/>
           </div>
           <button

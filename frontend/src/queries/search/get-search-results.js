@@ -1,8 +1,9 @@
 import { gql } from '@apollo/client';
 import ImageFragment from '../fragments/image';
+import PostFragment from '../fragments/post';
 
 /**
- * GET_SEARCH_RESULTS
+ * Get Search Results.
  *
  */
 export const GET_SEARCH_RESULTS = gql`
@@ -10,15 +11,7 @@ export const GET_SEARCH_RESULTS = gql`
   posts: posts(first: $first, after: $after, where: {search: $query}) {
     edges {
       node {
-        id
-        title
-        excerpt
-        slug
-        featuredImage {
-          node {
-            ...ImageFragment
-          }
-        }
+        ...PostFragment
       }
       cursor
     }
@@ -29,4 +22,31 @@ export const GET_SEARCH_RESULTS = gql`
   }
  }
  ${ImageFragment}
+ ${PostFragment}
+ `;
+
+/**
+ * Get Search Results with Total Pages
+ *
+ */
+export const GET_SEARCH_RESULTS_WITH_TOTAL_PAGES = gql`
+ query GET_SEARCH_RESULTS( $first: Int, $after: String, $query: String ) {
+  posts: posts(first: $first, after: $after, where: {search: $query}) {
+    edges {
+      node {
+        ...PostFragment
+      }
+      cursor
+    }
+    pageInfo {
+      offsetPagination {
+        total
+      }
+      hasNextPage
+      endCursor
+    }
+  }
+ }
+ ${ImageFragment}
+ ${PostFragment}
  `;
