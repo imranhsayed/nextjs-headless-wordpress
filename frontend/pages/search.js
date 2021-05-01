@@ -18,11 +18,11 @@ export default function Search( { data } ) {
   const [ searchQuery, setSearchQuery ] = useState( '' );
   const [ searchError, setSearchError ] = useState( '' );
   const [ queryResultPosts, setQueryResultPosts  ] = useState( {} );
+  const graphQLQuery = GET_SEARCH_RESULTS;
 
-  const [ fetchPosts, { loading } ] = useLazyQuery( GET_SEARCH_RESULTS, {
+  const [ fetchPosts, { loading } ] = useLazyQuery( graphQLQuery, {
     notifyOnNetworkStatusChange: true,
     onCompleted: ( data ) => {
-      console.log( 'data?.posts', data?.posts );
       setQueryResultPosts( data?.posts ?? {} );
     },
     onError: ( error ) => {
@@ -56,14 +56,19 @@ export default function Search( { data } ) {
         <SearchBox searchQuery={ searchQuery } setSearchQuery={ setSearchQuery } handleSearchButtonClick={handleSearchButtonClick}/>
         <ErrorMessage text={searchError} classes="max-w-xl mx-auto mt-4"/>
         <Loading showSpinner visible={loading}/>
-        <LoadMorePosts posts={queryResultPosts} classes="md:container px-5 py-24 mx-auto min-h-almost-screen"/>
+        <LoadMorePosts
+          posts={queryResultPosts}
+          graphQLQuery={graphQLQuery}
+          searchQuery={searchQuery}
+          classes="md:container px-5 py-24 mx-auto min-h-almost-screen"
+        />
       </div>
       <Footer footer={ footer } footerMenus={ footerMenus?.edges ?? [] }/>
     </>
   );
 }
 
-export async function getStaticProps( context ) {
+export async function getStaticProps() {
 
   const { data, errors } = await client.query( {
     query: GET_MENUS,

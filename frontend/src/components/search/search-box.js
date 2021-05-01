@@ -6,7 +6,7 @@ const SearchBox = ( {searchQuery, setSearchQuery, handleSearchButtonClick} ) => 
     <div className="bg-gradient-to-r from-green-400 to-blue-500 px-6">
       <div className="info max-w-xl mx-auto py-10">
         <br/>
-        <h2 className="text-center text-white py-4"> 7 products found for: "product"</h2>
+        <h2 className="text-center text-white py-4 text-3xl uppercase font-bold">Find your needs</h2>
         <div className="flex w-full justify-center">
           <div className="block relative w-4/5">
             <span className="h-full absolute inset-y-0 left-0 flex items-center pl-2">
