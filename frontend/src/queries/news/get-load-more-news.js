@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-import ImageFragment from "../fragments/image";
+import PostFragment from '../fragments/post';
 
 /**
  * Get GET_LOAD_MORE_NEWS
@@ -10,15 +10,7 @@ export const GET_LOAD_MORE_NEWS = gql`
   posts: posts(first: $first, after: $after) {
     edges {
       node {
-        id
-        title
-        excerpt
-        slug
-        featuredImage {
-          node {
-            ...ImageFragment
-          }
-        }
+        ...PostFragment
       }
       cursor
     }
@@ -28,5 +20,5 @@ export const GET_LOAD_MORE_NEWS = gql`
     }
   }
  }
- ${ImageFragment}
+ ${PostFragment}
  `

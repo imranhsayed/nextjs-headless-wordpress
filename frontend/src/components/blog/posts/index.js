@@ -11,9 +11,9 @@ const Posts = ( {posts} ) => {
 	return (
 		<div className="flex flex-wrap -mb-4">
 			{
-				posts.map( ( post ) => {
+				posts.map( ( post, index ) => {
 					return (
-						<div key={post?.node?.id ?? ''} className="w-full md:w-1/2 lg:w-1/3 mb-4 px-2">
+						<div key={`${post?.node?.id}-${index}` ?? ''} className="w-full hi md:w-1/2 lg:w-1/3 mb-4 px-2">
 							<Post post={post?.node}/>
 						</div>
 					);
