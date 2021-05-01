@@ -1,7 +1,6 @@
-import { SearchIcon } from '../icons';
 import PropTypes from 'prop-types';
 
-const SearchBox = ({searchQuery, setSearchQuery, handleSearchButtonClick}) => {
+const SearchResults = ({searchQuery, setSearchQuery}) => {
   return (
     <div className="bg-gradient-to-r from-green-400 to-blue-500">
       <div className="info max-w-xl mx-auto py-10">
@@ -18,9 +17,7 @@ const SearchBox = ({searchQuery, setSearchQuery, handleSearchButtonClick}) => {
               onChange={(event) => setSearchQuery(event.target.value)}
               className="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"/>
           </div>
-          <button
-            onClick={handleSearchButtonClick}
-            className="text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded">
+          <button className="text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded">
             Search
           </button>
         </div>
@@ -29,16 +26,14 @@ const SearchBox = ({searchQuery, setSearchQuery, handleSearchButtonClick}) => {
   );
 };
 
-SearchBox.propTypes = {
+SearchResults.propTypes = {
   searchQuery: PropTypes.string,
   setSearchQuery: PropTypes.func,
-  handleSearchButtonClick: PropTypes.func
 };
 
-SearchBox.defaultProps = {
+SearchResults.defaultProps = {
   searchQuery: '',
   setSearchQuery: () => null,
-  handleSearchButtonClick: () => null
 };
 
-export default SearchBox;
+export default SearchResults;
