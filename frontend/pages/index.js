@@ -7,7 +7,7 @@ import {handleRedirectsAndReturnData} from '../src/utils/slug';
 export default function Home( {data} ) {
 	return (
 		<Layout data={data}>
-			<div dangerouslySetInnerHTML={{__html: sanitize( data?.page?.content ?? {} )}}/>
+      { data?.page?.content ? <div dangerouslySetInnerHTML={{__html: sanitize( data?.page?.content ?? {} )}}/> : null }
 		</Layout>
 	);
 }
