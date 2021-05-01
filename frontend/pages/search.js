@@ -42,7 +42,7 @@ export default function Search( { data } ) {
 
     if ( isEmpty( searchQuery ) ) {
       setSearchError( 'Please enter text to search' );
-      setQueryResultPosts( [] );
+      setQueryResultPosts( {} );
       return null;
     }
 

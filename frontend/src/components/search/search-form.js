@@ -18,7 +18,7 @@ const SearchForm = ( {searchQuery, setSearchQuery, handleSearchFormSubmit} ) => 
         type="submit"
         value="Search"
         onClick={handleSearchFormSubmit}
-        className="text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded"/>
+        className="cursor-pointer	text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded"/>
     </form>
   );
 };

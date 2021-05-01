@@ -110,7 +110,7 @@ const LoadMorePosts = ( { posts, classes, graphQLQuery, searchQuery } ) => {
             </div>
           ) : (
             <button
-              className="flex items-center bg-gray-100 hover:bg-gray-600 hover:text-white transition-colors duration-500 border border-gray-500 px-4 py-3"
+              className="flex items-center cursor-pointer	bg-gray-100 hover:bg-gray-600 hover:text-white transition-colors duration-500 border border-gray-500 px-4 py-3"
               onClick={ () => loadMoreItems( endCursor ) }
             >
               Load more
