@@ -8,14 +8,14 @@
     }
   ],
   "require": {
-	"composer/installers": "~1.0",
-	"imranhsayed/headless-cms": "^1.0",
-	"wp-graphql/wp-graphql": "^1.1.2",
-     "wp-graphql/wp-graphql-jwt-authentication": "0.4.0",
-	"pristas-peter/wp-graphql-gutenberg": "0.3.7",
-	"wpackagist-plugin/advanced-custom-fields": "5.9.1",
-	"yoast/wordpress-seo": "^15.1",
-	"ashhitch/wp-graphql-yoast-seo": "^4.5",
-	"valu/wp-graphql-offset-pagination": "^0.2"
+	  "composer/installers": "~1.0",
+	  "imranhsayed/headless-cms": "^1.7",
+	  "wp-graphql/wp-graphql": "^1.3.6",
+	  "wp-graphql/wp-graphql-jwt-authentication": "0.4.0",
+	  "pristas-peter/wp-graphql-gutenberg": "0.3.7",
+	  "wpackagist-plugin/advanced-custom-fields": "5.9.1",
+	  "yoast/wordpress-seo": "^16.2",
+	  "ashhitch/wp-graphql-yoast-seo": "^4.14",
+	  "valu/wp-graphql-offset-pagination": "^0.2"
   }
 }
