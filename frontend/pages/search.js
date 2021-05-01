@@ -10,6 +10,8 @@ import Footer from '../src/components/layout/footer';
 import SearchBox from '../src/components/search/search-box';
 import LoadMorePosts from '../src/components/news/load-more-posts';
 import { GET_SEARCH_RESULTS } from '../src/queries/search/get-search-results';
+import Error from 'next/error';
+import ErrorMessage from '../src/components/error';
 
 export default function Search( { data } ) {
   const { header, footer, headerMenus, footerMenus } = data || {};
@@ -30,17 +32,19 @@ export default function Search( { data } ) {
 
   const handleSearchButtonClick = () => {
 
-    if ( !isEmpty(searchQuery) ) {
-
+    if ( isEmpty( searchQuery ) ) {
+      setSearchError( 'Please enter text to search' );
+      setQueryResultPosts( [] );
+      return null;
     }
 
-    fetchPosts({
+    fetchPosts( {
       variables: {
         first: 10,
         after: null,
         query: searchQuery
       }
-    });
+    } );
   };
 
   return (
@@ -48,6 +52,7 @@ export default function Search( { data } ) {
       <Header header={ header } headerMenus={ headerMenus?.edges ?? [] }/>
       <div className="mx-auto min-h-almost-screen">
         <SearchBox searchQuery={ searchQuery } setSearchQuery={ setSearchQuery } handleSearchButtonClick={handleSearchButtonClick}/>
+        <ErrorMessage text={searchError} classes="max-w-xl mx-auto mt-4"/>
         <LoadMorePosts posts={queryResultPosts}/>
       </div>
       <Footer footer={ footer } footerMenus={ footerMenus?.edges ?? [] }/>

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useEffect, useState } from 'react';
 import Posts from '../blog/posts';
 import {PER_PAGE_FIRST} from '../../utils/pagination';
 import { useLazyQuery } from '@apollo/client';
@@ -12,10 +12,14 @@ const LoadMorePosts = ( {posts} ) => {
      * it sever side posts can be fetched, and the new endcursor( contained in pageInfo )
      * can be sent to get the next set of posts.
      */
-	const [ postsData, setPostsData ] = useState( posts?.edges );
+	const [ postsData, setPostsData ] = useState( posts?.edges ?? [] );
 	const [ pageInfo, setPageInfo ] = useState( posts?.pageInfo );
 
 	const [ error, setError ] = useState( null );
+
+	useEffect( () => {
+    setPostsData( posts?.edges );
+  }, [ posts ] );
 
 	/**
      * Set posts.
@@ -80,6 +84,8 @@ const LoadMorePosts = ( {posts} ) => {
      * values everytime a new client side request is made using setPageInfo()
      */
 	const { endCursor, hasNextPage } = pageInfo || {};
+
+  console.log( 'hey', postsData );
 
 	return (
 		<>
