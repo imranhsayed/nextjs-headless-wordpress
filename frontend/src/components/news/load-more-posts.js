@@ -126,7 +126,7 @@ const LoadMorePosts = ( { posts, classes, graphQLQuery, searchQuery } ) => {
 LoadMorePosts.propTypes = {
   posts: PropTypes.object,
   classes: PropTypes.string,
-  graphQLQuery: PropTypes.string,
+  graphQLQuery: PropTypes.object,
   searchQuery: PropTypes.string,
 };
 

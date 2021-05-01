@@ -5,9 +5,9 @@ import SearchForm from './search-form';
 
 const NavSearch = () => {
   const [ searchQuery, setSearchQuery ] = useState( '' );
-  const handleSearchFormSubmit = (event) => {
+  const handleSearchFormSubmit = ( event ) => {
     event.preventDefault();
-    Router.push(`/search?query=${searchQuery}`);
+    Router.push( `/search?s=${searchQuery}` );
     return null;
   };
 
