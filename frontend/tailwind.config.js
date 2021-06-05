@@ -23,6 +23,7 @@ module.exports = {
       },
       minHeight: {
         'almost-screen': 'calc(-16rem + 100vh)',
+        '42px': '2.625rem',
       },
     },
   },
