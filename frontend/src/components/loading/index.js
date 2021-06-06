@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-const Loading = ( { message, classes, showSpinner, showMessage, visible } ) => {
+const Loading = ( { message, classes, contentColorClass, showSpinner, showMessage, visible, hasVisibilityToggle } ) => {
   return (
-    <div className={cx( classes, {'invisible': ! visible} )}>
+    <div className={cx( classes, {'invisible': ! visible && hasVisibilityToggle} )}>
       <div className="inline-flex rounded-md shadow-sm ml-8">
         <div
-          className="text-gray-600 inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-rose-600 hover:bg-rose-500 focus:border-rose-700 active:bg-rose-700 transition ease-in-out duration-150 cursor-not-allowed"
+          className={cx(contentColorClass, 'inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-rose-600 hover:bg-rose-500 focus:border-rose-700 active:bg-rose-700 transition ease-in-out duration-150 cursor-not-allowed')}
         >
           { showSpinner ? (
-            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+            <svg className={cx( contentColorClass, 'animate-spin -ml-1 mr-3 h-5 w-5')} xmlns="http://www.w3.org/2000/svg" fill="none"
                  viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
               <path className="opacity-75" fill="currentColor"
@@ -25,18 +25,22 @@ const Loading = ( { message, classes, showSpinner, showMessage, visible } ) => {
 
 Loading.propTypes = {
   classes: PropTypes.string,
+  contentColorClass: PropTypes.string,
   message: PropTypes.string,
   showMessage: PropTypes.bool,
   showSpinner: PropTypes.bool,
   visible: PropTypes.bool,
+  hasVisibilityToggle: PropTypes.bool
 };
 
 Loading.defaultProps = {
   classes: '',
+  contentColorClass: 'text-gray-600',
   message: 'Loading...',
   showMessage: true,
   showSpinner: false,
   visible: false,
+  hasVisibilityToggle: true
 };
 
 export default Loading;

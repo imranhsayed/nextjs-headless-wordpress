@@ -2,6 +2,7 @@ import {isEmpty, isArray} from 'lodash';
 import {sanitize} from '../../../utils/miscellaneous';
 import Link from 'next/link';
 import {getIconComponentByName} from '../../../utils/icons-map';
+import NewsletterSubscribe from './NewsletterSubscribe';
 
 const Footer = ( {footer, footerMenus} ) => {
 	return (
@@ -18,8 +19,10 @@ const Footer = ( {footer, footerMenus} ) => {
 					<div dangerouslySetInnerHTML={{ __html: sanitize( footer?.sidebarTwo ) }}/>
 				</div>
 
-				{/* Footer Menus*/}
 				<div className="my-1 px-1 w-full overflow-hidden sm:w-full lg:w-1/2 xl:w-1/3">
+          {/*Mailchimp Newsletter Subscription*/}
+          <NewsletterSubscribe/>
+          {/* Footer Menus*/}
 					{ ! isEmpty( footerMenus ) && isArray( footerMenus ) ? (
 						<ul>
 							{ footerMenus.map( footerMenu => (
@@ -35,7 +38,6 @@ const Footer = ( {footer, footerMenus} ) => {
 					) : null }
 
 				</div>
-
 			</div>
 			{/*Copyright Text*/}
 			<div className="mb-8 mt-8 w-full flex flex-wrap">
