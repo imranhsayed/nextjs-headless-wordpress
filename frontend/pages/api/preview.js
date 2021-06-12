@@ -1,9 +1,13 @@
-
 import {getAuthToken} from '../../src/utils/cookies';
 import {isEmpty} from 'lodash';
 import {getPreviewRedirectUrl} from '../../src/utils/redirects';
 
-// http://localhost:3000/api/preview/?postType=page&postId=30
+/**
+ * http://localhost:3000/api/preview/?postType=page&postId=30
+ * @param req
+ * @param res
+ * @returns {Promise<void>}
+ */
 export default async function preview( req, res ) {
 	const {postType, postId} = req.query;
 

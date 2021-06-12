@@ -35,8 +35,6 @@ function Error404( {data} ) {
 			</div>
 			<Footer footer={footer} footerMenus={footerMenus?.edges}/>
 		</>
-
-
 	);
 }
 

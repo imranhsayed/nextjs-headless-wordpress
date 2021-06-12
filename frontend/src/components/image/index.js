@@ -22,17 +22,17 @@ const Image = ( props ) => {
 	}
 
 	/**
-     * If we use layout = fill then, width and height of the image cannot be used.
-     * and the image fills on the entire width and the height of its parent container.
-     * That's we need to wrap our image in a container and give it a height and width.
-     * Notice that in this case, the given height and width is being used for container and not img.
-     */
+   * If we use layout = fill then, width and height of the image cannot be used.
+   * and the image fills on the entire width and the height of its parent container.
+   * That's we need to wrap our image in a container and give it a height and width.
+   * Notice that in this case, the given height and width is being used for container and not img.
+   */
 	if ( 'fill' === layout ) {
 		const attributes = {
 			alt: altText || title,
 			src: sourceUrl || ( showDefault ? DEFAULT_IMG_URL : '' ),
 			layout: 'fill',
-      className: cx( 'object-cover', className ),
+			className: cx( 'object-cover', className ),
 			...rest
 		};
 
@@ -58,7 +58,6 @@ Image.propTypes = {
 	altText: PropTypes.string,
 	title: PropTypes.string,
 	sourceUrl: PropTypes.string,
-	objectfit: PropTypes.string,
 	layout: PropTypes.string,
 	showDefault: PropTypes.bool,
 	containerClassName: PropTypes.string,

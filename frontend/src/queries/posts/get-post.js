@@ -15,12 +15,12 @@ export const GET_POST = gql`
 	    uri
 	    seo {
           ...SeoFragment
+      }
+      featuredImage {
+        node {
+        ...ImageFragment
         }
-        featuredImage {
-		  node {
-			...ImageFragment
 		  }
-		}
 	  }
 	}
 	${MenuFragment}

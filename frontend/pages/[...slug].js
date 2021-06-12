@@ -18,7 +18,7 @@ const Page = ( {data} ) => {
 
 	return (
 		<Layout data={data}>
-			<div dangerouslySetInnerHTML={{__html: sanitize( data?.page?.content ?? '' )}}/>
+			<div dangerouslySetInnerHTML={{__html: sanitize( data?.page?.content ?? {} )}}/>
 		</Layout>
 	);
 };
