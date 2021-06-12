@@ -4,6 +4,7 @@ import MenuFragment from '../fragments/menus'
 import SeoFragment from "../fragments/seo";
 import {HeaderFooter} from "../get-menus";
 import ImageFragment from "../fragments/image";
+import PostFragment from '../fragments/post';
 
 /**
  * Get News Posts
@@ -25,15 +26,7 @@ export const GET_NEWS = gql`
   posts: posts(first: $first, after: $after) {
     edges {
       node {
-        id
-        title
-        excerpt
-        slug
-        featuredImage {
-          node {
-            ...ImageFragment
-          }
-        }
+        ...PostFragment
       }
     }
     pageInfo {
@@ -48,4 +41,5 @@ export const GET_NEWS = gql`
  ${MenuFragment}
  ${ImageFragment}
  ${SeoFragment}
+ ${PostFragment}
  `;
