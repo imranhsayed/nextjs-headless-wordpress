@@ -33,8 +33,8 @@ const Seo = ( {seo, uri} ) => {
 			title={title}
 			description={opengraphDescription || metaDesc}
 			canonical={opengraphUrl}
-			noindex={metaRobotsNoindex}
-			nofollow={metaRobotsNofollow}
+			noindex={metaRobotsNoindex === "noindex"}
+			nofollow={metaRobotsNofollow === "nofollow"}
 			openGraph={{
 				type: 'website',
 				locale: 'en_US',
