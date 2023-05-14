@@ -28,6 +28,8 @@ services:
       PMA_HOST: mysql
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
+      PMA_USER: wordpress
+      PMA_PASSWORD: wordpress
     restart: always
     ports:
       - 8183:80
