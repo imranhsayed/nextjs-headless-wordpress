@@ -9,8 +9,6 @@ services:
 
   mysql:
     image: mysql:5.7
-    volumes:
-      - mysql_data:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -37,7 +35,7 @@ services:
       - mysql
       - composer
     build: ./php
-    image: wordpress_image
+    image: wordpress:latest
     ports:
       - "8020:80"
     restart: always
